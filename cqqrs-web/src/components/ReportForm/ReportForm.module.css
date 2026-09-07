@@ -1,0 +1,86 @@
+.reportForm {
+  
+}
+
+.header {
+  border-bottom-color: var(--ifm-color-emphasis-300);
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.inlineFieldRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.inlineFieldLabel {
+  flex: 0 0 4.25rem;
+  font-weight: 300;
+}
+
+.inlineFieldInput {
+  flex: 1 1 auto;
+  width: auto;
+  min-width: 0;
+}
+
+.input,
+.textarea {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  padding: 0.65rem 0.75rem;
+  font: inherit;
+  line-height: 1.5;
+  box-shadow: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+  max-width: 100%;
+}
+
+.wother {
+  display: none;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--ifm-color-emphasis-500);
+}
+
+.input:hover,
+.textarea:hover {
+  border-color: var(--ifm-color-emphasis-400);
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.12);
+}
+
+.textarea {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 140px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin: 0.8em 0 0.15rem 0;
+  color: var(--ifm-color-emphasis-800);
+}
+
+h3, h4 {
+	margin: 1rem 0 0 0;
+}
