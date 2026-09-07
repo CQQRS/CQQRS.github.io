@@ -1,5 +1,9 @@
-.reportForm {
-  
+section {
+	margin: 3rem 0 0 0;	
+}
+
+.explanation {
+  margin: 2rem 0 0 0;
 }
 
 .header {
@@ -19,8 +23,7 @@
 }
 
 .inlineFieldLabel {
-  flex: 0 0 4.25rem;
-  font-weight: 300;
+  flex: 0 0 6.5rem;
 }
 
 .inlineFieldInput {

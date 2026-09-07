@@ -26,14 +26,15 @@ function OtherBandsBlock({
 }: OtherBandsProps) {
 	return (
 		<div className="space-y-3 rounded-lg border border-slate-200 bg-white p-3 md:col-span-2">
-			<label>{band}</label>
-			<p className="text-sm text-slate-600">
+			
+			
+			<div className={`${styles.explanation} text-sm text-slate-600`}>
 				{explanation}
-			</p>
+			</div>
 			<div className="space-y-3">
 				<div className={styles.inlineFieldRow}>
 					<label htmlFor={`heard-${band}`} className={styles.inlineFieldLabel}>
-						Heard
+						Heard {band}
 					</label>
 					<input
 						id={`heard-${band}`}
@@ -47,7 +48,7 @@ function OtherBandsBlock({
 				</div>
 				<div className={styles.inlineFieldRow}>
 					<label htmlFor={`worked-${band}`} className={styles.inlineFieldLabel}>
-						Worked
+						Worked {band}
 					</label>
 					<input
 						id={`worked-${band}`}
@@ -64,7 +65,7 @@ function OtherBandsBlock({
 	);
 }
 
-export default function ReportFormBuilder({}: ReportFormBuilderProps) {
+export default function ReportFormBuilder({ }: ReportFormBuilderProps) {
 	const [name, setName] = useState('');
 	const [callsign, setCallsign] = useState('');
 	const [qth, setQth] = useState('');
@@ -119,7 +120,7 @@ export default function ReportFormBuilder({}: ReportFormBuilderProps) {
 							placeholder="Or if unlicensed: SWL-Your_Name"
 						/>
 					</div>
-				
+
 					<div className={styles.fieldGroup}>
 						<label htmlFor="qth" className="mb-1 block text-sm font-medium text-slate-700">
 							QTH
@@ -152,75 +153,18 @@ export default function ReportFormBuilder({}: ReportFormBuilderProps) {
 
 			<section className={`mt-6 rounded-xl border border-slate-200 bg-slate-50 p-4 ${styles.bandSection}`}>
 				<h3 className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Stations Worked/Heard</h3>
-				Enter the callsigns you worked or heard, separating each with either a comma.  Leave blank if none. 
-				<div className="grid gap-4 md:grid-cols-2">
-					<div className="space-y-3 rounded-lg border border-slate-200 bg-white p-3">
-						<div className={styles.fieldGroup}>
-							<label htmlFor="worked40" className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-600">
-								Worked 40
-							</label>
-							<input
-								id="worked40"
-								type="text"
-								min="0"
-								value={worked40}
-								onChange={(e) => setWorked40(e.target.value)}
-								className={`w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-slate-900 shadow-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100 ${styles.input}`}
-								placeholder='eg. VK1AA, VK2BB, VK3CC'
-							/>
-						</div>
-						<div className={styles.fieldGroup}>
-							<label htmlFor="heard40" className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-600">
-								Heard 40
-							</label>
-							<input
-								id="heard40"
-								type="text"
-								min="0"
-								value={heard40}
-								onChange={(e) => setHeard40(e.target.value)}
-								className={`w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-slate-900 shadow-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100 ${styles.input}`}
-								placeholder='eg. VK1AA, VK2BB, VK3CC'
-							/>
-						</div>
-					</div>
+					Enter the callsigns you worked or heard, separating each with either a comma.  
+					Leave blank if none.
+					<br />
+					eg. VK1AA, VK2BB, VK3CC 
 
-					<div className="space-y-3 rounded-lg border border-slate-200 bg-white p-3">
-						<div className={styles.fieldGroup}>
-							<label htmlFor="worked80" className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-600">
-								Worked 80
-							</label>
-							<input
-								id="worked80"
-								type="text"
-								min="0"
-								value={worked80}
-								onChange={(e) => setWorked80(e.target.value)}
-								className={`w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-slate-900 shadow-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100 ${styles.input}`}
-								placeholder='eg. VK1AA, VK2BB, VK3CC'
-							/>
-						</div>
-						<div className={styles.fieldGroup}>
-							<label htmlFor="heard80" className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-600">
-								Heard 80
-							</label>
-							<input
-								id="heard80"
-								type="text"
-								min="0"
-								value={heard80}
-								onChange={(e) => setHeard80(e.target.value)}
-								className={`w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-slate-900 shadow-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100 ${styles.input}`}
-								placeholder='eg. VK1AA, VK2BB, VK3CC'
-							/>
-						</div>
-					</div>
+				<div className="grid gap-4 md:grid-cols-2">
 
 					<OtherBandsBlock
 						band="40"
 						heard={heard40}
 						worked={worked40}
-						placeholder= "eg. VK1AA, VK2BB, VK3CC"
+						placeholder=""
 						explanation=""
 						onHeardChange={setHeard40}
 						onWorkedChange={setWorked40}
@@ -230,39 +174,38 @@ export default function ReportFormBuilder({}: ReportFormBuilderProps) {
 						band="80"
 						heard={heard80}
 						worked={worked80}
-						placeholder= "eg. VK1AA, VK2BB, VK3CC"
+						placeholder=""
 						explanation=""
 						onHeardChange={setHeard80}
 						onWorkedChange={setWorked80}
 					/>
-
+					
 					<OtherBandsBlock
 						band="Other"
 						heard={heardOther}
 						worked={workedOther}
-						placeholder= "eg. VK1AA@20, VK2BB@20, VK3CC@160"
-						explanation="For other bands, append each callsign with '@' and the band, eg. VK1AA@160"
+						placeholder=""
+						explanation="For other bands, append each callsign with '@' and the band.  Eg. VK4DD@20, VK5EE@20, VK6FF@160"
 						onHeardChange={setHeardOther}
 						onWorkedChange={setWorkedOther}
 					/>
 				</div>
 			</section>
 
-			<div className="mt-6">
-				<label htmlFor="comments" className="mb-1 block text-sm font-medium text-slate-700">
-					Comments
-				</label>
-				Any thoughts about the evening on 40m you'd like to share?  Conditions, special QSOs, funny things you heard or that happened?  This is what makes the reports so interesting to RagChew readers.
-				<textarea
-					id="comments"
-					value={comments}
-					onChange={(e) => setComments(e.target.value)}
-					rows={5}
-					className={`w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-slate-900 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 ${styles.textarea}`}
-					placeholder="Add any notes or comments about the report..."
-				/>
-			</div>
-
+			<section>
+				<h3>General Comments</h3>
+				<div className="mt-6">
+					Any thoughts about the evening you'd like to share?  Conditions, special QSOs, funny things you heard or that happened?  This is what makes the reports so interesting to RagChew readers.
+					<textarea
+						id="comments"
+						value={comments}
+						onChange={(e) => setComments(e.target.value)}
+						rows={5}
+						className={`w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-slate-900 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 ${styles.textarea}`}
+						placeholder=""
+					/>
+				</div>
+			</section>
 			<div className={`mb-6 flex flex-col gap-4 border-b border-slate-200 pb-4 md:flex-row md:items-center md:justify-between ${styles.header}`}>
 				<button
 					type="submit"
