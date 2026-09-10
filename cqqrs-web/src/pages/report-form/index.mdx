@@ -1,45 +1,8 @@
 
 import ReportForm from '@site/src/components/ReportForm/ReportForm';
 
-export const ReportFormBuilder = () => {
+# Tuesday's activity report form
 
-	const [publishUrl, setPublishUrl] = useState("")
-
-	const paths = getEnvPaths();
-
-	const urlPrefix = `${paths.community}sharedTask/?` +
-			`ftdPath=`;
-
-	console.log(urlPrefix);
-
-	const onFtdChange = (value) => {
-		setPublishUrl(urlPrefix + encodeURIComponent(value));
-	}
-
-	return (
-		<div className={styles.panel}>
-			<div className={styles.field} style={{ maxWidth: '500px' }}>
-				<input
-					id="prefix"
-					type="text"
-					placeholder="FTD URL"
-					onChange={(event) => onFtdChange(event.target.value)}
-				/>
-			</div>
-
-			<div style={{ fontSize: '0.8rem', marginTop: '0.25rem' }}>
-				🔗{' '}
-				<a href={publishUrl} target="_blank" rel="noopener noreferrer">
-					{publishUrl}
-				</a>
-			</div>
-		</div>
-	);
-}
-
-<h1>Tuesday's activity report form</h1>
-
-Use this form to record the stations you worked or heard on Tuesday 
-night.  Thank you for sharing Tuesday's activities with the CQQRS Group.
+Use this form to record the stations you worked, heard or tried on Tuesday night. Thank you for sharing Tuesday's activities with the CQQRS Group.
 
 <ReportForm />
