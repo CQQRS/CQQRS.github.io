@@ -1,0 +1,145 @@
+section {
+	margin: 3rem 0 0 0;	
+}
+
+section h3 {
+	color: var(--ifm-navbar-link-hover-color);
+}
+
+.explanation {
+  margin: 2rem 0 0 0;
+}
+
+.header {
+  border-bottom-color: var(--ifm-color-emphasis-300);
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.inlineFieldRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.inlineFieldLabel {
+  flex: 0 0 6.5rem;
+}
+
+.inlineFieldInput {
+  flex: 1 1 auto;
+  width: auto;
+  min-width: 0;
+}
+
+.input,
+.textarea {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  padding: 0.65rem 0.75rem;
+  font: inherit;
+  line-height: 1.5;
+  box-shadow: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+  max-width: 100%;
+}
+
+.wother {
+  display: none;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--ifm-color-emphasis-500);
+}
+
+.input:hover,
+.textarea:hover {
+  border-color: var(--ifm-color-emphasis-400);
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.12);
+}
+
+.textarea {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 140px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.photoUpload {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 160px;
+  margin-top: 1rem;
+  border: 1.5px dashed var(--ifm-color-emphasis-400);
+  border-radius: 12px;
+  background: rgba(148, 163, 184, 0.05);
+  color: var(--ifm-color-emphasis-700);
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  padding: 1rem;
+}
+
+.photoUpload:hover {
+  border-color: var(--ifm-color-primary);
+  background: rgba(59, 130, 246, 0.04);
+}
+
+.photoUploadActive {
+  border-color: var(--ifm-color-primary);
+  background: rgba(59, 130, 246, 0.08);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+.photoInput {
+  display: none;
+}
+
+.photoPreviewWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.photoPreview {
+  max-width: 100%;
+  max-height: 220px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+}
+
+.photoFilename {
+  font-size: 0.85rem;
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin: 0.8em 0 0.15rem 0;
+  color: var(--ifm-color-emphasis-800);
+}
+
+h3, h4 {
+	margin: 1rem 0 0 0;
+}

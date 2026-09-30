@@ -1,0 +1,1773 @@
+{
+	"data": {
+		"responses": [
+			{
+				"responseId": "ACYDBNh7W-3LcY-nznWqqgTiri2n3zp0WOScCjOVIUgV8qlkAIpRY5l7J3rKlrD9gQk-7K0",
+				"createTime": "2026-08-18T10:50:58.960Z",
+				"lastSubmittedTime": "2026-08-18T10:50:58.960917Z",
+				"answers": {
+					"7c22f4a2": {
+						"questionId": "7c22f4a2",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Hervey Bay QLD"
+								}
+							]
+						}
+					},
+					"0e8d9d87": {
+						"questionId": "0e8d9d87",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Mike"
+								}
+							]
+						}
+					},
+					"60a2475b": {
+						"questionId": "60a2475b",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK5AO"
+								}
+							]
+						}
+					},
+					"0f14c2be": {
+						"questionId": "0f14c2be",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK3KIH"
+								}
+							]
+						}
+					},
+					"1af3d085": {
+						"questionId": "1af3d085",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK1CT,VK7TO"
+								}
+							]
+						}
+					},
+					"7a25411a": {
+						"questionId": "7a25411a",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK6TX"
+								}
+							]
+						}
+					},
+					"68a0451b": {
+						"questionId": "68a0451b",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK4LX@80"
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"responseId": "ACYDBNhJQuadxnqQ1rREdizioHMuw3KrfkDfFvjrVkl3s0nVzI3LUxzoYjOwxYnso6FFaVU",
+				"createTime": "2026-08-19T05:06:59.713Z",
+				"lastSubmittedTime": "2026-08-19T05:06:59.713793Z",
+				"answers": {
+					"7c22f4a2": {
+						"questionId": "7c22f4a2",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Mount Ommaney Brisbane"
+								}
+							]
+						}
+					},
+					"0e8d9d87": {
+						"questionId": "0e8d9d87",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Sava"
+								}
+							]
+						}
+					},
+					"6058a8a6": {
+						"questionId": "6058a8a6",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "[80]Very little time for QRS Net this Tuesday, managed to get on air by 10:30 UTC. Checked propagation by having a look at FT8 segment lots of JA and USA stations so prospects looked fine. Unfortunately nothing in QRS CW segment! After few unanswered CQ calls I moved to 160, and on return spotted few signals on vk5arg SDR. vk2ki was just finishing with vk6nw, how convenient. Wayne was coming through very strong probably the best heard so far but the band noise was just as strong. By my S meter he (+ noise ) about S8.\nHe came back immediately and we started Reg Chew. Well into the chat my sone walked in to remand me to turn water to  hot water system we fixed earlier in the evening. Had to cut QSO with Wayne short to bleed hot water of air and just managed to sort out everything before tariff 2 power was turned  on by Alinta. Close shave. On return to radio band looked deserted , my signal was the only trace on vk5arg SDR. Persevered for a while and vk2wf came back for a brief exchange. On these occasion Adrian was using a hand key and going slowly which surprised me, last time I worked him on 160 m he was belting at some speed. After QRS net ended I moved to FT8 and DX were still coming through so I had a field day with UA,USA and JA contacts. One of the best DX nights this year. \n[160] Just one QSO with vk3acu. Jordan was copying me OK but I was struggling he was strong still just under my noise floor of S9. I captured our signals at vk5arg SDR and Jordan was considerably stronger than myself despite lower power. DXing on 160 m is really hard specially with a low  hanging  antenna. "
+								}
+							]
+						}
+					},
+					"1af3d085": {
+						"questionId": "1af3d085",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "vk2ki@80,vk5kfg@80"
+								}
+							]
+						}
+					},
+					"7a25411a": {
+						"questionId": "7a25411a",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "vk4pn"
+								}
+							]
+						}
+					},
+					"68a0451b": {
+						"questionId": "68a0451b",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "vk6nw@80,vk2wf@80,vk3acu@160"
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"responseId": "ACYDBNheG0TKbP6eArJaar-5oFpH7Vy6X8UI4C7d4k9FBplcxMA6DYVcAMH_jYRFvqJUPZI",
+				"createTime": "2026-08-19T08:49:03.626Z",
+				"lastSubmittedTime": "2026-08-19T08:49:03.626931Z",
+				"answers": {
+					"0e70c164": {
+						"questionId": "0e70c164",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Trans-Tasman conditions were consistently poor, stations copied with difficulty. Nothing outstanding to report."
+								}
+							]
+						}
+					},
+					"7c22f4a2": {
+						"questionId": "7c22f4a2",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Waitarere Beach"
+								}
+							]
+						}
+					},
+					"0e8d9d87": {
+						"questionId": "0e8d9d87",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Stan"
+								}
+							]
+						}
+					},
+					"60a2475b": {
+						"questionId": "60a2475b",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK7TA"
+								}
+							]
+						}
+					},
+					"6058a8a6": {
+						"questionId": "6058a8a6",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "[20 m]\nDidn't make any attempt to work the EU cohort this week. \n\n\n[80 m]\nThe band sounded pretty good compared to 40 m.   Heard a number of VKs but didn't write down call signs.  One station I recognized was even slower than usual but time ran out waiting for a confirming call sign.    Other time was well spent transmitting 'Morse With Purpose' Cold War groups, according to the advertised timetable.  Could hear myself on Ironstone an acceptable 531. The VKs working towards a Cold War badge were using ZL SDRs to good effect, all copied the groups with 100 % accuracy.  Speed was only 15/10, at the lowest end of typical number stations' speed,  nonetheless, well done guys."
+								}
+							]
+						}
+					},
+					"0f14c2be": {
+						"questionId": "0f14c2be",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK1WA  VK2WP  VK5AO  VK3DRQ  VK7TO  VK1CT"
+								}
+							]
+						}
+					},
+					"7a25411a": {
+						"questionId": "7a25411a",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "ZL3TK"
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"responseId": "ACYDBNjoMJIJZOSh21c9WGRfKxokjSz0L9SgVf9MC-X-IzUFZ8ZUJCRCK-0pRyj-ciAbsAg",
+				"createTime": "2026-08-20T01:09:29.072Z",
+				"lastSubmittedTime": "2026-08-20T01:09:29.072576Z",
+				"answers": {
+					"7c22f4a2": {
+						"questionId": "7c22f4a2",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Beautiful South Bowning via the VK6SEG KiwiSDR."
+								}
+							]
+						}
+					},
+					"0e8d9d87": {
+						"questionId": "0e8d9d87",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Mark"
+								}
+							]
+						}
+					},
+					"6058a8a6": {
+						"questionId": "6058a8a6",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "[20m]\nManny was putting a nice signal into the VK6SEG KiwiSDR that re-appeared this week;  but as it turned out, the receiver was undergoing testing at the home of Rob VK6LD at Albany, and was just connected to a 10m Yagi."
+								}
+							]
+						}
+					},
+					"1af3d085": {
+						"questionId": "1af3d085",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK3DRQ@20"
+								}
+							]
+						}
+					},
+					"7a25411a": {
+						"questionId": "7a25411a",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK6QI"
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"responseId": "ACYDBNhLi0jkGsI8GSHiRZfNsFDMrIfQokaHIIwgTLtW4KbFq5C28v3P0cweFUREI-r0xe0",
+				"createTime": "2026-08-19T01:20:14.541Z",
+				"lastSubmittedTime": "2026-08-19T01:20:14.541604Z",
+				"answers": {
+					"0e70c164": {
+						"questionId": "0e70c164",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Phil's signal was strong when I tuned in and we had a nice chat about my local fishing spot.  After this Ron answered my call but I had to shorten the contact when my key started sticking on transmit making the code messy.  I will have to have a look at that key."
+								}
+							]
+						}
+					},
+					"7c22f4a2": {
+						"questionId": "7c22f4a2",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Cottesloe"
+								}
+							]
+						}
+					},
+					"0e8d9d87": {
+						"questionId": "0e8d9d87",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Daniel"
+								}
+							]
+						}
+					},
+					"60a2475b": {
+						"questionId": "60a2475b",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK6GX, VK6KHZ"
+								}
+							]
+						}
+					},
+					"7a25411a": {
+						"questionId": "7a25411a",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK6WE"
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"responseId": "ACYDBNgSAPn7HGgP-rDbvJOLcG3-7mO_qjLL184JEq-OsGP6TvHCFZp6azc_yUEASSTVbIM",
+				"createTime": "2026-08-19T23:25:37.429Z",
+				"lastSubmittedTime": "2026-08-19T23:25:37.429564Z",
+				"answers": {
+					"7c22f4a2": {
+						"questionId": "7c22f4a2",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Padbury"
+								}
+							]
+						}
+					},
+					"0e8d9d87": {
+						"questionId": "0e8d9d87",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Richard"
+								}
+							]
+						}
+					},
+					"60a2475b": {
+						"questionId": "60a2475b",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK6KHZ, "
+								}
+							]
+						}
+					},
+					"6058a8a6": {
+						"questionId": "6058a8a6",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "I was out at the Northern Corridor club trying not to get in the way of Lin VK6NT as he was working on the upgrades to the systems in the radio rooms. We did take time to get on the key though ! Quite a joy to listen out on the four element  40 m monobander and the 80 m dipole which is at a decent height."
+								}
+							]
+						}
+					},
+					"0f14c2be": {
+						"questionId": "0f14c2be",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK3ACU, VK3XU, VK6GX, VK6WE, VK7TO, VK6TX,VK5AO, VK6RR, "
+								}
+							]
+						}
+					},
+					"1af3d085": {
+						"questionId": "1af3d085",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK6NW, VK4PN, VK2KI, ZL3TK, "
+								}
+							]
+						}
+					},
+					"7a25411a": {
+						"questionId": "7a25411a",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK6HRC"
+								}
+							]
+						}
+					},
+					"68a0451b": {
+						"questionId": "68a0451b",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK6KHZ"
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"responseId": "ACYDBNikJLrocFXj2_7fn2xH4UwuVpsLw3BNh-kiMGBVViNDOOnOXARJg1HS3YCVqjpUtlg",
+				"createTime": "2026-08-18T10:56:31.361Z",
+				"lastSubmittedTime": "2026-08-18T10:56:31.361475Z",
+				"answers": {
+					"0e70c164": {
+						"questionId": "0e70c164",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "40m went radio silence!"
+								}
+							]
+						}
+					},
+					"7c22f4a2": {
+						"questionId": "7c22f4a2",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Sydney"
+								}
+							]
+						}
+					},
+					"0e8d9d87": {
+						"questionId": "0e8d9d87",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "George"
+								}
+							]
+						}
+					},
+					"6058a8a6": {
+						"questionId": "6058a8a6",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "All QSo's 80m. Worked Lance VK7TA until the amp went BOOM! Had the wrong LP filter in (might not have helped). Finished QRP. Put the amp on the bench, changed FETS and gave it another shot! The sigs got fainter so switched to listening on the active LOOP. Worked a treat on 80m and worked Ian VK7TO. Listened to QSO between Mark VK2KI and VK5KFG also on 80m....Then off to bed as it is a school night 73 de VK2AOE"
+								}
+							]
+						}
+					},
+					"0f14c2be": {
+						"questionId": "0f14c2be",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK7TA, ZL2IR"
+								}
+							]
+						}
+					},
+					"1af3d085": {
+						"questionId": "1af3d085",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK2KI, VK5KFG"
+								}
+							]
+						}
+					},
+					"7a25411a": {
+						"questionId": "7a25411a",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK2AOE"
+								}
+							]
+						}
+					},
+					"68a0451b": {
+						"questionId": "68a0451b",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK7TA, VK7TO"
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"responseId": "ACYDBNh3CUM0wHuN8x-9QJBGw23HSoCVU_JT4lJ-oTLZD-PUdseahTKIHA68RljwPiZpvVs",
+				"createTime": "2026-08-19T03:37:47.435Z",
+				"lastSubmittedTime": "2026-08-19T03:37:47.435827Z",
+				"answers": {
+					"0e70c164": {
+						"questionId": "0e70c164",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "I wasn't expecting much having watched the K-Index steadily climb to 4 over the course of the afternoon, yet when it was time don the headphones, flick the power switch and tune up, I was greeted by 40 m alive with activity.  And not just activity, but lovely strong signals.  A most unexpected joy.\n\nFirst up was an enjoyable three way QSO with James and Mark, VK3JFR and VK2KI.  Apart from the joy of a little round robin QSO, what really put a smile on my face was was how each was recognisable from their tone.  To start we were all a little off frequency, then together with James' and my fist and Mark's slight chirp, it was easy to identify the sender without callsigns.  Such fun.  Our final three-way 73 and shave-and-a-haircut exchange even gave David, VK3DBD, a chuckle, who chimed in with his HI.\n\nWith James and Mark off, David and I had a brief QSO despite him suffering QRM in the shack.  What started out as a very poor S3, jumped to a whopping S9+ when David switched to the correct antenna.  What a difference it made.\\n\\nI then tried my luck on 80 m, and was quickly answered by ZL2IR for a brief QSO.  That was followed by a really enjoyable rag-chew with George, VK2AOE.  It took a moment to recognise callsign from his antenna article in last week's RagChew.  We had a good chat about antennas, his Hermes SDR and walking in Tasmania.\n\nThen back to 40 m where I had a brief QSO with Rod, VK6KHZ.  Sadly the circuit didn't hold beyond signal reports.  Not to worry, as that was quickly followed by a chat with Carl, VK5CT, who I initially confused with Chris, VK1CT.\n\nAs though by magic, for my final QSO I moved back down to 80, and who should I hook up with, but Chris, VK1CT!  It's been a long time since we've had a good enough circuit to enjoy a long rag-chew, so made the most of it until it was time for me to QRT.\n\nAll in all it was a really enjoyable evening.  Thank-you."
+								}
+							]
+						}
+					},
+					"7c22f4a2": {
+						"questionId": "7c22f4a2",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Hobart"
+								}
+							]
+						}
+					},
+					"0e8d9d87": {
+						"questionId": "0e8d9d87",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Lance"
+								}
+							]
+						}
+					},
+					"60a2475b": {
+						"questionId": "60a2475b",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK3JFR, VK3KI, VK3DBD, VK6KHZ, VK5CT"
+								}
+							]
+						}
+					},
+					"0f14c2be": {
+						"questionId": "0f14c2be",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK4BMV"
+								}
+							]
+						}
+					},
+					"7a25411a": {
+						"questionId": "7a25411a",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK7TO"
+								}
+							]
+						}
+					},
+					"68a0451b": {
+						"questionId": "68a0451b",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "ZL2IR, VK2AOE, VK1CT"
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"responseId": "ACYDBNjM7FS5CHOxmDZnOx2dPg-oxEusvUl6jX3zvL_HoC3wGPNvWNwDqE2ORPQ9LSepRp0",
+				"createTime": "2026-08-19T02:04:07.320Z",
+				"lastSubmittedTime": "2026-08-19T02:04:07.320175Z",
+				"answers": {
+					"7c22f4a2": {
+						"questionId": "7c22f4a2",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Yangebup"
+								}
+							]
+						}
+					},
+					"0e8d9d87": {
+						"questionId": "0e8d9d87",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Ron"
+								}
+							]
+						}
+					},
+					"60a2475b": {
+						"questionId": "60a2475b",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK6PZT  VK6NC  VK6WE  VK2GR  VK7TO  VK3ACD  VK3XU  "
+								}
+							]
+						}
+					},
+					"7a25411a": {
+						"questionId": "7a25411a",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK6kHz"
+								}
+							]
+						}
+					},
+					"68a0451b": {
+						"questionId": "68a0451b",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK6NC"
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"responseId": "ACYDBNjUSsf3lef0avMOtkFD1rtC7LTUoYL3zYMSOlrzgVvpqS5jfZ_ovgeQr33XK7GMYR0",
+				"createTime": "2026-08-18T23:40:23.920Z",
+				"lastSubmittedTime": "2026-08-18T23:40:23.920577Z",
+				"answers": {
+					"7c22f4a2": {
+						"questionId": "7c22f4a2",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Bridgetown"
+								}
+							]
+						}
+					},
+					"0e8d9d87": {
+						"questionId": "0e8d9d87",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Wayne"
+								}
+							]
+						}
+					},
+					"60a2475b": {
+						"questionId": "60a2475b",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK5AO"
+								}
+							]
+						}
+					},
+					"6058a8a6": {
+						"questionId": "6058a8a6",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Signals on 80m were quite good just after the grey line passed, then started to fade and get noisy from 1930 WA time.Wonderful tohave QSO's with Mark and Sava, thank you gents."
+								}
+							]
+						}
+					},
+					"1af3d085": {
+						"questionId": "1af3d085",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK5KFG"
+								}
+							]
+						}
+					},
+					"7a25411a": {
+						"questionId": "7a25411a",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK6NW"
+								}
+							]
+						}
+					},
+					"68a0451b": {
+						"questionId": "68a0451b",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK2KI, VK4PN"
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"responseId": "ACYDBNiV1wgnC0jJom15sKEr_qFdOq9iXaDKCWJ-8XjfEovpB2ePPjCGliJUiwE6jP3aFXk",
+				"createTime": "2026-08-18T08:48:27.963Z",
+				"lastSubmittedTime": "2026-08-18T08:48:27.963777Z",
+				"answers": {
+					"7c22f4a2": {
+						"questionId": "7c22f4a2",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Portable near Exeter UK"
+								}
+							]
+						}
+					},
+					"0e8d9d87": {
+						"questionId": "0e8d9d87",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Ross"
+								}
+							]
+						}
+					},
+					"6058a8a6": {
+						"questionId": "6058a8a6",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Achievement Unlocked! After 5 years of using the Xiegu G90, I have (thanks to Willie DJ9FM) finally discovered that it has a Pre-Amp. It makes the CW sound rather harsh but it does help to pull a weak signal out of the abyss of the Ionosphere. Mind you, I had to turn it off when Mike DL3YZ pointed his Yagi at me from only 1000 kms away! Special thanks to Pat VK2IOW and Manny VK3DRQ for their great work in connecting me, once again, into the collective endeavour that is the Tuesday QRS jamboree."
+								}
+							]
+						}
+					},
+					"7a25411a": {
+						"questionId": "7a25411a",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "MONNK"
+								}
+							]
+						}
+					},
+					"68a0451b": {
+						"questionId": "68a0451b",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK2IOW@20 VK3DRQ@20"
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"responseId": "ACYDBNjLDrtcX6XDkmMERebMhBWl06sMlp6fC4u9z973Fe5i-298Xl_k9TFDZ_-KwOkP-6I",
+				"createTime": "2026-08-19T01:25:46.900Z",
+				"lastSubmittedTime": "2026-08-19T01:25:46.900667Z",
+				"answers": {
+					"7c22f4a2": {
+						"questionId": "7c22f4a2",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Willunga"
+								}
+							]
+						}
+					},
+					"0e8d9d87": {
+						"questionId": "0e8d9d87",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Greg"
+								}
+							]
+						}
+					},
+					"6058a8a6": {
+						"questionId": "6058a8a6",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "TU Mark fer call. R5 S9 QRN 2. CX gud. WX still wet. DIY distractions updated. 73"
+								}
+							]
+						}
+					},
+					"1af3d085": {
+						"questionId": "1af3d085",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK7TA VK2AOE"
+								}
+							]
+						}
+					},
+					"7a25411a": {
+						"questionId": "7a25411a",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK5KFG"
+								}
+							]
+						}
+					},
+					"68a0451b": {
+						"questionId": "68a0451b",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK2KI"
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"responseId": "ACYDBNhtlS87LgvzUqhTxjwE71jTw5TfPHdYvALypHa6ZHwbWY7_crTGmEHTak-HSgT5Uwo",
+				"createTime": "2026-08-19T01:21:15.638Z",
+				"lastSubmittedTime": "2026-08-19T01:21:15.638516Z",
+				"answers": {
+					"7c22f4a2": {
+						"questionId": "7c22f4a2",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Everton Park Brisbane"
+								}
+							]
+						}
+					},
+					"0e8d9d87": {
+						"questionId": "0e8d9d87",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Ron Everingham"
+								}
+							]
+						}
+					},
+					"0f14c2be": {
+						"questionId": "0f14c2be",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK3JFR, VK5AO."
+								}
+							]
+						}
+					},
+					"7a25411a": {
+						"questionId": "7a25411a",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK4EV"
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"responseId": "ACYDBNgW2a2qXTx1P27EUEdhPouFNIaIrTc4xE1DMAvHf3MuKuvePZki7uRirdLafeaOZvg",
+				"createTime": "2026-08-19T12:18:27.652Z",
+				"lastSubmittedTime": "2026-08-19T12:18:27.652399Z",
+				"answers": {
+					"7c22f4a2": {
+						"questionId": "7c22f4a2",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Bunbury Wa"
+								}
+							]
+						}
+					},
+					"0e8d9d87": {
+						"questionId": "0e8d9d87",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Richard"
+								}
+							]
+						}
+					},
+					"60a2475b": {
+						"questionId": "60a2475b",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK6 KHZ"
+								}
+							]
+						}
+					},
+					"6058a8a6": {
+						"questionId": "6058a8a6",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Focusing on 20m this week, Ive been experimenting with mix 61 toroid for my end fed verticle for 20-10m work.  It appears to work well as a 64:1 unun with 2:16 turns, but shortens the overall electrical length of the system.   I will build and test a 3:24 turn and maybe a 4:32 turn version for a bit more impedence on the primary and secondary turns.   Im hoping to create a more efficient unun to squeeze a bit more radiated power out of my 100 w radio!!"
+								}
+							]
+						}
+					},
+					"1af3d085": {
+						"questionId": "1af3d085",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK3DRY@20, VK5CT@20, VK5GG@20, VK2KI@20, VK2IOW@20"
+								}
+							]
+						}
+					},
+					"7a25411a": {
+						"questionId": "7a25411a",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Vk6PZT"
+								}
+							]
+						}
+					},
+					"68a0451b": {
+						"questionId": "68a0451b",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "ZL2HJ@20, ON7PQ@20"
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"responseId": "ACYDBNgL3YS88cEIf8Gx8JhisT7D4Qd0VLatIiHY0P4oHCUpg3dL1_s5z-VmRb_80Lq-qdY",
+				"createTime": "2026-08-18T23:18:26.237Z",
+				"lastSubmittedTime": "2026-08-18T23:18:26.237200Z",
+				"answers": {
+					"7c22f4a2": {
+						"questionId": "7c22f4a2",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Latrobe"
+								}
+							]
+						}
+					},
+					"0e8d9d87": {
+						"questionId": "0e8d9d87",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Ian"
+								}
+							]
+						}
+					},
+					"60a2475b": {
+						"questionId": "60a2475b",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "zl3tk zl1drs"
+								}
+							]
+						}
+					},
+					"0f14c2be": {
+						"questionId": "0f14c2be",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "vk3dbd vk6gx"
+								}
+							]
+						}
+					},
+					"1af3d085": {
+						"questionId": "1af3d085",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "vk2iow@20 vk1ct vk7to "
+								}
+							]
+						}
+					},
+					"7a25411a": {
+						"questionId": "7a25411a",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "vk7ta"
+								}
+							]
+						}
+					},
+					"68a0451b": {
+						"questionId": "68a0451b",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "dl3yz@20 ji2med@20 vk2aoe"
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"responseId": "ACYDBNhvFzizAkXwGxhnLOrZ0ofN84Rt3s5veemYjTvCJZzw30YXiyUfzyim61pSBqE3gXY",
+				"createTime": "2026-08-18T10:21:25.647Z",
+				"lastSubmittedTime": "2026-08-18T10:21:25.647071Z",
+				"answers": {
+					"7c22f4a2": {
+						"questionId": "7c22f4a2",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Stuttgart"
+								}
+							]
+						}
+					},
+					"0e8d9d87": {
+						"questionId": "0e8d9d87",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Mike"
+								}
+							]
+						}
+					},
+					"6058a8a6": {
+						"questionId": "6058a8a6",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Today I was working on the site of my local amateur radio group. They have a nice 3 element Yagi, which helps getting out a bit better than on my shack at home with the G5RV.  I had a great time chatting with all of you around the globe again, thanks to all stations for calling me. Hava a great week, 73 Mike"
+								}
+							]
+						}
+					},
+					"1af3d085": {
+						"questionId": "1af3d085",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK6PZT@20"
+								}
+							]
+						}
+					},
+					"7a25411a": {
+						"questionId": "7a25411a",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "DL3YZ"
+								}
+							]
+						}
+					},
+					"68a0451b": {
+						"questionId": "68a0451b",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK3DRQ@20 VK2KI@20 VK2IOW@20 VK7TA@20 M0NNK@20 "
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"responseId": "ACYDBNjuKSD7jZPEzxIkskDAS6O13NLuN8cJgVFqxTak7T97ZsahT-QhLyeEdzpH1q4DMD4",
+				"createTime": "2026-08-19T04:11:16.511Z",
+				"lastSubmittedTime": "2026-08-19T04:11:16.511924Z",
+				"answers": {
+					"7c22f4a2": {
+						"questionId": "7c22f4a2",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Bathurst NSW"
+								}
+							]
+						}
+					},
+					"0e8d9d87": {
+						"questionId": "0e8d9d87",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Wal"
+								}
+							]
+						}
+					},
+					"60a2475b": {
+						"questionId": "60a2475b",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK2GAS ZL4YY VK2KI "
+								}
+							]
+						}
+					},
+					"7a25411a": {
+						"questionId": "7a25411a",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK2WP"
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"responseId": "ACYDBNgQiYoybXTW9iAFGJahJx4QHDJiA-TBAGj0QpAmSbeaTv7Vl6ABO6QP1oDk8Lz__vU",
+				"createTime": "2026-08-18T12:07:09.231Z",
+				"lastSubmittedTime": "2026-08-18T12:07:09.231351Z",
+				"answers": {
+					"0e70c164": {
+						"questionId": "0e70c164",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Well, that was an interesting night! I came up on 40m to make a few QRS contacts and ended up with DX station after DX station coming back to me! It was great to work Sava on 160m as well.\n\nBy the way, have you tried 17m? If you're about, especially during the day, try putting out a call. I've had a lot of fun on 17m lately, particularly down by the salt water with a little mag loop."
+								}
+							]
+						}
+					},
+					"7c22f4a2": {
+						"questionId": "7c22f4a2",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Meredith"
+								}
+							]
+						}
+					},
+					"0e8d9d87": {
+						"questionId": "0e8d9d87",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Jordan"
+								}
+							]
+						}
+					},
+					"60a2475b": {
+						"questionId": "60a2475b",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Vk6khz N4asf Vk6rr Ka1ze K8mvN1fg N8ai k2tno w9vc wa2jmg n4pse\n"
+								}
+							]
+						}
+					},
+					"7a25411a": {
+						"questionId": "7a25411a",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "vk3acu"
+								}
+							]
+						}
+					},
+					"68a0451b": {
+						"questionId": "68a0451b",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "vk4pn@160"
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"responseId": "ACYDBNhmQuGPvXRK3gJvjkwoRsFruFpGWam_I9EIVd87lo1nNQCO-Me920WxwwkYvkfwDbw",
+				"createTime": "2026-08-19T02:46:39.850Z",
+				"lastSubmittedTime": "2026-08-19T02:46:39.850606Z",
+				"answers": {
+					"7c22f4a2": {
+						"questionId": "7c22f4a2",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Banksia Park "
+								}
+							]
+						}
+					},
+					"0e8d9d87": {
+						"questionId": "0e8d9d87",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Maitland "
+								}
+							]
+						}
+					},
+					"60a2475b": {
+						"questionId": "60a2475b",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK6NW, VK6TX/4, VK3IH"
+								}
+							]
+						}
+					},
+					"7a25411a": {
+						"questionId": "7a25411a",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK5AO "
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"responseId": "ACYDBNiQtZ_4G694AiFvMC08Kg3dC17-cuhX-FxUYOGi6awyRKIuaT3PTkNcMnRTFUMameM",
+				"createTime": "2026-08-18T23:03:17.871Z",
+				"lastSubmittedTime": "2026-08-18T23:03:17.871498Z",
+				"answers": {
+					"0e70c164": {
+						"questionId": "0e70c164",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "I thought, for a change I'd call CQ instead of listening to the Ironstone Range SDR. I called on and around 7025 kHz for quite some time but didn't get any takers. I heard VK2KI at S9 in contact with VK2WP on 7033 kHz, or there abouts. I called both Mark and Wal after the conclusion of their contact but didn't receive a reply. Just as well I suppose because my noise floor had risen to S7 which would have made copy very difficult.\n\nI listened to the Ironstone Range for another half an hour or so where I heard VK5AO. The QRN and multiple stations on the same frequency was quite distracting so I gave it away.\n\n"
+								}
+							]
+						}
+					},
+					"7c22f4a2": {
+						"questionId": "7c22f4a2",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Griffith"
+								}
+							]
+						}
+					},
+					"0e8d9d87": {
+						"questionId": "0e8d9d87",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Phil"
+								}
+							]
+						}
+					},
+					"0f14c2be": {
+						"questionId": "0f14c2be",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK2KI VK2WP VK5AO"
+								}
+							]
+						}
+					},
+					"7a25411a": {
+						"questionId": "7a25411a",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK4BVM"
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"responseId": "ACYDBNjkysd6xmw1tDoaoVSSYV8HEBKp2FFYJdwgD-KU9K4jnkgLjkJ3PFS1kobqFzInErE",
+				"createTime": "2026-08-18T21:35:03.613Z",
+				"lastSubmittedTime": "2026-08-18T21:35:03.613978Z",
+				"answers": {
+					"7c22f4a2": {
+						"questionId": "7c22f4a2",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "20 km west of Esperance"
+								}
+							]
+						}
+					},
+					"0e8d9d87": {
+						"questionId": "0e8d9d87",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Donald"
+								}
+							]
+						}
+					},
+					"45b87882": {
+						"questionId": "45b87882",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK3ACU"
+								}
+							]
+						}
+					},
+					"6058a8a6": {
+						"questionId": "6058a8a6",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "I have missed the past three weeks of the net as Anne and I went over East to catch up with my sister and her partner and brought back my old 1949 Land Rover from Broken Hill where it has been sitting in a shed for over 30 years.\nThose who have not used one of these early Landys in the bush have missed out of one of life's great experiences. I know you Tojo drivers will be shaking your heads. \nThose early Rovers are so easy to manoeuvre, they skip over sand without dropping tyre pressure and if you rolled one you should lose your licence for life. \nTo give an idea of how stable they were, let me tell you about an experience I had when wrecking one 50 years ago. We had put a rope over the vehicle and winched it onto its side so we could attack the task from its underside. As we let the tension off on the winch the vehicle promptly went back on its feet. Try that test on a Tojo and you will have difficulty getting it back on its feet.\nSomuch for my excuse for being absent for the past few weeks.\n\nNow this week I put out a few CQ's while working on some gear but did not hear a nibble. However I did spend a couple of hours following multiple conversations on 40 and 80 metres. It was particularly nice to hear the patience of operators working the slower stations.\n\nI will be away again for the next two weeks visiting the harmonics in Perth. I will also get to the NCRG hamfest and am going to swing down the coast to stir up VK6FN. I suspect the missing essential component of his care will thus be provided.\n\n\n"
+								}
+							]
+						}
+					},
+					"0f14c2be": {
+						"questionId": "0f14c2be",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VL6WE, VK6GX, VK6NW, VK5AO, VK6KHZ, VK1VCA, VK3DRQ, "
+								}
+							]
+						}
+					},
+					"1af3d085": {
+						"questionId": "1af3d085",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK2ADE, VK7TO, VK5KFG, VK2KI"
+								}
+							]
+						}
+					},
+					"7a25411a": {
+						"questionId": "7a25411a",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK6JDM"
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"responseId": "ACYDBNh7DrUR9nxxW3WkgMZ4gydRzvvQiktHwcnp5KONYqs3vvIO6JK_GrPFB6aA7WIH9Eg",
+				"createTime": "2026-08-19T06:56:10.808Z",
+				"lastSubmittedTime": "2026-08-19T06:56:10.808141Z",
+				"answers": {
+					"0e70c164": {
+						"questionId": "0e70c164",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Good conditions but again fate against my QRS night, had to do other jobs so couldn't stay long."
+								}
+							]
+						}
+					},
+					"7c22f4a2": {
+						"questionId": "7c22f4a2",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Geraldton"
+								}
+							]
+						}
+					},
+					"0e8d9d87": {
+						"questionId": "0e8d9d87",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Roy"
+								}
+							]
+						}
+					},
+					"60a2475b": {
+						"questionId": "60a2475b",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK3ACU, VK6GX, VK6NQL"
+								}
+							]
+						}
+					},
+					"0f14c2be": {
+						"questionId": "0f14c2be",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK3XU, VK6KHZ"
+								}
+							]
+						}
+					},
+					"7a25411a": {
+						"questionId": "7a25411a",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK6RR"
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"responseId": "ACYDBNhZJu29zf3exKFWiPNmwIymbUFno7cEp8QYUs2duZ8Z0jjcSGA-1xWpU2BkqaCkJLU",
+				"createTime": "2026-08-20T01:06:48.319Z",
+				"lastSubmittedTime": "2026-08-20T01:06:48.319901Z",
+				"answers": {
+					"0e70c164": {
+						"questionId": "0e70c164",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "40m was remarkably quiet, band-noise-wise for me this week.  So quiet in fact that I was able to not use my phasing-type noise canceller at all - that's a first!  Could it be the installation of a new router here that's made the difference I wonder?\n\nIt was nice to catch up again with Wal VK2WP up at Bathurst.  You never know with Wal what interesting bit of kit he might be using, and this week it was a vintage Drake 2NT 60 Watt transmitter;  sounded good.  I noticed that Phil VK4BVM was listening in via the Ironstone Range KiwiSDR.\n\nTuning around after finishing with Wal, I heard our editor Lance VK7TO who was a really solid RSN 592;  I thought that Lance was calling CQ, so I popped in my callsign.  Turned out that I was wrong;  Lance was in QSO with James VK3JFR (also RSN 592 here) so he sent me a QRX while he sorted out the reports with James.  He then brought me in and we started a three-way QSO, which went very well.  Great fun and challenging on CW - should be more of it!"
+								}
+							]
+						}
+					},
+					"7c22f4a2": {
+						"questionId": "7c22f4a2",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Beautiful South Bowning NSW"
+								}
+							]
+						}
+					},
+					"0e8d9d87": {
+						"questionId": "0e8d9d87",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Mark"
+								}
+							]
+						}
+					},
+					"60a2475b": {
+						"questionId": "60a2475b",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK2WP"
+								}
+							]
+						}
+					},
+					"6058a8a6": {
+						"questionId": "6058a8a6",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "[20m]\nWonders never cease!  This week I was actually on-time and heard Manny VK3DRQ (albeit very weak here) chatting to Mike DL3YZ, before I caught up with Mike myself.  Mike was RSN 421 from his ham clubroom Yagi, and he reported 231 - so a bit of s struggle for Mike.  Great to know that the macheteing to access the clubroom was worthwhile.\n\nRoss M0NNK/P was RSN 231 into the Ironstone Range KiwiSDR, and like recent weeks, not a sausage was heard here.\n\nI did hear Patrick VK2IOW talking to Mike then Ross, and then to round it all out, Mike chatting to Ross.\n\n[80m]\nAfter dinner I re-adjusted my antenna coupler to 80m, and found the band noise to be remarkably low about S3) as well - so I decided to not use my noise canceller on that band as well.  I had a nice rag chew with Greg VK5KFG at Willunga;  conditions were great and Greg had a nice RSN 593.  And the good conditions continued West and I hooked up wth Wayne VK6NW who was pounding in with a remarkable RSB 583.  Aren't we lucky to have such good propagation;  I love 80m!  \n\nUnfortunately I needed to have an early night so had to give the good conditions a miss and head off the bed."
+								}
+							]
+						}
+					},
+					"0f14c2be": {
+						"questionId": "0f14c2be",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK2GAS ZL4YY"
+								}
+							]
+						}
+					},
+					"1af3d085": {
+						"questionId": "1af3d085",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK3DRQ@20 VK2IOW@20 M0NNK/P@20"
+								}
+							]
+						}
+					},
+					"7a25411a": {
+						"questionId": "7a25411a",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK2KI"
+								}
+							]
+						}
+					},
+					"68a0451b": {
+						"questionId": "68a0451b",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "DL3YZ@20 VK5KFG VK6NW"
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"responseId": "ACYDBNjH4RfJZGfaJLIZlbLu5GRVXYbbzTu-vwG-V9_HkMUMbxfsf8221yPCBefyjFYwKQA",
+				"createTime": "2026-08-19T01:12:49.491Z",
+				"lastSubmittedTime": "2026-08-19T01:12:49.491467Z",
+				"answers": {
+					"0e70c164": {
+						"questionId": "0e70c164",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "It was unbelievable. Very noisy band and nil VKs were heard, yet Js and Ws and Ns were heard at S3, S4. I had a shock when calling the only 2 stations I worked and received an answer!"
+								}
+							]
+						}
+					},
+					"7c22f4a2": {
+						"questionId": "7c22f4a2",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Blackburn"
+								}
+							]
+						}
+					},
+					"0e8d9d87": {
+						"questionId": "0e8d9d87",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Manny"
+								}
+							]
+						}
+					},
+					"60a2475b": {
+						"questionId": "60a2475b",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "JH1USR, N4QR, WB1ECP."
+								}
+							]
+						}
+					},
+					"45b87882": {
+						"questionId": "45b87882",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "N8AI."
+								}
+							]
+						}
+					},
+					"6058a8a6": {
+						"questionId": "6058a8a6",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "20m, nice to heard OM Mike first thing and then OM Ross. 80m, only NOISE, 40m, no VKs at all, only DX stations were coming through.\nBy the way, I am enjoying \"VENUS AND MARS\" and noticed that Venus this week on picture nr 3 looks like she grew an extra hand??!! Perhaps she is not allowed to talk and needs extra hands to do the talking, hi,hi."
+								}
+							]
+						}
+					},
+					"0f14c2be": {
+						"questionId": "0f14c2be",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "N8AI, 7N4QUK."
+								}
+							]
+						}
+					},
+					"1af3d085": {
+						"questionId": "1af3d085",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK2KI@20, VK2IOW@20, VK6PZT@20, VK7TA@20, ZL1HJ@20."
+								}
+							]
+						}
+					},
+					"7a25411a": {
+						"questionId": "7a25411a",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK3DRQ"
+								}
+							]
+						}
+					},
+					"68a0451b": {
+						"questionId": "68a0451b",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "DL3YZ@20, M0NNK@20."
+								}
+							]
+						}
+					}
+				}
+			},
+			{
+				"responseId": "ACYDBNgr5AAe3KCy9EawQv0dnxhfO9BZ8G5YpipbvFgRATzjKbdzbw5TkVtkdUmWWNPspsk",
+				"createTime": "2026-08-19T00:50:47.565Z",
+				"lastSubmittedTime": "2026-08-19T00:50:47.565761Z",
+				"answers": {
+					"7c22f4a2": {
+						"questionId": "7c22f4a2",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Echuca"
+								}
+							]
+						}
+					},
+					"0e8d9d87": {
+						"questionId": "0e8d9d87",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "Rob"
+								}
+							]
+						}
+					},
+					"0f14c2be": {
+						"questionId": "0f14c2be",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK3KI, VK2WP, VK6GX, VK3JFR"
+								}
+							]
+						}
+					},
+					"1af3d085": {
+						"questionId": "1af3d085",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK1CT, VK6TX@160m"
+								}
+							]
+						}
+					},
+					"7a25411a": {
+						"questionId": "7a25411a",
+						"textAnswers": {
+							"answers": [
+								{
+									"value": "VK3ECH"
+								}
+							]
+						}
+					}
+				}
+			}
+		]
+	},
+	"config": {
+		"url": "https://forms.googleapis.com/v1/forms/1A5nPtCcZRMualQ7y6YIcNNHM8_LQQbLL06dEOsBQwd4/responses",
+		"method": "GET",
+		"apiVersion": "",
+		"userAgentDirectives": [
+			{
+				"product": "google-api-nodejs-client",
+				"version": "8.0.3",
+				"comment": "gzip"
+			}
+		],
+		"headers": {
+			"accept-encoding": "gzip",
+			"authorization": "Bearer ya29.c.c0AZ4bNpZj6JU5I0_YWXCHZcnufi94JlWMmWeox4OTxfSwP2RfOE2x5obpmPmDsceIB5C03exQbgqGg464JWbc0KriMhRWG4M4m9kEV2yD0pzE30Az1e_fxGt4T5OZn0RrKEJUYFD9au-sDBwMsa2k2nrXcvIat418E5qAIF2YY3GN9d_Lnf1TKXSyrZnPKd29lyoMvjnnu43XDPzOHZjLRutLpdRVUa1LGCxvBBUzOflQmTYURz7fikFmVxM64NUmcojStoSZXiX1xf5w93XOkZ5gsxPyUsnQ6C6iiDQ76fC_6NnhB5joewAcaPEzcgMz3IKlpt5-idVBHXoci3-Lsc3BUdtW_cAmMQCfuBxFoDD0TvX4xDSlJ5KpcJIE388D0i6kv80Zr-k_6g-k6IbMS5bI5__afx67vqQIM5S0V5fJ3Yh51n0g82JI05JZcFuxWrOV4kwacMllI3taYYtap53gZUh4UB2kuX1a4eWU9ii9a-S3b77X2hsdxlfdtlBbxrlZZJcz3UwMkrcfpksta3Ims7duUvYpbiJv2bQomUdlmhkcIIMrSnsYR2u6huckqrMl5FWgbzSVfWcu9Ws4Rqb0fUOgy3fZxqndj4wjfmqrInk_22yBesyoeU0uJzw7iw7Ur9ZyygB_zXhkSR3_qry8-jdYxOQcIwUcx7l4eVj4zf6zQWs3da6hzrUuR6I4nz1RcZ2fij6aII3F6yX1ZBM6eskrJ-J8kz_m8n8gkRFjv_OfIgFw4e820pB8w_qp37fobSgwdZRcsUoBnr97RqFOF8zc_3-rQyy_Zd-Vyzfmv2OkuW1zMS5ZvSliQthhxiI62VjvRwxmd1tymouZXzUW5htZpqQp2qwsUXMMmguvga7O29rVm7sxps0aidjF9puwYly3qoc67-vFg0O5FBRvZ3pS7RtxgZvrgl382-g6VltUXWVhcoceWtamyMlp7ittJwjB6ojht_k-2WvtSZXBX7BqmmaceIt-YdUha1j2v3ggO6ZWFbS",
+			"user-agent": "google-api-nodejs-client/8.0.3 (gzip)",
+			"x-goog-api-client": "gdcl/8.0.3 gl-node/24.3.0"
+		},
+		"retry": true,
+		"responseType": "unknown"
+	},
+	"headers": {
+		"alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+		"content-encoding": "gzip",
+		"content-type": "application/json; charset=UTF-8",
+		"date": "Thu, 20 Aug 2026 04:03:40 GMT",
+		"server": "ESF",
+		"transfer-encoding": "chunked",
+		"vary": "Origin, X-Origin, Referer",
+		"x-content-type-options": "nosniff",
+		"x-frame-options": "SAMEORIGIN",
+		"x-xss-protection": "0"
+	}
+}

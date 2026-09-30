@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#1e293b" rx="8"/>
+  
+  <!-- Morse code pattern: dot-dash-dot (SOS simplified) -->
+  <circle cx="16" cy="32" r="5" fill="#fbbf24"/>
+  <rect x="27" y="27" width="16" height="10" fill="#fbbf24" rx="2"/>
+  <circle cx="52" cy="32" r="5" fill="#fbbf24"/>
+</svg>

@@ -1,0 +1,42 @@
+name: Docusaurus Deploy
+
+on:
+  push:
+    branches: 
+      - main
+      - develop
+  workflow_dispatch:
+
+concurrency:
+  group: web-pages-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install and Build 🔧
+        run: |
+          cd _cqqrs-web
+          bun ci
+          bun run build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: _cqqrs-web/build # The folder the action should deploy.

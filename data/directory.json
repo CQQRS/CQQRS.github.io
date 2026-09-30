@@ -1,0 +1,2338 @@
+[
+    {
+        "callsign": "VK1AO",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [202639],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK1DA",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK1EMK",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK1HF",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK1KVS",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK1O",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK1OMG",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK1PWE",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK1RT",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK1TR",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK1TE",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK1VR",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK1WA",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK1ZDJ",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2ADF",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2ALR",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2AO",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2AOE",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2ASB",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2AXT",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2BM",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2CL",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2COS",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2DA",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2DI",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2DLF",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2EBN",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2EEL",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2FSLC",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2GAS",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2GAZ",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2GN",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2GR",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2IK",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2IOW",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2IXV",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2JCC",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2KI",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2KJJ",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2KLJ",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2LDJ",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2MET",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2NA",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2NAP",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2NNW",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2OAG",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2RH",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2RQ",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2RU",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2TER",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2TEV",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2TIG",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2UH",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2VIC",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2WF",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2WP",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2XMB",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2ZP",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK2ZRK",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3ACU",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3ADX",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3AE",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3AFH",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3AGX",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3ALC",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3ARH",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3AUX",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3BAP",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3BGM",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3BSE",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3BTV",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3BWN",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3BYD",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3CAL",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3CLD",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3CMV",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3CPU",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3CTM",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3DBD",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3DL",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3DPH",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3DRQ",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3DXC",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3ECH",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3FG",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3IDK",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3ITX",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3JFR",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3KEV",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3KIH",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3KLE",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3KO",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3KX",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3MAT",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3MLT",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3MXW",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3OCD",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3OE",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3PEF",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3PP",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3PWG",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3QB",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3RU",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3SPI",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3TBR",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3TMP",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3TPM",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3VB",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3VDP",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3VMM",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3VR",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3WOW",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3XE",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3XKA",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3ZGA",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3ZXC",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK3ZT",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK4ALE",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK4AW",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK4BRO",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK4BVM",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK4CCW",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK4CEG",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK4DRK",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK4EK",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK4EV",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK4IAN",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK4IM",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK4JM",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK4MCW",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK4MFX",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK4MKV",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK4NS",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK4OLB",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK4PE",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK4PMW",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK4PN",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK4QA",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK4QJ",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK4SEC",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK4ZXC",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK5AAD",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK5AO",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK5ATQ",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK5AYL",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK5AV",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK5CT",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK5CZ",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK5DC",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK5ET",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK5FA",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK5FD",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK5FR",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK5HAA",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK5IS",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK5KDO",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK5KFG",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK5LA",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK5LJ",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK5NMG",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK5PH",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK5PL",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK5PT",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK5QA",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6AAS",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6AAV",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6ADF",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6AFG",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6AIF",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6BA",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6BAP",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6BEK",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6BRC",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6CG",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6CK",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6DEV",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6DON",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6DSL",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6DSM",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6DV",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6FAAZ",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6FN",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6GHD",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6GMM",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6GX",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6HD",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6HLY",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6HRC",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6HTI",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6HV",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6IQ",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6IS",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6JDM",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6KD",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6KHZ",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6KI",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6KQ",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6KV",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6LD",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6MCW",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6MF",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6MJ",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6MK",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6MT",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6MTF",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6MU",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6NI",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6NQL",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6NT",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6NU",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6NW",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6POP",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6PYN",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6PZT",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6QI",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6QM",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6RC",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6RR",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6TEA",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6TTF",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6TU",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6TX",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6TY",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6VZ",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6WA",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6WE",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6XC",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6XH",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6XN",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6XT",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6XU",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6YSF",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6YV",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK6ZO",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK7GH",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK7ID",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK7JZ",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK7KPC",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK7ME",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK7TA",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK7TO",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK7WOZ",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK7WRC",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK7WW",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK7ZA",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK8MC",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "VK8MT",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "5W0TE",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "CT7BPF",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "DJ9FM",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "DL3YZ",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "DO2EMR",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "F4CLS",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "G0UBE",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "G3DJB",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "G4RWI",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "G7BED",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "IU4FLS",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "KC8PPD",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "KJ5DWA",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "LU7YS",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "M0KBJ",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "M0NNK",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "N4TMM",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "N4TTU",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "SWL-ADAM",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "SWL-JACK",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "SWL-MULLIGAN",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "W6JY",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "WB2GDZ",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "W8EWH",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "YB1NWP",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "YB9BWN",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "ZL1ACY",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "ZL1AJY",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "ZL1ANY",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "ZL1AUN",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "ZL1BO",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "ZL1CJB",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "ZL1DRS",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "ZL1HJ",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "ZL1PB",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "ZL1PX",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "ZL1TSS",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "ZL2BNE",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "ZL2CUP",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "ZL2GD",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "ZL3ABX",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "ZL3TK",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "ZL4BDG",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "ZL4CTS",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    },
+    {
+        "callsign": "ZL4TE",
+        "name": "",
+        "qth": "",
+        "grid": "",
+        "reported": [],
+        "lastActive": "1970-01-01T00:00:00.000Z"
+    }
+]
