@@ -7,7 +7,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
 	title: 'CQQRS',
 	tagline: 'Slow Morse Code Community',
-	favicon: 'img/favicon.ico',
+	favicon: 'img/favicon.svg',
 
 	// Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
 	future: {
@@ -80,7 +80,7 @@ const config: Config = {
 			title: 'CQQRS',
 			logo: {
 				alt: 'CQQRS Logo',
-				src: 'img/logo.jpg',
+				src: 'img/favicon.svg',
 			},
 			items: [
 				/*

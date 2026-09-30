@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from './ReportForm.module.css';
 import '@site/src/classes/DateExt';
 import { resizeImageFile } from '@site/src/classes/PhotoUtilities';
-
-
+import { getCurrentEdition } from '@site/src/classes/EditionTools';
 
 type BandHeardWorkedBlockProps = {
 	band: string;
@@ -179,65 +178,101 @@ interface ReportFormBuilderProps {
 	photo: File | undefined
 }
 export default function ReportFormBuilder({ }: ReportFormBuilderProps) {
-	const [week, setWeek] = useState('');
+	
+	const [edition, setEdition] = useState(getCurrentEdition());
 
-	const [name, setName] = useState('');
-	const [callsign, setCallsign] = useState('');
-	const [qth, setQth] = useState('');
-	const [grid, setGrid] = useState('');
+	const formFields = ["name", "callsign", "qth", "grid", "heard40", 
+		"worked40", "tried40", "heard80", "worked80", "tried80", "heardOther", 
+		"workedOther", "triedOther", "comments", "caption"];
 
-	const [heard40, setHeard40] = useState('');
-	const [worked40, setWorked40] = useState('');
-	const [tried40, setTried40] = useState('');
-	const [heard80, setHeard80] = useState('');
-	const [worked80, setWorked80] = useState('');
-	const [tried80, setTried80] = useState('');
-	const [heardOther, setHeardOther] = useState('');
-	const [workedOther, setWorkedOther] = useState('');
-	const [triedOther, setTriedOther] = useState('');
-
-	const [comments, setComments] = useState('');
+	const [formState, setFormState] = useState<Map<string,string>>(() => {
+		const map = new Map<string, string>();
+		formFields.forEach(field => map.set(field, ''));
+		return map;
+	});
 
 	const [photo, setPhoto] = useState<File|undefined>(undefined);
 
+
+	const setFormVal = (key: string, value: string) => {
+		setFormState( prev => {
+
+			const copy = new Map(prev);
+			copy.set(key, value);
+			return copy;
+
+		});
+	};
+	
+	const populateFormFromSearchParams = () => {
+
+		const queryParams = new URLSearchParams(window.location.search);
+
+		setFormState(prev => {
+			const tmpState = new Map(prev);
+			for( const[key, value] of queryParams){
+				if( !prev.has(key)) continue;
+				tmpState.set(key, value);
+			}
+			return tmpState;
+		});
+	};
+
+	const populateFormFromStorage = (edition: string) => {
+
+		const alwaysRestoreKeys = ["name", "callsign", "qth", "grid"];
+
+		const isCurrent = localStorage.getItem("edition") === edition;
+
+		const tmpState = new Map(formState);
+		for( const key of formState.keys()){
+			if( isCurrent || alwaysRestoreKeys.includes(key)){
+				tmpState.set(key, localStorage.getItem(key) ?? "");
+			}
+		}
+
+		setFormState(tmpState);
+		
+	};
+
+	const saveResponse = (edition: string) => {
+
+		for( const[key, value] of formState){
+			localStorage.setItem(key, value);
+		}
+
+		localStorage.setItem("edition", edition);
+
+	};
+
 	const handleSubmit = async () => {
 		const missing = [] as string[];
-		if (!name.trim()) missing.push('Name');
-		if (!callsign.trim()) missing.push('Callsign');
-		if (!qth.trim()) missing.push('QTH');
+		if (!formState.get("name")!.trim()) missing.push('Name');
+		if (!formState.get("callsign")!.trim()) missing.push('Callsign');
+		if (!formState.get("qth")!.trim()) missing.push('QTH');
 
 		if (missing.length > 0) {
 			alert(`Please complete the required fields: ${missing.join(', ')}`);
 			return;
 		}
 
-		const today = new Date();
+		saveResponse(edition);
 
 		const formData = new FormData();
-		formData.append("name", name);
-		formData.append("callsign", callsign);
-		formData.append("qth", qth);
-		formData.append("grid", grid);
-		formData.append("heard40", heard40);
-		formData.append("worked40", worked40);
-		formData.append("tried40", tried40);
-		formData.append("heard80", heard80);
-		formData.append("worked80", worked80);
-		formData.append("tried80", tried80);
-		formData.append("heardOther", heardOther);
-		formData.append("workedOther", workedOther);
-		formData.append("triedOther", triedOther);
-		formData.append("comments", comments);
+		for( const [key, value] of formState) {
+			formData.append(key, value);
+		}
 
 		const photoToUpload = photo !== undefined ? await resizeImageFile(photo, 1024) : undefined;
 		if (photoToUpload !== undefined) {
 			const ext = photoToUpload.name.split('.').pop();
-			const safeCallsign = callsign.trim() || 'photo';
-			formData.append("file", photoToUpload, `${safeCallsign}_${today.getFullYear()}_${today.getWeekNumber()}.${ext}`);
+			const safeCallsign = formState.get("callsign")!.trim() || 'photo';
+			formData.append("file", photoToUpload, `${safeCallsign}_${edition}.${ext}`);
 		}
 
 		const url = `https://conryclan.com/projects/cqqrsnet/api/report.php`;
 		try{
+			return;
 			const response = await fetch(url, {method: "POST", body: formData});
 			const payload = await response.json().catch(() => null);
 
@@ -257,6 +292,11 @@ export default function ReportFormBuilder({ }: ReportFormBuilderProps) {
 
 	const rptPlaceholder = "40 m\n...\n\n80 m\n...\n\n?? m\n...";
 
+	useEffect(() => { 
+		populateFormFromStorage(edition);
+		populateFormFromSearchParams(); 
+	}, []);
+
 	return (
 		<div
 			className={`mx-auto max-w-4xl rounded-2xl border border-slate-200 bg-white p-6 shadow-sm ${styles.reportForm}`}
@@ -273,8 +313,8 @@ export default function ReportFormBuilder({ }: ReportFormBuilderProps) {
 							id="name"
 							type="text"
 							required
-							value={name}
-							onChange={(e) => setName(e.target.value)}
+							value={formState.get("name")}
+							onChange={(e) => setFormVal("name", e.target.value)}
 							className={`w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-slate-900 shadow-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100 ${styles.input}`}
 							placeholder="Your name as you would like it to appear in the newsletter"
 						/>
@@ -288,8 +328,8 @@ export default function ReportFormBuilder({ }: ReportFormBuilderProps) {
 							id="callsign"
 							type="text"
 							required
-							value={callsign}
-							onChange={(e) => setCallsign(e.target.value)}
+							value={formState.get("callsign")}
+							onChange={(e) => setFormVal("callsign", e.target.value)}
 							className={`w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-slate-900 shadow-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100 ${styles.input}`}
 							placeholder="Or if unlicensed: SWL-Your_Name"
 						/>
@@ -303,8 +343,8 @@ export default function ReportFormBuilder({ }: ReportFormBuilderProps) {
 							id="qth"
 							type="text"
 							required
-							value={qth}
-							onChange={(e) => setQth(e.target.value)}
+							value={formState.get("qth")}
+							onChange={(e) => setFormVal("qth", e.target.value)}
 							className={`w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-slate-900 shadow-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100 ${styles.input}`}
 							placeholder="Enter your location"
 						/>
@@ -317,8 +357,8 @@ export default function ReportFormBuilder({ }: ReportFormBuilderProps) {
 						<input
 							id="grid"
 							type="text"
-							value={grid}
-							onChange={(e) => setGrid(e.target.value)}
+							value={formState.get("grid")}
+							onChange={(e) => setFormVal("grid", e.target.value)}
 							className={`w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-slate-900 shadow-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100 ${styles.input}`}
 							placeholder="4 or 6 digit maidenhead grid"
 						/>
@@ -338,38 +378,38 @@ export default function ReportFormBuilder({ }: ReportFormBuilderProps) {
 
 					<BandHeardWorkedBlock
 						band="40"
-						heard={heard40}
-						worked={worked40}
-						tried={tried40}
+						heard={formState.get("heard40") ?? ""}
+						worked={formState.get("worked40") ?? ""}
+						tried={formState.get("tried40") ?? ""}
 						placeholder=""
 						explanation=""
-						onHeardChange={setHeard40}
-						onWorkedChange={setWorked40}
-						onTriedChange={setTried40}
+						onHeardChange={(val)=> setFormVal("heard40",val)}
+						onWorkedChange={(val)=> setFormVal("worked40",val)}
+						onTriedChange={(val)=> setFormVal("tried40",val)}
 					/>
 
 					<BandHeardWorkedBlock
 						band="80"
-						heard={heard80}
-						worked={worked80}
-						tried={tried80}
+						heard={formState.get("heard80") ?? ""}
+						worked={formState.get("worked80") ?? ""}
+						tried={formState.get("tried80") ?? ""}
 						placeholder=""
 						explanation=""
-						onHeardChange={setHeard80}
-						onWorkedChange={setWorked80}
-						onTriedChange={setTried80}
+						onHeardChange={(val)=> setFormVal("heard80",val)}
+						onWorkedChange={(val)=> setFormVal("worked80",val)}
+						onTriedChange={(val)=> setFormVal("tried80",val)}
 					/>
 
 					<BandHeardWorkedBlock
 						band="Other"
-						heard={heardOther}
-						worked={workedOther}
-						tried={triedOther}
+						heard={formState.get("heardOther") ?? ""}
+						worked={formState.get("workedOther") ?? ""}
+						tried={formState.get("triedOther") ?? ""}
 						placeholder=""
 						explanation="For other bands, append each callsign with '@' and the band.  Eg. VK4DD@20, VK5EE@20, VK6FF@160"
-						onHeardChange={setHeardOther}
-						onWorkedChange={setWorkedOther}
-						onTriedChange={setTriedOther}
+						onHeardChange={(val)=> setFormVal("heardOther",val)}
+						onWorkedChange={(val)=> setFormVal("workedOther",val)}
+						onTriedChange={(val)=> setFormVal("triedOther",val)}
 					/>
 				</div>
 			</section>
@@ -383,8 +423,8 @@ export default function ReportFormBuilder({ }: ReportFormBuilderProps) {
 					RagChew readers.
 					<textarea
 						id="comments"
-						value={comments}
-						onChange={(e) => setComments(e.target.value)}
+						value={formState.get("comments") ?? ""}
+						onChange={(e) => setFormVal("comments", e.target.value)}
 						rows={8}
 						className={`w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-slate-900 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 ${styles.textarea}`}
 						placeholder={rptPlaceholder}
@@ -399,6 +439,20 @@ export default function ReportFormBuilder({ }: ReportFormBuilderProps) {
 					<PhotoInputBlock
 						onChange={setPhoto}
 					/>
+					<div className={styles.fieldGroup}>
+						<label htmlFor="caption" className="mb-1 block text-sm font-medium text-slate-700">
+							Caption
+						</label>
+						<input
+							id="caption"
+							type="text"
+							required
+							value={formState.get("caption") ?? ""}
+							onChange={(e) => setFormVal("caption", e.target.value)}
+							className={`w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-slate-900 shadow-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100 ${styles.input}`}
+							placeholder="Caption to accompany your photo"
+						/>
+					</div>
 				</div>
 			</section>
 
