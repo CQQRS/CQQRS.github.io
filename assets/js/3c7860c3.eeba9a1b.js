@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkcqqrs_web=self.webpackChunkcqqrs_web||[]).push([["8433"],{4985(e,r,s){s.r(r),s.d(r,{default:()=>u});var a=s(4848);let t={};function u({}){return(0,a.jsx)("div",{className:`mx-auto max-w-4xl rounded-2xl border border-slate-200 bg-white p-6 shadow-sm ${t.reportForm}`})}}}]);
