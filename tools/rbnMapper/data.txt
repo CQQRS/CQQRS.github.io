@@ -1,0 +1,16 @@
+DX de JN1ILK-#: 14006.20  VK3WAC         CW    13 dB  19 WPM  CQ      0832Z
+DX de ZL3X-#:   14006.00  VK3WAC         CW    16 dB  19 WPM  CQ      0832Z
+DX de VK6ANC-#: 14006.00  VK3WAC         CW    22 dB  19 WPM  CQ      0832Z
+DX de ZL2KS-#:   7030.00  VK2DLF         CW    25 dB  11 WPM  CQ      0836Z
+DX de MM0ZBH-#: 14100.00  ZL6B           CW    28 dB  18 WPM  NCDXF B 0836Z
+DX de VK2RH-#:   7030.00  VK2DLF         CW    21 dB  11 WPM  CQ      0836Z
+DX de VE6WZ-#:   7024.00  VK7TO          CW     9 dB  15 WPM  CQ      0837Z
+DX de VE6WZ-3-#:  7024.00  VK7TO          CW     9 dB  15 WPM  CQ      0837Z
+DX de K9IMM-#:   7024.00  VK7TO          CW    13 dB  15 WPM  CQ      0837Z
+DX de ZL3X-#:    7024.00  VK7TO          CW    21 dB  15 WPM  CQ      0838Z
+DX de VK3RASA-#:  7024.00  VK7TO          CW    31 dB  15 WPM  CQ      0838Z
+DX de VK2RH-#:   7024.00  VK7TO          CW    12 dB  14 WPM  CQ      0838Z
+DX de ZL2KS-#:   7024.00  VK7TO          CW    18 dB  15 WPM  CQ      0839Z
+DX de ZL2KS-#:   7023.00  VK3MXW         CW    30 dB  11 WPM  CQ      0840Z
+DX de JI1HFJ-#: 28268.10  VK8VF          CW     2 dB  15 WPM  BEACON  0840Z
+DX de VK3RASA-#:  7034.00  VK6KHZ         CW    15 dB  16 WPM  CQ      0846Z

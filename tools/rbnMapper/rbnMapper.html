@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>DX Cluster Spot Mapper</title>
+
+	<!-- Leaflet CSS -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+	<style>
+		body {
+			font-family: sans-serif;
+			margin: 0;
+		}
+
+		#map {
+			height: 80vh;
+		}
+
+		#inputBox {
+			width: 100%;
+			height: 20vh;
+			font-family: monospace;
+			padding: 10px;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+
+<body>
+
+	<h2 style="margin:10px;">DX Cluster Spot Mapper</h2>
+
+	<textarea id="inputBox" placeholder="Paste DX cluster lines here..."></textarea>
+
+	<div style="margin:6px 0;">
+		<input type="file" id="fileInput" accept=".txt" />
+		<button onclick="processInput()">Process Spots</button>
+	</div>
+
+	<div id="map"></div>
+
+	<!-- Leaflet JS -->
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/leaflet.geodesic@2.7.1/dist/leaflet.geodesic.umd.min.js"></script>
+
+	<script>
+		////////////////////////////////////////////////////////////
+		// Maidenhead → Lat/Lon
+		////////////////////////////////////////////////////////////
+		function maidenheadToLatLon(grid) {
+			if (!grid || grid.length < 4) return null;
+			grid = grid.toUpperCase();
+
+			const A = 'A'.charCodeAt(0);
+
+			const lon = (grid.charCodeAt(0) - A) * 20 - 180 +
+				(grid.charCodeAt(2) - A) * 2 +
+				(parseInt(grid[4] || '0', 10) * 5 / 60);
+
+			const lat = (grid.charCodeAt(1) - A) * 10 - 90 +
+				(grid.charCodeAt(3) - A) +
+				(parseInt(grid[5] || '0', 10) * 2.5 / 60);
+
+			return { lat, lon };
+		}
+
+		////////////////////////////////////////////////////////////
+		// Parse DX Cluster Line
+		////////////////////////////////////////////////////////////
+		function parseDxLine(line) {
+			// DX de VK3XYZ: 14074.0 VK2ABC FT8 -10dB 1234Z
+			const match = line.match(/DX\s+de (\S+)-#:\s+\S+\s+(\S+)/);
+			if (!match) return null;
+
+			return {
+				spotter: match[1],
+				dx: match[2]
+			};
+		}
+
+		////////////////////////////////////////////////////////////
+		// HamQTH API
+		////////////////////////////////////////////////////////////
+		const HAMQTH_USERNAME = "VK7TO";
+		const HAMQTH_PASSWORD = "zH2yHyVmJsjcSWlgwMRA";
+
+		async function hamQthLogin() {
+			const url = `https://www.hamqth.com/xml.php?u=${HAMQTH_USERNAME}&p=${HAMQTH_PASSWORD}`;
+			const xml = await fetch(url).then(r => r.text());
+			const session = xml.match(/<session_id>(.*?)<\/session_id>/);
+			return session ? session[1] : null;
+		}
+
+		async function lookupCallsign(call, sessionId) {
+			const url = `https://www.hamqth.com/xml.php?id=${sessionId}&callsign=${call}`;
+			const xml = await fetch(url).then(r => r.text());
+			const grid = xml.match(/<grid>(.*?)<\/grid>/);
+			if (!grid) return null;
+			return maidenheadToLatLon(grid[1]);
+		}
+
+		////////////////////////////////////////////////////////////
+		// Process DX Lines
+		////////////////////////////////////////////////////////////
+		async function processDxLines(lines) {
+			const session = await hamQthLogin();
+			if (!session) {
+				alert("HamQTH login failed");
+				return [];
+			}
+
+			// Parse and deduplicate spotter>dx pairs
+			const seen = new Set();
+			const parsed = [];
+			for (const line of lines) {
+				const p = parseDxLine(line);
+				if (!p) continue;
+				const key = `${p.spotter}>${p.dx}`;
+				if (seen.has(key)) continue;
+				seen.add(key);
+				parsed.push(p);
+
+				console.log(key);
+			}
+
+			// Fetch all unique callsigns in parallel
+			const callsigns = [...new Set(parsed.flatMap(p => [p.dx, p.spotter]))];
+			const entries = await Promise.all(
+				callsigns.map(async call => [call, await lookupCallsign(call, session)])
+			);
+
+			const cache = new Map(entries);
+
+			return parsed.flatMap(p => {
+				const dxCoords = cache.get(p.dx);
+				const spotterCoords = cache.get(p.spotter);
+				if (!dxCoords || !spotterCoords) return [];
+				return [{ callsign: p.dx, lat: dxCoords.lat, lon: dxCoords.lon, spotter: p.spotter, spotterCoords: spotterCoords || null }];
+			});
+		}
+
+		////////////////////////////////////////////////////////////
+		// Map Rendering
+		////////////////////////////////////////////////////////////
+		let map = L.map("map").setView([0, 0], 2);
+
+		L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}", {
+			maxZoom: 19,
+			attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom'
+		}).addTo(map);
+
+		function renderMap(spots) {
+
+			spots.forEach(s => {
+				try {
+					L.circleMarker([s.lat, s.lon], { radius: 7, color: '#c0392b', fillColor: '#e74c3c', fillOpacity: 0.85, weight: 2 })
+						.addTo(map)
+						.bindPopup(`<b>${s.callsign}</b> (DX)`);
+
+					L.circleMarker([s.spotterCoords.lat, s.spotterCoords.lon], { radius: 5, color: '#1a6b2e', fillColor: '#2ecc71', fillOpacity: 0.85, weight: 2 })
+						.addTo(map)
+						.bindPopup(`<b>${s.spotter}</b> (spotter)`);
+
+					if (s.spotterCoords) {
+						new L.Geodesic(
+							[[L.latLng(s.spotterCoords.lat, s.spotterCoords.lon), L.latLng(s.lat, s.lon)]],
+							{ weight: 1, opacity: 0.6, color: '#3388ff' }
+						).addTo(map);
+					}
+				}
+				catch (e) { }
+			});
+		}
+
+		////////////////////////////////////////////////////////////
+		// UI Handler
+		////////////////////////////////////////////////////////////
+		async function processInput() {
+			const fileInput = document.getElementById("fileInput");
+			let text;
+			if (fileInput.files.length > 0) {
+				text = await fileInput.files[0].text();
+			} else {
+				text = document.getElementById("inputBox").value;
+			}
+			const lines = text.split("\n").map(l => l.trim()).filter(Boolean);
+
+			const spots = await processDxLines(lines);
+			renderMap(spots);
+		}
+	</script>
+
+</body>
+
+</html>
