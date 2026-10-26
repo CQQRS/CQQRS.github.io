@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Renames files that contain a VK, ZL, or M0 callsign to just the callsign
+    Renames files that contain a valid callsign prefix to just the callsign
     with an incrementing number per callsign.
 
 .PARAMETER InputDir
