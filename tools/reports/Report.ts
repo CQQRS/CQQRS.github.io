@@ -1,3 +1,4 @@
+import { Callsign } from "../../models/Callsign";
 import { type QSO } from "./QSO";
 
 export class Report {
@@ -5,6 +6,7 @@ export class Report {
 	constructor( 
 		public readonly name: string,
 		public readonly callsign: string,
+		public readonly qth: string,
 		public readonly grid: string,
 		public readonly comments: string,
 		public readonly caption: string,
@@ -15,8 +17,7 @@ export class Report {
 		public readonly photoMime: string = "",
 		public readonly photoSize: string = ""
 	){
-
-		this.callsign = this.callsign.toUpperCase().trim();
+		this.callsign = new Callsign(this.callsign).root;
 	}
 
 	public addQSO(qso: QSO): void {

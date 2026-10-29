@@ -1,8 +1,12 @@
-import { QSO, QSOType } from "./QSO";
 import { JSDOM } from "jsdom";
+import juice from "juice";
+
+import { QSO, QSOType } from "./QSO";
 import type { TLog } from "./Types";
 
 export class LogTableBuilder {
+
+	private readonly _columnCount: number = 10
 
 	public constructor(private _log: TLog) {
 	}
@@ -13,27 +17,28 @@ export class LogTableBuilder {
 	
 	public buildHtmlPage(): string {
 
-		const table = this.buildHtmlTable();
-		return `<!DOCTYPE html><body>${table}</body>`
+		const table = this.buildHtml();
+		return `<!DOCTYPE html><head><meta charset="UTF-8"></head><body>${table}</body>`
 	}
 
 	/*
 	* returns a string containing an html table with the log
 	* 
 	*/
-	public buildHtmlTable(): string {
+	public buildHtml(): string {
 
-		const dom = new JSDOM(`<div><table id="report-table"><tbody id="tbody"></tbody></table></div>`);
+		const dom = new JSDOM(`<div id="logtable-root"><table id="report-table"><tbody id="tbody"></tbody></table></div>`);
 		const document = dom.window.document;
 		const style = document.createElement("style");
 		style.textContent = this.getStyle();
-		document.head.appendChild(style);
+		const contentRoot = document.querySelector("#content-root")!;
+		contentRoot.appendChild(style);
 
 		const bandList = [40, 80, 160, 30, 20, 17, 15, 12, 10, 6];
 
 		let tbody = document.querySelector("tbody")!;
 
-		const header = this.buildHeaderRow(document, 7);
+		const header = this.buildHeaderRow(document);
 		tbody.appendChild(header);
 
 		this._log.forEach((qsoList, stationCs) => {
@@ -43,17 +48,33 @@ export class LogTableBuilder {
 
 		const html = document.documentElement.outerHTML;
 		
-		return html;
+		const inlined = juice(html, {removeStyleTags: true});
+		
+		return inlined;
 	};
 
-	private buildHeaderRow(doc: HTMLDocument, columnCount: number) {
+	private buildHeaderRow(doc: HTMLDocument) {
 
 		const stationCell = doc.createElement("th");
 		stationCell.textContent = "Station";
 
 		const titleCell = doc.createElement("th");
-		titleCell.textContent = "Where was I heard?"
-		titleCell.colSpan = columnCount - 1;
+		
+		const title = `
+			Who <span class="worked">Worked</span>, 
+			<span class="tried">Tried</span> and 
+			<span class="heard">Heard</span> each station
+			<br />
+			on 
+			<span class="band-160">⬤</span>160 
+			<span class="band-80">⬤</span>80
+			<span class="band-40">⬤</span>40
+			<span class="band-30">⬤</span>30
+			<span class="band-20">⬤</span>20
+			?`;
+
+		titleCell.innerHTML = `${title}`;
+		titleCell.colSpan = this._columnCount - 1;
 
 		const rowEl = doc.createElement("tr");
 		rowEl.appendChild(stationCell);
@@ -66,7 +87,7 @@ export class LogTableBuilder {
 	private qsoListToTable(document: HTMLDocument, tbody: HTMLElement,
 		qsoList: QSO[], station: string, bandList: number[]) {
 
-		const columnCount = 7;
+		const columnCount = this._columnCount;
 
 		const rowCount = Math.floor(qsoList.length / columnCount) + 1;
 
@@ -107,9 +128,6 @@ export class LogTableBuilder {
 						cssClass = "worked";
 						break;
 				}
-				cssClass = qso.type == QSOType.Heard
-					? "heard"
-					: "worked";
 
 				cell.textContent = qso.callsign;
 				cell.className = `report band-${qso.band} ${cssClass}`;
@@ -130,6 +148,7 @@ export class LogTableBuilder {
 				//border-collapse: collapse;
 				//border: 1px solid #ccc;
 				font-family: Verdana, Arial;
+				font-family: Verdana, Arial, 'Segoe UI Symbol', sans-serif;
 				border-spacing: 6px;
 				font-size: 0.8em;
 			}
@@ -142,12 +161,29 @@ export class LogTableBuilder {
 				border: 1px solid #eee;
 				background-color: #fdfdfd;
 				margin: 6px;
-				white-space: nowrap
+				white-space: nowrap;
 			}
 
-			#report-table .header {
-				font-weight: bold;
+			#report-table th {
+				font-weight: normal;
+
 			}
+
+			#report-table th .worked {
+				font-weight: bold;
+				font-size: 1.2em;
+			}
+
+			#report-table th .tried {
+				font-style: italic;
+				font-size: 1.2em;
+			}
+
+			#report-table th .heard {
+				font-size: 1.2em;
+			}
+
+			
 
 			#report-table .report {
 				border-left: 10px solid #fff;
@@ -162,24 +198,44 @@ export class LogTableBuilder {
 				font-style: italic;
 			}
 
-			#report-table .band-160 {
+			#report-table td.band-160 {
 				border-left-color: #f2cc8f;
 			}
 				
-			#report-table .band-80 {
+			#report-table span.band-160 {
+				color: #f2cc8f;
+			}
+				
+			#report-table td.band-80 {
 				border-left-color: #81b29a;
 			}
 				
-			#report-table .band-40 {
+			#report-table span.band-80 {
+				color: #81b29a;
+			}
+				
+			#report-table td.band-40 {
 				border-left-color: #3d405b;
 			}
 				
-			#report-table .band-30 {
+			#report-table span.band-40 {
+				color: #3d405b;
+			}
+				
+			#report-table td.band-30 {
 				border-left-color: #e07a5f;
 			}
 				
-			#report-table .band-20 {
+			#report-table span.band-30 {
+				color: #e07a5f;
+			}
+				
+			#report-table td.band-20 {
 				border-left-color: #fb5607;
+			}
+				
+			#report-table span.band-20 {
+				color: #fb5607;
 			}
 				
 			#report-table .band-17 {
@@ -201,6 +257,8 @@ export class LogTableBuilder {
 			#report-table .band-6 {
 				border-left-color: #f4f1de;
 			}
+
+			
 			
 		`;
 

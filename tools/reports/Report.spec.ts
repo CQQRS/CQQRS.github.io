@@ -19,7 +19,7 @@ describe( "Report", () => {
 
 			// Act
 			const report = new Report(
-				"", "VK7TO ", "", "", "", "", "", "", [], "", ""
+				"", "VK7TO ", "", "", "", "", "", "", "", [], "", ""
 			);
 
 			// Assert

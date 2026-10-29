@@ -13,6 +13,7 @@ export class ApiReportToReportConvertor {
 		this.report = new Report(
 			apiReport.name,
 			apiReport.callsign,
+			apiReport.qth,
 			apiReport.grid,
 			apiReport.comments,
 			apiReport.caption,
@@ -64,7 +65,7 @@ export class ApiReportToReportConvertor {
 
 		const output: {band: number, callsign: string	}[] = [];
 
-		const regex = /[\s,]/g;
+		const regex = /[\s,.]/g;
 		csList = csList.replaceAll(regex, '|');
 		
 		csList.split(/\|+/g)

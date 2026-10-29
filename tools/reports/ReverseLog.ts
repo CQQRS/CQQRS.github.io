@@ -1,5 +1,4 @@
 import { QSOType, type QSO } from "./QSO";
-import { Report } from "./Report";
 import type { TLog } from "./Types";
 
 export class ReverseLog {
@@ -13,14 +12,33 @@ export class ReverseLog {
 	private buildReverseLog(log: TLog): TLog {
 
 		const output = new Map<string, QSO[]>();
+		const typeOrder = [QSOType.Worked, QSOType.Tried, QSOType.Heard];
 
 		log.forEach((qsoList: QSO[], callsign: string) => {
 			qsoList.forEach(qso => {
 				const stationHeard = output.getOrInsert(qso.callsign, []);
 
-				if (!stationHeard.find(v => v.callsign == callsign
+				const existing = stationHeard.find(v => v.callsign == callsign
 					&& v.band == qso.band
-				)) {
+				)
+
+				if (existing) {
+
+					//If the same station was logged with two types, use the 
+					// "strongest" contact type.
+					
+					//TerminalOutput.log(`${callsign} => ${qso.callsign} : ${existing.type} => ${qso.type} `);
+
+					if( existing.type < qso.type) {
+						
+						existing.type = qso.type;
+
+						//TerminalOutput.success(`UPDATED`);
+					}
+
+					//TerminalOutput.log("\n");
+				}
+				else {
 					stationHeard.push({
 						band: qso.band,
 						callsign: callsign,

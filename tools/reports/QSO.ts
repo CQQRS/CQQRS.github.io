@@ -13,7 +13,7 @@ export class QSO {
 }
 
 export enum QSOType {
-	Heard,
-	Tried,
-	Worked
+	Heard = 0,
+	Tried = 1,
+	Worked = 2
 }
