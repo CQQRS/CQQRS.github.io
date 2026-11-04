@@ -294,7 +294,7 @@ function generateResponse(): IApiReport {
 		caption: "",
 		submitted_at: "2024-06-01T00:00:00Z",
 		edition: "",
-		photo_filename: ""
+		photos: []
 	};
 
 }

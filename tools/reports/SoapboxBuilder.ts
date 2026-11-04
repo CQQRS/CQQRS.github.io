@@ -27,7 +27,7 @@ export class SoapboxBuilder {
 		this._reportList.map(v => {
 			
 			if( v.comments.length == 0 
-				&& v.photoFilename.length == 0
+				&& v.photos.length == 0
 			) return;
 
 			const rows = this.buildReportHtml(v);
@@ -73,11 +73,9 @@ export class SoapboxBuilder {
 			rowList.push(`<td colspan="2" class="comment">${comment}</td>`)
 		}
 
-		if( report.photoFilename !== "") {
+		if( report.photos.length > 0) {
 			
-			const photoList = Array.isArray(report.photoFilename)
-				? report.photoFilename
-				: [report.photoFilename];
+			const photoList = report.photos;
 
 			let rowHtml = `<td colspan="2" class="photo">`;
 

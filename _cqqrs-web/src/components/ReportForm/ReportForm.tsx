@@ -3,6 +3,7 @@ import styles from './ReportForm.module.css';
 import '@site/src/classes/DateExt';
 import { resizeImageFile } from '@site/src/classes/PhotoUtilities';
 import { getCurrentEdition } from '@site/src/classes/EditionTools';
+import { environment } from '@site/environment/environment';
 
 type BandHeardWorkedBlockProps = {
 	band: string;
@@ -82,48 +83,53 @@ function BandHeardWorkedBlock({
 }
 
 interface PhotoInputBlockProps {
-	onChange: (imageFile: File | undefined) => void;
+	onChange: (imageFiles: File[]) => void;
 }
 
 function PhotoInputBlock({
 	onChange
 }: PhotoInputBlockProps) {
-	const [photoPreview, setPhotoPreview] = useState<string | undefined>(undefined);
+	const [photoPreviews, setPhotoPreviews] = useState<Array<{ url: string; name: string }>>([]);
 	const [isPhotoDragActive, setIsPhotoDragActive] = useState(false);
 
 	useEffect(() => {
 		return () => {
-			if (photoPreview?.startsWith('blob:')) {
-				URL.revokeObjectURL(photoPreview);
-			}
+			photoPreviews.forEach(({ url }) => {
+				if (url.startsWith('blob:')) {
+					URL.revokeObjectURL(url);
+				}
+			});
 		};
-	}, [photoPreview]);
+	}, [photoPreviews]);
 
-	const handlePhotoFile = (file: File | undefined) => {
-		if (photoPreview?.startsWith('blob:')) {
-			URL.revokeObjectURL(photoPreview);
-		}
+	const handlePhotoFiles = (files: FileList | File[] | undefined) => {
+		const validFiles = Array.from(files ?? []).filter((file) => file.type.startsWith('image/'));
 
-		let photoUrl;
-		if (file && file.type.startsWith('image/')) {
-			photoUrl = URL.createObjectURL(file);
-		}
+		setPhotoPreviews((previousPreviews) => {
+			previousPreviews.forEach(({ url }) => {
+				if (url.startsWith('blob:')) {
+					URL.revokeObjectURL(url);
+				}
+			});
 
-		setPhotoPreview(photoUrl);
-		onChange(file);
+			return validFiles.map((file) => ({
+				url: URL.createObjectURL(file),
+				name: file.name,
+			}));
+		});
+
+		onChange(validFiles);
 	};
 
 	const handlePhotoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		const file = event.target.files?.[0];
-		handlePhotoFile(file);
+		handlePhotoFiles(event.target.files ?? undefined);
 		event.target.value = '';
 	};
 
 	const handlePhotoDrop = (event: React.DragEvent<HTMLLabelElement>) => {
 		event.preventDefault();
 		setIsPhotoDragActive(false);
-		const file = event.dataTransfer.files?.[0];
-		handlePhotoFile(file);
+		handlePhotoFiles(event.dataTransfer.files);
 	};
 
 	const handlePhotoDragOver = (event: React.DragEvent<HTMLLabelElement>) => {
@@ -136,18 +142,6 @@ function PhotoInputBlock({
 		setIsPhotoDragActive(false);
 	};
 
-	function mimeToExt(mime: string): string {
-		switch (mime) {
-			case "image/png": return "png";
-			case "image/jpeg": return "jpg";
-			case "image/webp": return "webp";
-			case "image/gif": return "gif";
-			case "image/svg+xml": return "svg";
-			case "application/json": return "json";
-			default: return "bin";
-		}
-	}
-
 	return <label
 		className={`${styles.photoUpload} ${isPhotoDragActive ? styles.photoUploadActive : ''}`}
 		htmlFor="photo-upload"
@@ -159,23 +153,35 @@ function PhotoInputBlock({
 			id="photo-upload"
 			type="file"
 			accept="image/*"
+			multiple
 			onChange={handlePhotoChange}
 			className={styles.photoInput}
 		/>
-		{photoPreview ? (
+		{photoPreviews.length > 0 ? (
 			<div className={styles.photoPreviewWrapper}>
-				<img src={photoPreview} alt="Selected report photo" className={styles.photoPreview} />
-				<span className={styles.photoFilename}>Choose a different photo</span>
+				<div className="flex flex-wrap gap-2">
+					{photoPreviews.map((preview, index) => (
+						<img
+							key={`${preview.name}-${index}`}
+							src={preview.url}
+							alt={`Selected report photo ${index + 1}`}
+							className={styles.photoPreview}
+						/>
+					))}
+				</div>
+				<span className={styles.photoFilename}>
+					{photoPreviews.length === 1 ? 'Choose a different photo' : `Choose different photos (${photoPreviews.length})`}
+				</span>
 			</div>
 		) : (
-			<span>Drop your photo here, or click to select a file.</span>
+			<span>Drop your photos here, or click to select files.</span>
 		)}
 	</label>
 }
 
 
 interface ReportFormBuilderProps {
-	photo: File | undefined
+	photo: File[] | undefined
 }
 export default function ReportFormBuilder({ }: ReportFormBuilderProps) {
 	
@@ -191,7 +197,7 @@ export default function ReportFormBuilder({ }: ReportFormBuilderProps) {
 		return map;
 	});
 
-	const [photo, setPhoto] = useState<File|undefined>(undefined);
+	const [photo, setPhoto] = useState<File[]>([]);
 	const [submitStatus, setSubmitStatus] = useState("idle");
 
 
@@ -266,14 +272,20 @@ export default function ReportFormBuilder({ }: ReportFormBuilderProps) {
 			formData.append(key, value);
 		}
 
-		const photoToUpload = photo !== undefined ? await resizeImageFile(photo, 1024) : undefined;
-		if (photoToUpload !== undefined) {
+
+
+		const resizedPhotos = await Promise.all(
+			photo.map((imageFile) => resizeImageFile(imageFile, 1024))
+		);
+
+		for (const [index, photoToUpload] of resizedPhotos.entries()) {
 			const ext = photoToUpload.name.split('.').pop();
 			const safeCallsign = formState.get("callsign")!.trim() || 'photo';
-			formData.append("file", photoToUpload, `${safeCallsign}_${edition}.${ext}`);
+			const suffix = resizedPhotos.length > 1 ? `_${index + 1}` : '';
+			formData.append("file", photoToUpload, `${safeCallsign}_${edition}${suffix}.${ext}`);
 		}
 
-		const url = `https://conryclan.com/projects/cqqrsnet/api/report.php`;
+		const url = environment.reportApi;
 		try{
 			
 			const response = await fetch(url, {method: "POST", body: formData});

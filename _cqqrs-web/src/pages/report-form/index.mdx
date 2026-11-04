@@ -4,7 +4,7 @@ import ReportForm from '@site/src/components/ReportForm/ReportForm';
 # Tuesday's activity report form
 
 export const now = new Date();
-export const isOpen = (now.getUTCDay() == 2 || (now.getUTCDay() == 3 && now.getUTCHours() < 19));
+export const isOpen = true;//(now.getUTCDay() == 2 || (now.getUTCDay() == 3 && now.getUTCHours() < 19));
 
 {isOpen ? (
 	<div>

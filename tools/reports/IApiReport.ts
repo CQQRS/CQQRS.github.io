@@ -1,4 +1,4 @@
-import { Report } from "./Report";
+import { Report, type IPhoto } from "./Report";
 
 export interface IApiReport {
 	name: string,
@@ -18,7 +18,5 @@ export interface IApiReport {
 	caption: string,
 	submitted_at: string,
 	edition: string,
-	photo_filename: string,
-	photo_mime?: string,
-	photo_size?: string
+	photos: IPhoto[]
 }

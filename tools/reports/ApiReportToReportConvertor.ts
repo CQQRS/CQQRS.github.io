@@ -19,11 +19,9 @@ export class ApiReportToReportConvertor {
 			apiReport.caption,
 			apiReport.submitted_at,
 			apiReport.edition,
-			apiReport.photo_filename,
+			apiReport.photos,
 			qsoList,
-			apiReport.photo_mime,
-			apiReport.photo_size
-		);	
+		);
 	}
 
 	private buildQsoList(report: IApiReport): QSO[] {
