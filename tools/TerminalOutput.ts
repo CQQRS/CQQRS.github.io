@@ -1,11 +1,11 @@
 export class TerminalOutput{
 	
 	private static _write(message: string, modifiers: TerminalModifier[]) {
-		process.stdout.write(`${modifiers.join("")}${message}${TerminalModifier.Reset}`);
+		process.stdout.write(`${modifiers.join(" ")}${message}${TerminalModifier.Reset}`);
 	}
 
-	public static log(message: string): void {
-		TerminalOutput._write(message, []);
+	public static log(message: string, modifier: TerminalModifier[] = []): void {
+		TerminalOutput._write(message, modifier);
 	}
 
 	public static success(message: string): void {

@@ -3,6 +3,8 @@ import juice from "juice";
 
 import { Report } from "./Report";
 import { environment } from "./environment";
+import type { QSO } from "./QSO";
+import { LogTableBuilder, type ILogTableBuilderOptions } from "./LogTableBuilder";
 
 export class SoapboxBuilder {
 
@@ -38,7 +40,7 @@ export class SoapboxBuilder {
 			});
 		});
 
-		const html = document.documentElement.outerHTML;
+		const html = contentRoot.outerHTML;
 		
 		const juiceOptions: juice.Options = {
 			removeStyleTags: true,
@@ -66,6 +68,29 @@ export class SoapboxBuilder {
 			`
 		];
 
+		if( report.qsoList.length > 0){
+			
+			const log = new Map<string, QSO[]>();
+			log.set("", report.qsoList);
+			const options: ILogTableBuilderOptions = {
+				suppressStationCallsign: true,
+				suppressTitle: true,
+				transparentBackground: true
+			}
+
+			const logHtml = new LogTableBuilder(log, options).buildHtml();
+
+			rowList.push(
+				`<td colspan="2" class="log">
+					<table><tr>
+						<td class="log-title">Station Log:</td>
+						<td>${logHtml}</td>
+					</tr></table>
+				</td>`);
+		}
+
+		
+
 		if( report.comments !== ""){
 			const comment = report.comments
 				.replace(/\r?\n/g, "<br>")
@@ -80,7 +105,7 @@ export class SoapboxBuilder {
 			let rowHtml = `<td colspan="2" class="photo">`;
 
 			photoList.map(photo => {
-				const src = `${environment.reportApiRoot}/${report.edition}/images/${photo}`
+				const src = `${environment.reportApiRoot}/${report.edition}/images/${photo.filename}`
 				rowHtml += `
 						<a href="${src}" target="_new">	
 							<img src="${src}" class="share-${photoList.length}"/>
@@ -129,18 +154,26 @@ export class SoapboxBuilder {
 			}
 
 			#soapbox-root .avitar {
-				width: 50px;
+				width: 60px;
+				padding-left: 15px;
 			}
 
 			#soapbox-root .avitar img {
 				object-fit: cover;
-				height: 50px;
-				width: 50px;
+				height: 60px;
+				width: 60px;
 				border-radius: 50%;
 			}
 
-			#soapbox-root .comment, #soapbox-root .photo {
-				padding: 15px;
+			#soapbox-root .log,
+			#soapbox-root .comment, 
+			#soapbox-root .photo {
+				padding: 5px 15px 5px 15px;
+			}
+
+			#soapbox-root .log .log-title {
+				padding-top: 8px;
+				vertical-align: top;
 			}
 
 			#soapbox-root .photo, #soapbox-root .caption {

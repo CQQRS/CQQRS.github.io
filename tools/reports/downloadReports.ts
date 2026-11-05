@@ -1,10 +1,11 @@
 import path from "node:path";
 
 import { environment } from "./environment";
-import type { IApiReport } from "./IApiReport";
+import type { IApiReport, IApiReportOld } from "./IApiReport";
 import { TerminalOutput } from "../TerminalOutput";
 import { UsageError } from "./Types";
 import { Edition } from "./Edition";
+import type { IPhoto } from "./Report";
 
 try{
 	
@@ -42,10 +43,11 @@ async function download(edition: Edition): Promise<IApiReport[]> {
 		TerminalOutput.error(` FAILED \n`);
 		throw new Error(`Could not download report.  ${response.statusText} (${response.status})`);
 	}
-	const report: IApiReport[] = await response.json() as IApiReport[];
+	const report = await response.json() as Partial<IApiReportOld & IApiReport>[];
+	const transformed = transformToApiReport(report);
 
 	TerminalOutput.success(` Success \n`);
-	return report;
+	return transformed;
 }
 
 async function saveReport(report: IApiReport[], edition: Edition) {
@@ -57,6 +59,34 @@ async function saveReport(report: IApiReport[], edition: Edition) {
 	Bun.write(savePath, JSON.stringify(report, null, 2));
 
 	TerminalOutput.log(`Reports saved to ${savePath}`);
+
+}
+
+function transformToApiReport( reportList: Partial<IApiReportOld & IApiReport> []): IApiReport[] {
+
+	return reportList.map(v=> {
+
+		if( (v.photo_filename ?? "").length > 0){
+			
+			const photo: IPhoto = {
+				filename: v.photo_filename!,
+				mime: v.photo_mime!,
+				size: v.photo_size!
+			};
+
+			v.photos = [photo];
+		}
+		else{
+			v.photos = v.photos ?? [];
+		}
+
+		delete v.photo_filename;
+		delete v.photo_mime;
+		delete v.photo_size;
+
+		return v as IApiReport;
+	});
+	
 
 }
 

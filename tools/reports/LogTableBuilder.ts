@@ -1,4 +1,6 @@
-import { JSDOM } from "jsdom";
+import jsdom, { VirtualConsole } from "jsdom";
+const {JSDOM} = jsdom;
+
 import juice from "juice";
 
 import { QSO, QSOType } from "./QSO";
@@ -8,7 +10,8 @@ export class LogTableBuilder {
 
 	private readonly _columnCount: number = 10
 
-	public constructor(private _log: TLog) {
+	public constructor(private _log: TLog, 
+		private _options: ILogTableBuilderOptions = {}) {
 	}
 
 	/*
@@ -18,7 +21,7 @@ export class LogTableBuilder {
 	public buildHtmlPage(): string {
 
 		const table = this.buildHtml();
-		return `<!DOCTYPE html><head><meta charset="UTF-8"></head><body>${table}</body>`
+		return `<!DOCTYPE html><head><meta charset="UTF-8"></head><body bgcolor="#cccccc">${table}</body>`
 	}
 
 	/*
@@ -27,31 +30,52 @@ export class LogTableBuilder {
 	*/
 	public buildHtml(): string {
 
-		const dom = new JSDOM(`<div id="logtable-root"><table id="report-table"><tbody id="tbody"></tbody></table></div>`);
+		const virtualConsole = this.getJSDOMConsole();
+		const dom = new JSDOM(`<div class="logtable-root"><table class="report-table"><tbody id="tbody"></tbody></table></div>`, {virtualConsole});
+		
 		const document = dom.window.document;
 		const style = document.createElement("style");
 		style.textContent = this.getStyle();
-		const contentRoot = document.querySelector("#content-root")!;
+		const contentRoot = document.querySelector(".logtable-root")!;
 		contentRoot.appendChild(style);
 
 		const bandList = [40, 80, 160, 30, 20, 17, 15, 12, 10, 6];
 
 		let tbody = document.querySelector("tbody")!;
 
-		const header = this.buildHeaderRow(document);
-		tbody.appendChild(header);
+		if( !(this._options.suppressTitle ?? false)) {
+			const header = this.buildHeaderRow(document);
+			tbody.appendChild(header);
+		}
 
+		let altLog = false;
 		this._log.forEach((qsoList, stationCs) => {
 
-			this.qsoListToTable(document, tbody, qsoList, stationCs, bandList);
+			this.qsoListToTable(document, tbody, qsoList, stationCs, bandList,
+				altLog
+			);
+			altLog = !altLog;
 		})
 
-		const html = document.documentElement.outerHTML;
+		const html = contentRoot.outerHTML;
 		
 		const inlined = juice(html, {removeStyleTags: true});
 		
 		return inlined;
 	};
+
+	private getJSDOMConsole(): VirtualConsole {
+
+		const virtualConsole = new jsdom.VirtualConsole();
+		virtualConsole.on("jsdomError", (err) => {
+			if (err.message !== "Could not parse CSS stylesheet") {
+				console.error(err.message);
+			}
+		});
+
+		return virtualConsole;
+
+	}
 
 	private buildHeaderRow(doc: HTMLDocument) {
 
@@ -71,6 +95,7 @@ export class LogTableBuilder {
 			<span class="band-40">⬤</span>40
 			<span class="band-30">⬤</span>30
 			<span class="band-20">⬤</span>20
+			<span class="band-10">⬤</span>Other
 			?`;
 
 		titleCell.innerHTML = `${title}`;
@@ -84,8 +109,9 @@ export class LogTableBuilder {
 
 	}
 
-	private qsoListToTable(document: HTMLDocument, tbody: HTMLElement,
-		qsoList: QSO[], station: string, bandList: number[]) {
+	private qsoListToTable(document: HTMLDocument, tbody: HTMLElement, 
+		qsoList: QSO[], station: string, bandList: number[], 
+		altLog: boolean = false) {
 
 		const columnCount = this._columnCount;
 
@@ -96,25 +122,26 @@ export class LogTableBuilder {
 			const row = document.createElement("tr");
 			rowList.push(row);
 			tbody.appendChild(row);
-
-			if (cI == 0) {
-				row.classList += "new-station";
-			}
+			row.classList += `${station} ${altLog ? "alt" : ""}`;
+			row.classList += `${cI===0 ? " new-station-line" : ""}`;
+			row.classList += `${this._options.transparentBackground 
+				? " transparent" : ""}`;
 		}
 
-		const stationCell = document.createElement("td");
-		stationCell.textContent = station;
-		stationCell.rowSpan = rowCount;
+		if( !(this._options.suppressStationCallsign ?? false)) {
+			const stationCell = document.createElement("td");
+			stationCell.textContent = station;
+			stationCell.rowSpan = rowCount;
 
-		rowList[0]!.appendChild(stationCell);
+			rowList[0]!.appendChild(stationCell);
+		}
 
 		const cellCount = (columnCount * rowCount) - rowCount;
 		for (let cI = 0; cI < cellCount; cI++) {
 
 			let qso, cssClass;
-
 			const cell = document.createElement("td");
-
+			
 			if (qso = qsoList[cI]) {
 
 				switch( qso.type ){
@@ -129,9 +156,19 @@ export class LogTableBuilder {
 						break;
 				}
 
-				cell.textContent = qso.callsign;
-				cell.className = `report band-${qso.band} ${cssClass}`;
+				const bandDot = document.createElement("span");
+				bandDot.textContent = "⬤";
+				bandDot.className = `band-${qso.band}`;
+			
+				const callTxt = document.createElement("span")
+				callTxt.className = `${cssClass}`;
+				callTxt.textContent = qso.callsign;
+				
+				cell.className = `report`;
 				cell.title = `${cssClass} on ${qso.band} m`;
+
+				cell.appendChild(bandDot);
+				cell.appendChild(callTxt);
 			}
 
 			const rowIndex = (cI % rowCount + rowCount) % rowCount;
@@ -144,125 +181,103 @@ export class LogTableBuilder {
 
 		const out = `
 
-			#report-table {
-				//border-collapse: collapse;
-				//border: 1px solid #ccc;
-				font-family: Verdana, Arial;
+			.report-table {
 				font-family: Verdana, Arial, 'Segoe UI Symbol', sans-serif;
-				border-spacing: 6px;
+				border-spacing: 0;
 				font-size: 0.8em;
 			}
-
-			#report-table tr.new-station {
 			
+			.report-table tr {
+				background-color: #fdfdfd;
+
+				&.new-station-line td {
+					border-top: 5px solid #fff;	
+				}
+
+				&.alt {
+					background-color: #f8f8f8;
+				}
+					
+				&.transparent {
+					background-color: transparent;
+					
+					td {
+						border-top: 5px solid transparent;
+					}
+				}
+
 			}
 			
-			#report-table td, #report-table th {
+			.report-table td {
+				padding: 3px;
+				white-space: nowrap;
+				vertical-align: top;
+			}
+
+			.report-table th {
 				border: 1px solid #eee;
 				background-color: #fdfdfd;
-				margin: 6px;
 				white-space: nowrap;
-			}
-
-			#report-table th {
 				font-weight: normal;
-
 			}
 
-			#report-table th .worked {
+			.report-table th .worked {
 				font-weight: bold;
 				font-size: 1.2em;
 			}
 
-			#report-table th .tried {
+			.report-table th .tried {
 				font-style: italic;
 				font-size: 1.2em;
 			}
 
-			#report-table th .heard {
+			.report-table th .heard {
 				font-size: 1.2em;
 			}
-
 			
-
-			#report-table .report {
-				border-left: 10px solid #fff;
-				border-radius: 5px 0 0 5px;
-			}
-			
-			#report-table .worked {
+			.report-table .worked {
 				font-weight: bold;
 			}
 
-			#report-table .tried {
+			.report-table .tried {
 				font-style: italic;
 			}
 
-			#report-table td.band-160 {
-				border-left-color: #f2cc8f;
-			}
-				
-			#report-table span.band-160 {
+			.report-table span.band-160 {
 				color: #f2cc8f;
 			}
 				
-			#report-table td.band-80 {
-				border-left-color: #81b29a;
-			}
-				
-			#report-table span.band-80 {
+			.report-table span.band-80 {
 				color: #81b29a;
 			}
 				
-			#report-table td.band-40 {
-				border-left-color: #3d405b;
-			}
-				
-			#report-table span.band-40 {
+			.report-table span.band-40 {
 				color: #3d405b;
 			}
 				
-			#report-table td.band-30 {
-				border-left-color: #e07a5f;
-			}
-				
-			#report-table span.band-30 {
+			.report-table span.band-30 {
 				color: #e07a5f;
 			}
 				
-			#report-table td.band-20 {
-				border-left-color: #fb5607;
-			}
-				
-			#report-table span.band-20 {
+			.report-table span.band-20 {
 				color: #fb5607;
 			}
 				
-			#report-table .band-17 {
-				border-left-color: #f4f1de;
+			.report-table {
+				span.band-17, span.band-15, span.band-12, span.band-10, span.band-6,  {
+					color: #f4f1de;
+				}
 			}
-				
-			#report-table .band-15 {
-				border-left-color: #f4f1de;
-			}
-				
-			#report-table .band-12 {
-				border-left-color: #f4f1de;
-			}
-				
-			#report-table .band-10 {
-				border-left-color: #f4f1de;
-			}
-				
-			#report-table .band-6 {
-				border-left-color: #f4f1de;
-			}
-
-			
-			
 		`;
 
 		return out;
 	}
+
+}
+
+export interface ILogTableBuilderOptions {
+	suppressTitle?: boolean;
+	suppressStationCallsign?: boolean;
+	transparentBackground?: boolean;
 
 }

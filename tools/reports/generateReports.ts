@@ -10,7 +10,7 @@ import type { QSO } from "./QSO";
 import { ReverseLog } from "./ReverseLog";
 import { LogTableBuilder } from "./LogTableBuilder";
 import { loadMemberDirectory, type IMemberEntry } from "./MemberDirectory";
-import { TerminalOutput } from "../TerminalOutput";
+import { TerminalModifier, TerminalOutput } from "../TerminalOutput";
 import { SoapboxBuilder } from "./SoapboxBuilder";
 import { env } from "node:process";
 
@@ -26,15 +26,17 @@ try {
 	const reportList = await loadReports(edition);
 	reportList.sort((a, b) => a.callsign.localeCompare(b.callsign));
 
-	const soapbox = new SoapboxBuilder(reportList).buildHtmlPage();
-	Bun.write("c:/users/lance/temp/soapbox.html", soapbox);
-	TerminalOutput.log(`Soapbox saved to 'c:/users/lance/temp/soapbox.html'\n\n`);
-
 	const log = new Map<string, QSO[]>();
 	reportList.map(v => {
 		const qsoList = log.getOrInsert(v.callsign, []);
 		qsoList.push(...v.qsoList);
 	});
+
+	const soapbox = new SoapboxBuilder(reportList);
+	Bun.write("c:/users/lance/temp/soapbox.md", soapbox.buildHtml());
+	Bun.write("c:/users/lance/temp/soapboxPreview.html", soapbox.buildHtmlPage());
+	TerminalOutput.log(`Soapbox preview at 'file:///c:/users/lance/temp/soapboxPreview.html'\n`);
+	TerminalOutput.log(`Soapbox saved to 'file:///c:/users/lance/temp/soapbox.md'\n\n`);
 
 	const reverseLog = new ReverseLog(log).log;
 
@@ -60,17 +62,27 @@ try {
 
 	const table = new LogTableBuilder(log).buildHtmlPage();
 	const tableR = new LogTableBuilder(reverseLog).buildHtmlPage();
-	const tableRF = new LogTableBuilder(filteredReverseLog).buildHtmlPage();
+	const tableRF = new LogTableBuilder(filteredReverseLog);
 
 	Bun.write("c:/users/lance/temp/log.html", table);
 	Bun.write("c:/users/lance/temp/logR.html", tableR);
-	Bun.write("c:/users/lance/temp/logRF.html", tableRF);
+	Bun.write("c:/users/lance/temp/logRF.html", tableRF.buildHtmlPage());
+	Bun.write("c:/users/lance/temp/logRF.md", tableRF.buildHtml());
 
-	TerminalOutput.log(`Reverse log saved to 'c:/users/lance/temp/logRF.html'\n\n`);
+	TerminalOutput.log(`Reverse log preview saved to 'file://c:/users/lance/temp/logRF.html'\n`);
+	TerminalOutput.log(`Reverse log saved to 'file://c:/users/lance/temp/logRF.md'\n\n`);
 
+	/*
 	TerminalOutput.log(`Reports received: \t${log.size} \n`);
 	TerminalOutput.log(`Members on air: \t${filteredReverseLog.size} \n`);
 	TerminalOutput.log(`Total on air: \t\t${reverseLog.size}\n\n`);
+	*/
+
+	const outputText = `${log.size} reports were received, showing `
+		+ `${filteredReverseLog.size} CQQRS members who worked and heard `
+		+ `${reverseLog.size} stations!`;
+
+	TerminalOutput.log(`${outputText}\n\n`, [TerminalModifier.Blue]);
 
 	printContributers(reportList, Bun.argv[3] ?? "");
 	
@@ -133,6 +145,6 @@ function printContributers(reportList: Report[], extras: string) {
 	var contribText = formatter.format(contribList)
 
 
-	TerminalOutput.log(`${contribList.length} Contributors:\n`);
-	TerminalOutput.log(contribText);
+	TerminalOutput.log(`${contribList.length} Contributors:\n`, [TerminalModifier.Blue]);
+	TerminalOutput.log(contribText, [TerminalModifier.Blue]);
 }
