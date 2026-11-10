@@ -1,6 +1,7 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
 
+
 function writeServerErrorLog(string $message): void
 {
     $logDir = __DIR__ . '/logs';
@@ -56,8 +57,8 @@ function resize_long_edge(string $inputPath, string $outputPath, int $size): boo
         '%s %s -resize %dx%d %s 2>&1',
         escapeshellarg($convertBinary),
         escapeshellarg($inputPath),
-		escapeshellarg($size),
-		escapeshellarg($size),
+        $size,
+        $size,
         escapeshellarg($outputPath)
     );
 
@@ -115,17 +116,8 @@ function find_and_update_record(array &$entries, array $record): array
 
         $existingRecord = $entry;
 
-        if (empty($record['photo_filename']) && !empty($existingRecord['photo_filename'])) {
-            $record['photo_filename'] = $existingRecord['photo_filename'];
-        }
-        if (empty($record['photo_mime']) && !empty($existingRecord['photo_mime'])) {
-            $record['photo_mime'] = $existingRecord['photo_mime'];
-        }
-        if (empty($record['photo_size']) && !empty($existingRecord['photo_size'])) {
-            $record['photo_size'] = $existingRecord['photo_size'];
-        }
-        if (empty($record['photo_original_filename']) && !empty($existingRecord['photo_original_filename'])) {
-            $record['photo_original_filename'] = $existingRecord['photo_original_filename'];
+        if (empty($record['photos']) && !empty($existingRecord['photos'])) {
+            $record['photos'] = $existingRecord['photos'];
         }
 
         $entries[$index] = array_merge($existingRecord, $record);
@@ -134,6 +126,40 @@ function find_and_update_record(array &$entries, array $record): array
 
     $entries[] = $record;
     return $entries;
+}
+
+function collect_uploaded_files($fileInput): array
+{
+    if (!is_array($fileInput)) {
+        return [];
+    }
+
+    $files = [];
+
+    if (isset($fileInput['name']) && !is_array($fileInput['name'])) {
+        if (($fileInput['error'] ?? UPLOAD_ERR_NO_FILE) === UPLOAD_ERR_OK) {
+            $files[] = $fileInput;
+        }
+        return $files;
+    }
+
+    $fileCount = is_array($fileInput['name'] ?? null) ? count($fileInput['name']) : 0;
+    for ($i = 0; $i < $fileCount; $i++) {
+        $error = $fileInput['error'][$i] ?? UPLOAD_ERR_NO_FILE;
+        if ($error !== UPLOAD_ERR_OK) {
+            continue;
+        }
+
+        $files[] = [
+            'name' => $fileInput['name'][$i] ?? '',
+            'type' => $fileInput['type'][$i] ?? 'application/octet-stream',
+            'tmp_name' => $fileInput['tmp_name'][$i] ?? '',
+            'error' => $error,
+            'size' => $fileInput['size'][$i] ?? 0,
+        ];
+    }
+
+    return $files;
 }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -165,7 +191,7 @@ if (!is_dir($uploadsFolder) && !mkdir($uploadsFolder, 0775, true) && !is_dir($up
     httpError(500, 'Unable to create upload directory.');
 }
 
-$edition = get_edition();
+$edition = $_GET["testing"] ? "2026_test" : get_edition();
 
 $targetFolder = $uploadsFolder . '/' . $edition;
 
@@ -178,7 +204,9 @@ if (!is_dir($imageFolder) && !mkdir($imageFolder, 0775, true) && !is_dir($imageF
     httpError(500, 'Unable to create image folder.');
 }
 
-$fileInput = $_FILES['file'] ?? $_FILES['photo'] ?? null;
+$fileInput = $_FILES['file'] ?? $_FILES['photo'] ?? $_FILES['file[]'] ?? null;
+
+$uploadedFiles = collect_uploaded_files($fileInput);
 
 $record = [];
 foreach ($_POST as $key => $value) {
@@ -186,46 +214,51 @@ foreach ($_POST as $key => $value) {
 }
 $record['submitted_at'] = gmdate(DATE_ATOM);
 $record['edition'] = $edition;
-$record['photo_filename'] = '';
-$record['photo_mime'] = '';
-$record['photo_size'] = '';
+$record['photos'] = [];
 
-$photoFileName = null;
-if (is_array($fileInput) && ($fileInput['error'] ?? UPLOAD_ERR_NO_FILE) === UPLOAD_ERR_OK) {
+$record['client'] = [
+	'ip_address' => $_SERVER['REMOTE_ADDR'] ?? '',
+	'user_agent' => $_SERVER['HTTP_USER_AGENT'] ?? ''
+];
+
+$uploadedFiles = collect_uploaded_files($fileInput);
+
+foreach ($uploadedFiles as $index => $uploadedFile) {
     $safeBaseName = preg_replace('/[^A-Za-z0-9._-]+/', '_', ($_POST['callsign'] ?? 'photo'));
     $safeBaseName = trim($safeBaseName, "_.-") ?: 'photo';
 
-    $extension = strtolower(pathinfo($fileInput['name'], PATHINFO_EXTENSION));
+    $extension = strtolower(pathinfo($uploadedFile['name'], PATHINFO_EXTENSION));
     $extension = $extension !== '' ? '.' . $extension : '';
 
     $year = (int) date('o');
     $week = (int) date('W');
-    $photoFileName = $imageFolder . '/' . $safeBaseName . '_' . $year . '_' . $week . $extension;
-	
-	if (!move_uploaded_file($fileInput['tmp_name'], $photoFileName)) {
-		httpError(500, 'The uploaded photo could not be saved as the original.');
-	}
+    $suffix = count($uploadedFiles) > 1 ? '_' . ($index + 1) : '';
+    $photoFileName = $imageFolder . '/' . $safeBaseName . '_' . $year . '_' . $week . $suffix . $extension;
 
-	$imageInfo = @getimagesize($photoFileName);
+    if (!move_uploaded_file($uploadedFile['tmp_name'], $photoFileName)) {
+        httpError(500, 'The uploaded photo could not be saved as the original.');
+    }
+
+    $imageInfo = @getimagesize($photoFileName);
     if ($imageInfo === false) {
         @unlink($photoFileName);
         httpError(415, 'The uploaded file is not a valid image.');
     }
 
     $resizeList = [800, 400];
+    foreach ($resizeList as $size) {
+        $resizeOutput = append_to_filename($photoFileName, $size);
+        if (!resize_long_edge($photoFileName, $resizeOutput, $size)) {
+            @unlink($resizeOutput);
+            httpError(500, 'The uploaded photo could not be resized. See the server log for details.');
+        }
+    }
 
-	foreach ($resizeList as $size) {
-		$resizeOutput = append_to_filename($photoFileName, $size);
-		if (!resize_long_edge($photoFileName, $resizeOutput, $size)) {
-			@unlink($resizeOutput);
-			httpError(500, 'The uploaded photo could not be resized. See the server log for details.');
-		}
-
-	}
-
-    $record['photo_filename'] = basename($photoFileName);;
-    $record['photo_mime'] = $fileInput['type'] ?? 'application/octet-stream';
-    $record['photo_size'] = (int) $fileInput['size'];
+    $record['photos'][] = [
+        'filename' => basename($photoFileName),
+        'mime' => $uploadedFile['type'] ?? 'application/octet-stream',
+        'size' => (int) ($uploadedFile['size'] ?? 0),
+    ];
 }
 
 $logPath = $targetFolder . '/entries.json';
@@ -289,6 +322,6 @@ http_response_code(200);
 echo json_encode([
     'status' => 'success',
     'folder' => $edition,
-    'saved_photo' => $photoFileName,
+    'saved_photos' => array_map(static fn($p) => $p['photo_filename'], $record['photos']),
     'log_file' => basename($logPath),
 ], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
