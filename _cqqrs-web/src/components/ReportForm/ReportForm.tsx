@@ -129,7 +129,7 @@ export default function ReportFormBuilder({ }: ReportFormBuilderProps) {
 			}
 
 			setSubmitStatus("success");
-			//window.location.href = "/report-form/submitted";
+			window.location.href = "/report-form/submitted";
 
 
 		}

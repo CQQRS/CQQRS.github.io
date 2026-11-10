@@ -3,7 +3,12 @@ export const environment: IReportEnvironment = {
 	resourceApiRoot: `https://conryclan.com/projects/cqqrsnet/resource`,
 	reportSavePath: `data/reports`,
 	memberDirectoryPath: "data/directory.json",
-	ragchewContributingEditors: "VK6HRC VK3ACU"
+	ragchewContributingEditors: "VK6HRC VK3ACU",
+
+	mailchimp: {
+		templateId: 10055611,
+		audienceId: "8640b3cd58"
+	}
 }
 
 export interface IReportEnvironment {
@@ -12,4 +17,9 @@ export interface IReportEnvironment {
 	reportSavePath: string;
 	memberDirectoryPath: string;
 	ragchewContributingEditors: string;
+
+	mailchimp: {
+		templateId: number,
+		audienceId: string
+	}
 }
