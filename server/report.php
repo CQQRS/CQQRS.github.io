@@ -1,6 +1,7 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
 
+
 function writeServerErrorLog(string $message): void
 {
     $logDir = __DIR__ . '/logs';
@@ -56,8 +57,8 @@ function resize_long_edge(string $inputPath, string $outputPath, int $size): boo
         '%s %s -resize %dx%d %s 2>&1',
         escapeshellarg($convertBinary),
         escapeshellarg($inputPath),
-		escapeshellarg($size),
-		escapeshellarg($size),
+        $size,
+        $size,
         escapeshellarg($outputPath)
     );
 
@@ -205,6 +206,8 @@ if (!is_dir($imageFolder) && !mkdir($imageFolder, 0775, true) && !is_dir($imageF
 
 $fileInput = $_FILES['file'] ?? $_FILES['photo'] ?? $_FILES['file[]'] ?? null;
 
+$uploadedFiles = collect_uploaded_files($fileInput);
+
 $record = [];
 foreach ($_POST as $key => $value) {
     $record[$key] = is_array($value) ? $value : trim((string) $value);
@@ -212,6 +215,11 @@ foreach ($_POST as $key => $value) {
 $record['submitted_at'] = gmdate(DATE_ATOM);
 $record['edition'] = $edition;
 $record['photos'] = [];
+
+$record['client'] = [
+	'ip_address' => $_SERVER['REMOTE_ADDR'] ?? '',
+	'user_agent' => $_SERVER['HTTP_USER_AGENT'] ?? ''
+];
 
 $uploadedFiles = collect_uploaded_files($fileInput);
 

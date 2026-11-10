@@ -4,184 +4,11 @@ import '@site/src/classes/DateExt';
 import { resizeImageFile } from '@site/src/classes/PhotoUtilities';
 import { getCurrentEdition } from '@site/src/classes/EditionTools';
 import { environment } from '@site/environment/environment';
-
-type BandHeardWorkedBlockProps = {
-	band: string;
-	heard: string;
-	worked: string;
-	tried: string;
-	placeholder: string;
-	explanation: String;
-	onHeardChange: (value: string) => void;
-	onWorkedChange: (value: string) => void;
-	onTriedChange: (value: string) => void;
-};
-
-function BandHeardWorkedBlock({
-	band,
-	heard,
-	worked,
-	tried,
-	placeholder,
-	explanation,
-	onHeardChange,
-	onWorkedChange,
-	onTriedChange,
-}: BandHeardWorkedBlockProps) {
-	return (
-		<div className="space-y-3 rounded-lg border border-slate-200 bg-white p-3 md:col-span-2">
-
-			<div className={`${styles.explanation} text-sm text-slate-600`}>
-				{explanation}
-			</div>
-			<div className="space-y-3">
-				<div className={styles.inlineFieldRow}>
-					<label htmlFor={`worked-${band}`} className={styles.inlineFieldLabel}>
-						Worked {band}
-					</label>
-					<input
-						id={`worked-${band}`}
-						type="text"
-						min="0"
-						value={worked}
-						onChange={(e) => onWorkedChange(e.target.value)}
-						className={`${styles.input} ${styles.inlineFieldInput}`}
-						placeholder={placeholder}
-					/>
-				</div>
-				<div className={styles.inlineFieldRow}>
-					<label htmlFor={`heard-${band}`} className={styles.inlineFieldLabel}>
-						Heard {band}
-					</label>
-					<input
-						id={`heard-${band}`}
-						type="text"
-						min="0"
-						value={heard}
-						onChange={(e) => onHeardChange(e.target.value)}
-						className={`${styles.input} ${styles.inlineFieldInput}`}
-						placeholder={placeholder}
-					/>
-				</div>
-				<div className={styles.inlineFieldRow}>
-					<label htmlFor={`tried-${band}`} className={styles.inlineFieldLabel}>
-						Tried {band}
-					</label>
-					<input
-						id={`tried-${band}`}
-						type="text"
-						min="0"
-						value={tried}
-						onChange={(e) => onTriedChange(e.target.value)}
-						className={`${styles.input} ${styles.inlineFieldInput}`}
-						placeholder={placeholder}
-					/>
-				</div>
-			</div>
-		</div>
-	);
-}
-
-interface PhotoInputBlockProps {
-	onChange: (imageFiles: File[]) => void;
-}
-
-function PhotoInputBlock({
-	onChange
-}: PhotoInputBlockProps) {
-	const [photoPreviews, setPhotoPreviews] = useState<Array<{ url: string; name: string }>>([]);
-	const [isPhotoDragActive, setIsPhotoDragActive] = useState(false);
-
-	useEffect(() => {
-		return () => {
-			photoPreviews.forEach(({ url }) => {
-				if (url.startsWith('blob:')) {
-					URL.revokeObjectURL(url);
-				}
-			});
-		};
-	}, [photoPreviews]);
-
-	const handlePhotoFiles = (files: FileList | File[] | undefined) => {
-		const validFiles = Array.from(files ?? []).filter((file) => file.type.startsWith('image/'));
-
-		setPhotoPreviews((previousPreviews) => {
-			previousPreviews.forEach(({ url }) => {
-				if (url.startsWith('blob:')) {
-					URL.revokeObjectURL(url);
-				}
-			});
-
-			return validFiles.map((file) => ({
-				url: URL.createObjectURL(file),
-				name: file.name,
-			}));
-		});
-
-		onChange(validFiles);
-	};
-
-	const handlePhotoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		handlePhotoFiles(event.target.files ?? undefined);
-		event.target.value = '';
-	};
-
-	const handlePhotoDrop = (event: React.DragEvent<HTMLLabelElement>) => {
-		event.preventDefault();
-		setIsPhotoDragActive(false);
-		handlePhotoFiles(event.dataTransfer.files);
-	};
-
-	const handlePhotoDragOver = (event: React.DragEvent<HTMLLabelElement>) => {
-		event.preventDefault();
-		setIsPhotoDragActive(true);
-	};
-
-	const handlePhotoDragLeave = (event: React.DragEvent<HTMLLabelElement>) => {
-		event.preventDefault();
-		setIsPhotoDragActive(false);
-	};
-
-	return <label
-		className={`${styles.photoUpload} ${isPhotoDragActive ? styles.photoUploadActive : ''}`}
-		htmlFor="photo-upload"
-		onDragOver={handlePhotoDragOver}
-		onDragLeave={handlePhotoDragLeave}
-		onDrop={handlePhotoDrop}
-	>
-		<input
-			id="photo-upload"
-			type="file"
-			accept="image/*"
-			multiple
-			onChange={handlePhotoChange}
-			className={styles.photoInput}
-		/>
-		{photoPreviews.length > 0 ? (
-			<div className={styles.photoPreviewWrapper}>
-				<div className="flex flex-wrap gap-2">
-					{photoPreviews.map((preview, index) => (
-						<img
-							key={`${preview.name}-${index}`}
-							src={preview.url}
-							alt={`Selected report photo ${index + 1}`}
-							className={styles.photoPreview}
-						/>
-					))}
-				</div>
-				<span className={styles.photoFilename}>
-					{photoPreviews.length === 1 ? 'Choose a different photo' : `Choose different photos (${photoPreviews.length})`}
-				</span>
-			</div>
-		) : (
-			<span>Drop your photos here, or click to select files.</span>
-		)}
-	</label>
-}
-
+import { BandHeardWorkedBlock } from './BandHeardWorkedBlock';
+import { PhotoInputBlock } from './PhotoInputBlock';
 
 interface ReportFormBuilderProps {
-	photo: File[] | undefined
+	photos: File[] | undefined
 }
 export default function ReportFormBuilder({ }: ReportFormBuilderProps) {
 	
@@ -197,7 +24,7 @@ export default function ReportFormBuilder({ }: ReportFormBuilderProps) {
 		return map;
 	});
 
-	const [photo, setPhoto] = useState<File[]>([]);
+	const [photos, setPhotos] = useState<File[]>([]);
 	const [submitStatus, setSubmitStatus] = useState("idle");
 
 
@@ -267,28 +94,31 @@ export default function ReportFormBuilder({ }: ReportFormBuilderProps) {
 
 		saveResponse(edition);
 
+		// Step 1: Prepare and send form data (without files)
 		const formData = new FormData();
 		for( const [key, value] of formState) {
 			formData.append(key, value);
 		}
 
-
-
-		const resizedPhotos = await Promise.all(
-			photo.map((imageFile) => resizeImageFile(imageFile, 1024))
-		);
-
-		for (const [index, photoToUpload] of resizedPhotos.entries()) {
-			const ext = photoToUpload.name.split('.').pop();
+		// Step 2: Send form data first (we'll add files to server if needed)
+		
+		// Add all photos to the same submission
+		for (const [index, photo] of photos.entries()) {
+			const resizedPhoto = await resizeImageFile(photo, 1024);
+			const ext = resizedPhoto.name.split('.').pop();
 			const safeCallsign = formState.get("callsign")!.trim() || 'photo';
-			const suffix = resizedPhotos.length > 1 ? `_${index + 1}` : '';
-			formData.append("file", photoToUpload, `${safeCallsign}_${edition}${suffix}.${ext}`);
+			const suffix = photos.length > 1 ? `_${index + 1}` : '';
+			const filename = `${safeCallsign}_${edition}${suffix}.${ext}`;
+			formData.append("file[]", resizedPhoto, filename);
 		}
 
 		const url = environment.reportApi;
 		try{
-			
-			const response = await fetch(url, {method: "POST", body: formData});
+		
+			const response = await fetch(url, {
+				method: "POST", 
+				body: formData
+			});
 			const payload = await response.json().catch(() => null);
 
 			if (!response.ok) {
@@ -299,12 +129,11 @@ export default function ReportFormBuilder({ }: ReportFormBuilderProps) {
 			}
 
 			setSubmitStatus("success");
-			window.location.href = "/report-form/submitted";
+			//window.location.href = "/report-form/submitted";
 
 
 		}
 		catch(ex) {
-			console.warn(ex);
 			alert('There was a problem submitting the report.');
 			setSubmitStatus("error");
 		}
@@ -458,7 +287,7 @@ export default function ReportFormBuilder({ }: ReportFormBuilderProps) {
 				<div className="mt-6">
 					Why not share a photo of your operating position, radio, antenna or anything else readers may find interesting.
 					<PhotoInputBlock
-						onChange={setPhoto}
+						onChange={setPhotos}
 					/>
 					<div className={styles.fieldGroup}>
 						<label htmlFor="caption" className="mb-1 block text-sm font-medium text-slate-700">
@@ -471,7 +300,7 @@ export default function ReportFormBuilder({ }: ReportFormBuilderProps) {
 							value={formState.get("caption") ?? ""}
 							onChange={(e) => setFormVal("caption", e.target.value)}
 							className={`w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-slate-900 shadow-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100 ${styles.input}`}
-							placeholder="Caption to accompany your photo"
+							placeholder="Caption to accompany your photo(s)"
 						/>
 					</div>
 				</div>
