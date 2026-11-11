@@ -105,10 +105,11 @@ export class SoapboxBuilder {
 			let rowHtml = `<td colspan="2" class="photo">`;
 
 			photoList.map(photo => {
-				const src = `${environment.reportApiRoot}/${report.edition}/images/${photo.filename}`
+				const srcDir = `${environment.reportApiRoot}/${report.edition}/images/`
+				const thumb = photo.filename.replace(".", "_400.")
 				rowHtml += `
-						<a href="${src}" target="_new">	
-							<img src="${src}" class="share-${photoList.length}"/>
+						<a href="${srcDir}${photo.filename}" target="_new">	
+							<img src="${srcDir}${thumb}" class="share-${photoList.length}"/>
 						</a>
 				`;
 			});
@@ -165,6 +166,10 @@ export class SoapboxBuilder {
 				border-radius: 50%;
 			}
 
+			#soapbox-root .comment {
+				line-height: 1.5em;
+			}
+
 			#soapbox-root .log,
 			#soapbox-root .comment, 
 			#soapbox-root .photo {
@@ -198,7 +203,7 @@ export class SoapboxBuilder {
 			}
 
 			#soapbox-root .caption {
-				size: 14px;
+				font-size: 0.9em;
 				font-style: italic;
 			}
 
