@@ -70,6 +70,13 @@ export class SoapboxBuilder {
 
 		if( report.qsoList.length > 0){
 			
+			report.qsoList.sort((a, b) => {
+			//first non-zero value dictates the sort.
+			return b.band - a.band ||
+				b.type.toString().localeCompare(a.type.toString()) ||
+				a.callsign.length - b.callsign.length;
+			});
+
 			const log = new Map<string, QSO[]>();
 			log.set("", report.qsoList);
 			const options: ILogTableBuilderOptions = {
