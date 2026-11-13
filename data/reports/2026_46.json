@@ -1,0 +1,694 @@
+[
+  {
+    "name": "MIKE",
+    "callsign": "DL3YZ",
+    "qth": "Stuttgart",
+    "grid": "",
+    "heard40": "",
+    "worked40": "",
+    "tried40": "",
+    "heard80": "",
+    "worked80": "",
+    "tried80": "",
+    "heardOther": "DJ9FM@20",
+    "workedOther": "VKk3DRQ@20 VK4IM@40",
+    "triedOther": "",
+    "comments": "20 m\r\nThe band was a little more noisy, but we had 129 SFU again. It´s always a great pleasure to meet old and new friends on the ether. So thanks to OM Manny VK3DRQ for our 44th QSO and to Adam VK4IM for our very first. Great fun. May there be many more to come. Have a great week, Mike.",
+    "caption": "New antenna mount idea for bicycle portable :-)",
+    "submitted_at": "2026-11-10T08:13:57+00:00",
+    "edition": "2026_46",
+    "photos": [
+      {
+        "filename": "DL3YZ_2026_46_1.jpg",
+        "mime": "image/jpeg",
+        "size": 223961
+      },
+      {
+        "filename": "DL3YZ_2026_46_2.jpg",
+        "mime": "image/jpeg",
+        "size": 365297
+      }
+    ],
+    "client": {
+      "ip_address": "91.0.157.241",
+      "user_agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 OPR/95.0.0.0"
+    }
+  },
+  {
+    "name": "Adam",
+    "callsign": "VK4IM",
+    "qth": "North Lakes QLD",
+    "grid": "",
+    "heard40": "VK5NE, VK4EJS, VK7JZ",
+    "worked40": "VK/M0NNK",
+    "tried40": "",
+    "heard80": "",
+    "worked80": "",
+    "tried80": "",
+    "heardOther": "VK3DRQ",
+    "workedOther": "DL3YZ@20, DJ9FM@20",
+    "triedOther": "",
+    "comments": "I've been trying for weeks to break through to Mike and Willie over in Germany, with no luck... until today!\r\n\r\nHow chuffed was I to get both of them. I heard Fausto just as he went QRT, a missed opportunity, so no hat trick. Maybe next time.\r\n\r\nIt was not until I went back over my log later that I realised I \"could\" have exchanged SKCC numbers with both Mike and Willie had I been paying attention. I'd have to use my bug and not my paddle though, which kind of defeats the purpose of the QRS concept, as I can't get the bug below about 16wpm.\r\n\r\nLater, I moved to 40m and heard a weird call (The slash threw me!). Lo and behold, there's Ross VK/M0NNK with a 599 plus signal working remote from Canberra. He is by far the best copy I've ever had on 40m out of England hihi.\r\n\r\nHad a great time on Tuesday night and look forward to the next one.\r\n\r\nCheers\r\nAdam, VK4IM\r\nNorth Lakes, Brisbane",
+    "caption": "",
+    "submitted_at": "2026-11-10T09:17:19+00:00",
+    "edition": "2026_46",
+    "photos": [],
+    "client": {
+      "ip_address": "124.158.98.33",
+      "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "name": "Ross",
+    "callsign": "VK/M0NNK",
+    "qth": "Exeter UK via mystery location near Canberra",
+    "grid": "",
+    "heard40": "VK5NE VK3EJS ZL1SJ",
+    "worked40": "VK2NNW  VK7JZ VK4IM",
+    "tried40": "VK3KLE",
+    "heard80": "",
+    "worked80": "",
+    "tried80": "",
+    "heardOther": "",
+    "workedOther": "",
+    "triedOther": "",
+    "comments": "Working from the IKARA remote access radio near Canberra over the internet from the UK brought in stations from all over Australia and New Zealand (with the unsurprising exception of VK6). Operators coped with my \"VK/M0NNK\" callsign better than I expected, so \"thank you\" chaps. It was a thoroughly enjoyable session with an easy copy of all three stations worked.",
+    "caption": "",
+    "submitted_at": "2026-11-10T09:29:23+00:00",
+    "edition": "2026_46",
+    "photos": [],
+    "client": {
+      "ip_address": "86.169.210.82",
+      "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "name": "Willie",
+    "callsign": "DJ9FM",
+    "qth": "JO30WJ - Montabaur - Half way between Frankfurt in the south and Cologne in the north.",
+    "grid": "",
+    "heard40": "",
+    "worked40": "",
+    "tried40": "",
+    "heard80": "",
+    "worked80": "",
+    "tried80": "",
+    "heardOther": "",
+    "workedOther": "VK4IM@20",
+    "triedOther": "",
+    "comments": "It's called DXperiment. So I put up an experimental antenna, a vertical moxon. I had to struggle a bit, the weight bent the glasfibre mast down and I had to attach some guy lines. The coax at the feedpoint will need some support in the future and a more rigid mast is on the way. But it worked, proofed by a contact with VK4IM, Adam - TNX!\r\nAfter trying for a while, having contacts and success makes things easier: I am not that nervous as I was in the beginning and I am looking forward to next Tuesday.",
+    "caption": "Experimental vertical moxon in front of a blue sky on a cold day (-0.5 C).",
+    "submitted_at": "2026-11-10T10:57:39+00:00",
+    "edition": "2026_46",
+    "photos": [
+      {
+        "filename": "DJ9FM_2026_46.jpg",
+        "mime": "image/jpeg",
+        "size": 96559
+      }
+    ],
+    "client": {
+      "ip_address": "46.114.20.49",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:159.0) Gecko/20100101 Firefox/159.0"
+    }
+  },
+  {
+    "name": "Jim Semmens",
+    "callsign": "VK7JZ",
+    "qth": "Portable on the Queens Domain, Hobart",
+    "grid": "",
+    "heard40": "VK4IM, VK3DBD, VK5ET, VK5NE",
+    "worked40": "VK/M0NNK, VK3DRQ, VK2KI",
+    "tried40": "",
+    "heard80": "",
+    "worked80": "",
+    "tried80": "",
+    "heardOther": "",
+    "workedOther": "",
+    "triedOther": "",
+    "comments": "Nice to be back on the paddle, I listened for a time from home and all I could hear above my noise floor was Gerard VK2IO/P in VK7 activating a park in CW mode.  Totally frustrated my SOTA kit got packed into my bag pretty quick as I was going to find somewhere with less QRM.  About 20 minutes later I was setting up on the Queens Domain with a new antenna, a QRP dipole I had cut for 20, 40, 80 meters CW and had not been put to a live QSO yet.  Tonight fixed that.  On my first CQ QRS call I was thrilled to to receive contact from Ross VK/M0NNK who was transmitting via internet and then a station out of Canberra.  I then listened for a while and noted some other QSO's on the band.  Then a QSO with Manny VK3DRQ, sorry Manny I had brain fade and first time round copied VK2DRQ in error, thanks for straightening me out.  Good questions, yes I do need to get more SOTA summits sorted in CW mode.  I then received a call from Mark VK2KI so I went bold and gave him a bit of lip.  Within a couple of minutes the security vehicle was circulating and reminding me I was above a lockable gate, a quick look at the time and I had to get off the Domain, my apologies to Mark for not completing the QSO, we got signal reports exchanged so it was 'enough'.  Then everything was fast de-mounted and thrown into the back of my car in a tangle, I made it out before the gate locked me in.  Thanks everyone for a really enjoyable night. Jim",
+    "caption": "",
+    "submitted_at": "2026-11-10T11:46:40+00:00",
+    "edition": "2026_46",
+    "photos": [],
+    "client": {
+      "ip_address": "61.68.221.92",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:158.0) Gecko/20100101 Firefox/158.0"
+    }
+  },
+  {
+    "name": "Jamie",
+    "callsign": "VK3IDK",
+    "qth": "Point Cook",
+    "grid": "",
+    "heard40": "VK2KI, VK3DRQ, VK3RU",
+    "worked40": "",
+    "tried40": "",
+    "heard80": "VK4PN, VK6NW",
+    "worked80": "",
+    "tried80": "",
+    "heardOther": "",
+    "workedOther": "",
+    "triedOther": "",
+    "comments": "",
+    "caption": "",
+    "submitted_at": "2026-11-10T11:47:03+00:00",
+    "edition": "2026_46",
+    "photos": [],
+    "client": {
+      "ip_address": "203.12.13.11",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "name": "paul",
+    "callsign": "Vk3kle",
+    "qth": "stawell",
+    "grid": "",
+    "heard40": "vk2uct,vk3mxw, vk2ki, vk3drq",
+    "worked40": "vk3ejs, vk3mxw, vk2drq, vk3xu,",
+    "tried40": "",
+    "heard80": "",
+    "worked80": "",
+    "tried80": "",
+    "heardOther": "",
+    "workedOther": "",
+    "triedOther": "",
+    "comments": "Band was in good condition early in the qrs net. Quiet a few operators on 7.025 from 16:00 esdt onwards. After 9pm the QRN from static crashes made working week stations not a sucsuesfull copy. My rig this week was a nice ts820. This week I up-graded the audio board with a pair of new audio driver transistors ksc1845fta. After the work i reduced the bias ref voltage on car board to 2.8 v . This voltage is set to 3.3v in manual . It controls the first mixer and rf amp gate voltages. Noticeably reducing the ba ground his heard without an antenna.",
+    "caption": "",
+    "submitted_at": "2026-11-10T11:59:16+00:00",
+    "edition": "2026_46",
+    "photos": [],
+    "client": {
+      "ip_address": "101.117.157.234",
+      "user_agent": "Mozilla/5.0 (Android 17; Mobile; rv:159.0) Gecko/159.0 Firefox/159.0"
+    }
+  },
+  {
+    "name": "Tim",
+    "callsign": "VK5AV",
+    "qth": "Mount Gambier",
+    "grid": "",
+    "heard40": "VK/M0NNK, VK4IK, VK3DRQ, VK7JZ, VK2VCA, VK4EV, VK2DLF, VK6KHZ",
+    "worked40": "VK2IO, VK2KI",
+    "tried40": "",
+    "heard80": "",
+    "worked80": "",
+    "tried80": "",
+    "heardOther": "",
+    "workedOther": "",
+    "triedOther": "",
+    "comments": "",
+    "caption": "",
+    "submitted_at": "2026-11-10T12:26:28+00:00",
+    "edition": "2026_46",
+    "photos": [],
+    "client": {
+      "ip_address": "101.174.10.74",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "name": "Fausto",
+    "callsign": "IU4FLS",
+    "qth": "Bologna -  Italy",
+    "grid": "",
+    "heard40": "",
+    "worked40": "",
+    "tried40": "",
+    "heard80": "",
+    "worked80": "",
+    "tried80": "",
+    "heardOther": "",
+    "workedOther": "",
+    "triedOther": "",
+    "comments": "Hello my friends . Wx in Bologna was wet and grey. I started calling CQ at 14041 KHz with 75w up to 90w after a Mark's msg informing my signal was weak. Noise level at my end was S3 . Regretfully I could detect no signal but guessed only part of a call sign (...K2...) . I sent 'agn ?' but Qsb and Qrm hid the answer .\r\nHopefully next time it will be better. 73 de Iu4fls Fausto",
+    "caption": "",
+    "submitted_at": "2026-11-10T12:59:39+00:00",
+    "edition": "2026_46",
+    "photos": [],
+    "client": {
+      "ip_address": "93.38.5.130",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:159.0) Gecko/20100101 Firefox/159.0"
+    }
+  },
+  {
+    "name": "Wayne",
+    "callsign": "VK6NW",
+    "qth": "Bridgetown",
+    "grid": "",
+    "heard40": "VK2KI, VK5AV",
+    "worked40": "VK6NQL, VK6KHZ",
+    "tried40": "",
+    "heard80": "",
+    "worked80": "VK4PN",
+    "tried80": "",
+    "heardOther": "VK2KI@20, DL3YZ@20, IU4FLS@20",
+    "workedOther": "",
+    "triedOther": "IU4FLS@20",
+    "comments": "The 40m band noise was at S3 in the afternoon so I was fairly optimistic that we were in for a great evening. I managed to sneak away for a bike ride and when I came back the noise level was S8 due to QRN. I did hear Tim VK5AV working Mark VK2KI but whilst Tim was readable, I could only hear the odd dit from Mark. Entirely understandable given Mark had only 10W.\r\nThe 80m band was S9 QRN, but managed to just work Sava through the adversity.",
+    "caption": "Hy-Gain DX88 Multiband Vertical with elevated counterpoise",
+    "submitted_at": "2026-11-10T22:00:59+00:00",
+    "edition": "2026_46",
+    "photos": [
+      {
+        "filename": "VK6NW_2026_46_1.jpg",
+        "mime": "image/jpeg",
+        "size": 109354
+      },
+      {
+        "filename": "VK6NW_2026_46_2.jpg",
+        "mime": "image/jpeg",
+        "size": 399811
+      }
+    ],
+    "client": {
+      "ip_address": "1.159.149.97",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "name": "Donald",
+    "callsign": "VK6JDM",
+    "qth": "20 km west of Esperance",
+    "grid": "",
+    "heard40": "VK3DRQ, VK7JZ",
+    "worked40": "",
+    "tried40": "",
+    "heard80": "",
+    "worked80": "",
+    "tried80": "",
+    "heardOther": "",
+    "workedOther": "",
+    "triedOther": "",
+    "comments": "There was a very high noise floor on 40 metres and few stations were audible above the noise.  However clearly there was good propagation from Russia as the K single letter naval beacon on 7.039 MHz was coming through S5. There were a few SSB signals from the north also audible. \r\n\r\nVK3 DRQ and VK7jz could be followed at times.\r\n\r\nOn another note, I have been keeping in touch with Max VK6FN who remains in rehab. He is making glacial progress toward returning home to his Flex radio and the famous 360 degree null antenna. I miss his loud and colourful presence on the VK6 scene where we have had great sparing matches and many laghs at and with each other.",
+    "caption": "",
+    "submitted_at": "2026-11-10T22:05:09+00:00",
+    "edition": "2026_46",
+    "photos": [],
+    "client": {
+      "ip_address": "1.146.188.177",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:159.0) Gecko/20100101 Firefox/159.0"
+    }
+  },
+  {
+    "name": "Allen",
+    "callsign": "VK5FD",
+    "qth": "Blakeview",
+    "grid": "",
+    "heard40": "VK2DLF, VK2VCA, VK2IO/P, VK3HK, VK3APJ, VK3DRQ, VK7JZ, VKk7TO",
+    "worked40": "",
+    "tried40": "",
+    "heard80": "",
+    "worked80": "",
+    "tried80": "",
+    "heardOther": "",
+    "workedOther": "",
+    "triedOther": "",
+    "comments": "",
+    "caption": "",
+    "submitted_at": "2026-11-10T22:14:52+00:00",
+    "edition": "2026_46",
+    "photos": [],
+    "client": {
+      "ip_address": "58.7.149.132",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0"
+    }
+  },
+  {
+    "name": "Mark",
+    "callsign": "VK2KI",
+    "qth": "Beautiful South Bowning NSW",
+    "grid": "",
+    "heard40": "VK3RU, YC3CPJ",
+    "worked40": "VK7JZ/p, VK3DRQ, VK5AV",
+    "tried40": "VK6XC, VK6NQL, VK6KD",
+    "heard80": "VK6NW",
+    "worked80": "VK4PN",
+    "tried80": "VK2IO/p, VK6KD",
+    "heardOther": "IU4FLS@20, DL3YZ@20 VK3DRQ@20, VK4IM@20, DJ9FM@20, VK3DBD@20",
+    "workedOther": "",
+    "triedOther": "",
+    "comments": "When I cleared the junk that had accumulated around my Trio TS-120S in the three weeks that I'd been away, I found a sticky note I'd left myself.  The note said \"Fix relay and side-tone level. Use FT-817 instead\".  After giving a few calls on 40m, I found that my intermittent relay problem hadn't fixed itself in the last three weeks.  Bugger!  So off to the shed to find my FT-817 still cowering in the corner after all the use it got while we were caravanning.  How nice to have a sensitive receiver with its wonderful narrow CW filter, and not having to do mental calculations with the receive frequency.\r\n\r\nAnd I learned something new (actually, re-learned something long forgotten!).  I'd been telling people that my FT-817's output power was 10 Watts.  Well in the shack, my 49 year old Oskerblock SWR-200 SWR meter wasn't sensitive enough to adjust my coupler powered by the 817, so I put a different power meter in the line.  I was wondering why I was only getting 6W output power... until I checked on the Internet.... power output from the FT-817 is 5 W, not 10W.  Makes the exchange I had with Mike DL3YZ from my portable location week before last just that much better!\r\n\r\n[15m]\r\nI missed out on listening for Edi DO2EMR this week - late dinner and dishes chores meant I didn't get back into my shack until well after Edi's sked time.\r\n\r\n[20m]\r\nAt 0630z Fausto was coming through RSN 411 with QSB from Bologna.  Of course he couldn't hear my QRP 5,000mW, which was a pity;  seemed that there were no other Eastern Staters on to help make Fausto's early start worthwhile.\r\n\r\nMike DL3YZ was romping in RSN 551 from Stuttgart, and hooked up with Manny VK3DRQ in Blackburn;  Manny was just audible in and out of the noise here.  Next Adam VK4IM at North Lakes called;  on his second over, Adam suddenly found a burst of power - he upped the power from 20W to 100W - which made a huge difference here;  Adam had a really solid RSN 581 signal for the rest of the QSO.\r\n\r\n[40m]\r\nI thought someone was impersonating a police officer when I saw the post from James VK7JZ saying he was about to head out for some portable QRS fun.  But apparently, it was the man himself.... Great to catchup with James again, even though the QSO was cut short when a Park Ranger evicted our intrepid visitor... apparently James was having such a good time that he was nearly locked in the park when the gates closed.  A rapid antenna removal and pack-up no doubt.\r\n\r\nManny VK3DRQ struggled a bit with my 5W signal and a high QRN level, but we got to have a bit of a natter anyway.\r\n\r\nAfter giving 80m a try, I came back up to 40m which was slowly getting quieter as the static crashes abated a bit.  I helped Tim VK5AV at Mount Gambier celebrate his Birthday with a nice QSO and before long I started hearing the VK6s coming through.  However, my signal was pretty much non-existent on the VK6QS KiwiSDR at Augusta, so I wasn't surprised that the sandgropers couldn't hear me.  David VK6KD had a surprisingly good signal, considering he was having antenna trouble, and ended up feeding the centre conductor of the coax to his Hex beam instead;  he was enjoying a nice QSO with YC3CPJ in Indonesia despite his antenna.\r\n\r\n[80m]\r\nSava VK4PN was my only 80m contact;  his S9 signal was competing well against the S8 static crashes, but my 5W signal was a bit of a struggle for him.  I then listened in to a QSO between Sava and Wayne VK6NW at Bridgetown - the band was open across Australia after sunset in the West, but my signal didn't make it.\r\n\r\nAll up - another pearler of a net for me - despite the static crashes and my QRP.",
+    "caption": "FT-817 pressed into service this week - the intermittent T/R relay in my Trio TS-120S hadn't fixed itself while I was away.",
+    "submitted_at": "2026-11-10T22:34:37+00:00",
+    "edition": "2026_46",
+    "photos": [
+      {
+        "filename": "VK2KI_2026_46_1.jpg",
+        "mime": "image/jpeg",
+        "size": 352255
+      },
+      {
+        "filename": "VK2KI_2026_46_2.jpg",
+        "mime": "image/jpeg",
+        "size": 239654
+      }
+    ],
+    "client": {
+      "ip_address": "124.169.63.196",
+      "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.0 Safari/605.1.15"
+    }
+  },
+  {
+    "name": "John",
+    "callsign": "VK5ET",
+    "qth": "Hope Valley",
+    "grid": "",
+    "heard40": "VK2VCA,VK3DBD,",
+    "worked40": "",
+    "tried40": "VK7TO",
+    "heard80": "",
+    "worked80": "",
+    "tried80": "",
+    "heardOther": "",
+    "workedOther": "",
+    "triedOther": "",
+    "comments": "Signals were very weak ,lots of fading during qso's being heard. Heaps of frustrating noise . Not many stations heard.",
+    "caption": "",
+    "submitted_at": "2026-11-10T22:40:39+00:00",
+    "edition": "2026_46",
+    "photos": [],
+    "client": {
+      "ip_address": "101.191.133.189",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:159.0) Gecko/20100101 Firefox/159.0"
+    }
+  },
+  {
+    "name": "Mark",
+    "callsign": "VK6QI",
+    "qth": "Beautiful South Bowning NSW via the VK6QS KiwiSDR at Augusta.",
+    "grid": "",
+    "heard40": "VK6JZ/p, VK3DRQ, VK5AV, VK6NQL, VK2KI",
+    "worked40": "",
+    "tried40": "",
+    "heard80": "VK4PN",
+    "worked80": "",
+    "tried80": "",
+    "heardOther": "VK4IM@20",
+    "workedOther": "",
+    "triedOther": "",
+    "comments": "The Southern Electronics Group KiwiSDR at Hoddys Well wasn't responding this week so instead I gave the VK6QS KiwiSDR at Augusta WA a try.",
+    "caption": "The KiwiSDR of Matthew VK6QS at Augusta WA.",
+    "submitted_at": "2026-11-10T22:55:34+00:00",
+    "edition": "2026_46",
+    "photos": [
+      {
+        "filename": "VK6QI_2026_46.png",
+        "mime": "image/png",
+        "size": 1108096
+      }
+    ],
+    "client": {
+      "ip_address": "124.169.63.196",
+      "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.0.1 Mobile/15E148 Safari/604.1"
+    }
+  },
+  {
+    "name": "Adam",
+    "callsign": "VK2NNW",
+    "qth": "Deepwater",
+    "grid": "",
+    "heard40": "VK3EJS, VK2DLF, VK5AV, VK5NE, VK3DRQ",
+    "worked40": "VK2IO/P, VK2NAP, VK3EPW, VK4CBP, VK/M0NNK, ZL1FDO",
+    "tried40": "",
+    "heard80": "",
+    "worked80": "",
+    "tried80": "",
+    "heardOther": "",
+    "workedOther": "",
+    "triedOther": "",
+    "comments": "",
+    "caption": "",
+    "submitted_at": "2026-11-10T23:15:07+00:00",
+    "edition": "2026_46",
+    "photos": [],
+    "client": {
+      "ip_address": "1.145.114.117",
+      "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/30.0 Chrome/143.0.0.0 Mobile Safari/537.36"
+    }
+  },
+  {
+    "name": "Philip Brown",
+    "callsign": "ZL1PB",
+    "qth": "Tauranga",
+    "grid": "",
+    "heard40": "VK2VCA",
+    "worked40": "",
+    "tried40": "",
+    "heard80": "",
+    "worked80": "",
+    "tried80": "",
+    "heardOther": "DL3YZ, VK3DRQ, VK4IM,",
+    "workedOther": "",
+    "triedOther": "",
+    "comments": "The last wo weeks the 40m band has been very poor with me, I did hear the 20m stations  from EU but they were well down, it would have been a struggle to work them.",
+    "caption": "",
+    "submitted_at": "2026-11-10T23:34:54+00:00",
+    "edition": "2026_46",
+    "photos": [
+      {
+        "filename": "ZL1PB_2026_46.jpg",
+        "mime": "image/jpeg",
+        "size": 288870
+      }
+    ],
+    "client": {
+      "ip_address": "122.59.94.196",
+      "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.2 Safari/605.1.15"
+    }
+  },
+  {
+    "name": "Manny",
+    "callsign": "VK3DRQ",
+    "qth": "Blackburn",
+    "grid": "",
+    "heard40": "VK2DLF, VK2IO/P, VK5NE.",
+    "worked40": "VK2KI, VK3RU, VK7JZ.",
+    "tried40": "",
+    "heard80": "",
+    "worked80": "",
+    "tried80": "",
+    "heardOther": "IU4FLS@20, VK4IM@20.",
+    "workedOther": "DL3YZ@20. OK2BUJ@20.",
+    "triedOther": "IU4FLS@20.",
+    "comments": "",
+    "caption": "",
+    "submitted_at": "2026-11-10T23:53:20+00:00",
+    "edition": "2026_46",
+    "photos": [],
+    "client": {
+      "ip_address": "106.70.80.32",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "name": "Phil",
+    "callsign": "VK4BVM",
+    "qth": "Casino",
+    "grid": "",
+    "heard40": "VK2NNW VK4IM M0NNK",
+    "worked40": "",
+    "tried40": "",
+    "heard80": "",
+    "worked80": "",
+    "tried80": "",
+    "heardOther": "",
+    "workedOther": "",
+    "triedOther": "",
+    "comments": "[40}\r\nFor the first time since 2005 I now have a hobby room and no longer have to set up on the kitchen table. The next step is to build and erect a transmitting aerial. Because of the very limited yard space I'm thinking that a shortened inverted V for 7 MHz might be my best bet. Unfortunately, I'll have to attach the centre pole to the end of the house and contend with the foil insulation plus the ends of the aerial will face north and south.\r\n\r\nIn the meantime I'm persisting with my SDR and noisy active loop aerial. Signals tonight on 7 MHz were were good and I managed to copy quite a bit of the conversation between Ross, M0NNK and Adam, VK4IM tonight.\r\n\r\n[80]\r\nI didn't copy any stations on the 3.5 MHz band but I did listen to the VK2 Morse Beacon until it's speed increased and I could no longer bare my uncomfortable headphones.",
+    "caption": "",
+    "submitted_at": "2026-11-11T00:18:38+00:00",
+    "edition": "2026_46",
+    "photos": [],
+    "client": {
+      "ip_address": "1.144.110.84",
+      "user_agent": "Mozilla/5.0 (X11; Linux x86_64; rv:159.0) Gecko/20100101 Firefox/159.0"
+    }
+  },
+  {
+    "name": "Ron Everingham",
+    "callsign": "VK4EV",
+    "qth": "Brisbane",
+    "grid": "",
+    "heard40": "VK2VCA, VK2NNW, VK2NAP, VK1CT, VK5KFG, VK7TO.",
+    "worked40": "VK2DLF",
+    "tried40": "",
+    "heard80": "",
+    "worked80": "",
+    "tried80": "",
+    "heardOther": "",
+    "workedOther": "",
+    "triedOther": "",
+    "comments": "",
+    "caption": "",
+    "submitted_at": "2026-11-11T00:49:31+00:00",
+    "edition": "2026_46",
+    "photos": [],
+    "client": {
+      "ip_address": "120.155.198.238",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Avast/154.0.0.0"
+    }
+  },
+  {
+    "name": "Greg Fisher",
+    "callsign": "VK5KFG",
+    "qth": "Willunga, S Australia",
+    "grid": "",
+    "heard40": "",
+    "worked40": "VK7TO",
+    "tried40": "",
+    "heard80": "",
+    "worked80": "",
+    "tried80": "",
+    "heardOther": "",
+    "workedOther": "",
+    "triedOther": "",
+    "comments": "",
+    "caption": "",
+    "submitted_at": "2026-11-11T01:21:22+00:00",
+    "edition": "2026_46",
+    "photos": [],
+    "client": {
+      "ip_address": "179.65.183.245",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0"
+    }
+  },
+  {
+    "name": "Peter",
+    "callsign": "Vk6nql",
+    "qth": "Wundowie",
+    "grid": "",
+    "heard40": "Vk2ki",
+    "worked40": "Vk6nw",
+    "tried40": "",
+    "heard80": "",
+    "worked80": "",
+    "tried80": "",
+    "heardOther": "",
+    "workedOther": "",
+    "triedOther": "",
+    "comments": "40m is still very quiet these days \r\nand there is not much being heard",
+    "caption": "My New QRS radio",
+    "submitted_at": "2026-11-11T02:09:56+00:00",
+    "edition": "2026_46",
+    "photos": [
+      {
+        "filename": "Vk6nql_2026_46.jpg",
+        "mime": "image/jpeg",
+        "size": 115572
+      }
+    ],
+    "client": {
+      "ip_address": "1.146.222.13",
+      "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/30.0 Chrome/143.0.0.0 Mobile Safari/537.36"
+    }
+  },
+  {
+    "name": "Ron",
+    "callsign": "VK6kHz",
+    "qth": "Yangebup",
+    "grid": "",
+    "heard40": "",
+    "worked40": "VK6NW",
+    "tried40": "",
+    "heard80": "",
+    "worked80": "",
+    "tried80": "",
+    "heardOther": "",
+    "workedOther": "",
+    "triedOther": "",
+    "comments": "",
+    "caption": "",
+    "submitted_at": "2026-11-11T03:07:30+00:00",
+    "edition": "2026_46",
+    "photos": [],
+    "client": {
+      "ip_address": "180.150.80.181",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:159.0) Gecko/20100101 Firefox/159.0"
+    }
+  },
+  {
+    "name": "Lance",
+    "callsign": "VK7TO",
+    "qth": "Hobart",
+    "grid": "",
+    "heard40": "",
+    "worked40": "VK2VCA VK5KFG",
+    "tried40": "",
+    "heard80": "",
+    "worked80": "",
+    "tried80": "",
+    "heardOther": "",
+    "workedOther": "",
+    "triedOther": "",
+    "comments": "Between holidays, family birthdays and visitors it's been tough to get on air lately.  Nonetheless I made a special effort this week, but only managed to get in just after 9 pm, and was greeted by a wall of QRN and no traces on the waterfall.  Oh dear.  At times like this I often wonder if there's little activity, or rather that all stations are under the noise.  Anyway I tuned across 40 with nothing, so planted my self on a frequency and tried calling CQ.\r\n\r\nSuccess.  Dylan, VK3VCA, answered my call.  He's a new station or me so really wanted to find out a little more, but alas the conditions were bad enough that it took several repeats for me to copy his name and call.  \r\n\r\nI thought I'd have a crack at 80 m, but alas, despite a lower noise floor I wasn't getting any takers.  At this point I checked the RBN and saw that rather than my usual spiders' web of nodes reporting me, it looked more like the meagre drawn lines of an artist soon to run out of ink.  I tried 30 m, but like 80, found no joy.\r\n\r\nAs a last ditch effort I went back to 40 m, by which time the QRN appeared to have abated somewhat, and was pleased to hook Greg, VK5KFA.  Still not great conditions, so after a brief hello and exchange of our rigs we 73'd each other, with me deciding to go QRT as it was then well past my bed time.",
+    "caption": "Meagre pickings reported on the RBN; My R1155 Receiver waiting for a power supply so that it can join in the CQQRS fun.",
+    "submitted_at": "2026-11-11T05:22:29+00:00",
+    "edition": "2026_46",
+    "photos": [
+      {
+        "filename": "VK7TO_2026_46_1.png",
+        "mime": "image/png",
+        "size": 115479
+      },
+      {
+        "filename": "VK7TO_2026_46_2.jpg",
+        "mime": "image/jpeg",
+        "size": 251688
+      }
+    ],
+    "client": {
+      "ip_address": "202.128.121.132",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "name": "Stan",
+    "callsign": "ZL3TK",
+    "qth": "Waitarere Beach",
+    "grid": "",
+    "heard40": "JA3TTF JF1SEV VK2NNW ZL1FD",
+    "worked40": "ZL1DRS",
+    "tried40": "",
+    "heard80": "VK3DRQ ZL1NZ ZL1PX ZL2LN ZL2TE",
+    "worked80": "ZL1ANY ZL1BDS ZL2GD ZL2KE",
+    "tried80": "",
+    "heardOther": "",
+    "workedOther": "",
+    "triedOther": "",
+    "comments": "40 m  Band condx only average to VK,  yet quite a healthy path to plenty of JAs.  This bodes well for XING, see the article announcing the plan of Hiro-san JJ1FXF to increase Oceania QSOs.\r\n\r\n80 m  Trans-Tasman condx very poor so no VKs worked,  otherwise okay but with some intra-ZL QSB.",
+    "caption": "",
+    "submitted_at": "2026-11-11T06:38:34+00:00",
+    "edition": "2026_46",
+    "photos": [],
+    "client": {
+      "ip_address": "60.234.105.186",
+      "user_agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "name": "Sava",
+    "callsign": "vk4pn",
+    "qth": "Mount Ommaney Brisbane",
+    "grid": "",
+    "heard40": "",
+    "worked40": "",
+    "tried40": "",
+    "heard80": "",
+    "worked80": "fk8ik,vk2ki,vk6nw",
+    "tried80": "vk2io/p",
+    "heardOther": "",
+    "workedOther": "",
+    "triedOther": "",
+    "comments": "late start again so went straight to 1825 KHz, just static. Checked propagation to VK5 and could just see my signal at Ironstone and vk5arg SDRs at peaks of QSB. Waterfalls were chocked with noise and QRN. Checked signal to SDRs at vk3khz and vk2bf couldn't see any trace of my signal. At vk1ph SDR I could see a faint but steady signal between bursts of  QRN. So there was some propagation to southern areas so I spent good 40 minutes calling CQ QRS Net but did not manage a single QSO. May be the high level of QRN chased people off the band. \r\n\r\nConditions on 80 m were similar plenty of strong QRN, band looked deserted but for a solitary strong signal at 3510 KHz. A bit low for QRS Net but I tuned on frequency and waited for another burst of activity. It was fk8ik just calling CQ at the top of DX window. I responded to his CQ and we had a nice chat with signals being S9 both ways. There was also a JA station about  1 KHz higher but too faint to attempt the QSO. Despite a lot of effort I just couldn't copy the full call sign so I gave up. Not much else was visible at Ironstone except myself, vk2io/p and fk8ik but I kept calling CQ anyway. After a while a faint signal popped up at 3530 KHz it was Mark vk2ki but way down on his usual signal level. I thought he might be touring and using his QRP gear but he confirmed he was working from home. Copy at my end was hit and miss Mark was doing a bit better. Noise at Mark's  QTH ( when I worked him in the past ) is usually N2, on this occasion he gave me RSN report 598! QSO with Wayne vk6nw was similarly mutilated by QRN  his signal was S5 but the noise level was N8, Wayne gave me RSN of 337 not too good for a chat but we struggled for a while. It was well after net closing time when we finished but Wayne kept calling CQ for a good while after. I also had a quick listen to FT8 traffic to assess DX propagation and the band was flooded with JA and few US stations chasing a fancy vi4 call sign who was over 30 dB at my QTH. I guess a special call sign to celebrate the remembrance  day. I couldn't be bothered to chase DX as It was close to midnight which is my usual bed time so I turned the big switch off.",
+    "caption": "",
+    "submitted_at": "2026-11-11T12:59:59+00:00",
+    "edition": "2026_46",
+    "photos": [],
+    "client": {
+      "ip_address": "1.146.41.61",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36"
+    }
+  }
+]
