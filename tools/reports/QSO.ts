@@ -1,9 +1,11 @@
+import type { Callsign } from "../../models/Callsign";
+
 export class QSO {
 	public band: number;
-	public callsign: string;
+	public callsign: Callsign;
 	public type: QSOType;
 
-	public constructor( band: number, callsign: string, type: QSOType ){
+	public constructor( band: number, callsign: Callsign, type: QSOType ){
 		if( isNaN(band)) throw new Error("Bade data type: Band.  Must be number");
 		
 		this.band = band;

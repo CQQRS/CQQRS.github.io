@@ -1,3 +1,4 @@
+import { Callsign } from "../../models/Callsign";
 import type { IApiReport } from "./IApiReport";
 import { QSOType, type QSO } from "./QSO";
 import { Report } from "./Report";
@@ -50,7 +51,7 @@ export class ApiReportToReportConvertor {
 		const reportList = extracted.map( v=> {
 			return {
 				band: v.band,
-				callsign: v.callsign,
+				callsign: new Callsign(v.callsign),
 				type: reportType
 			}
 		})

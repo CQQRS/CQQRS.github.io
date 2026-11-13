@@ -3,8 +3,8 @@ import juice from "juice";
 
 import { Report } from "./Report";
 import { environment } from "./environment";
-import type { QSO } from "./QSO";
 import { LogTableBuilder, type ILogTableBuilderOptions } from "./LogTableBuilder";
+import { LogCollection } from "./LogCollection";
 
 export class SoapboxBuilder {
 
@@ -59,7 +59,7 @@ export class SoapboxBuilder {
 		const rowList = [
 			`
 			<td class="avitar">
-				<img src="${environment.resourceApiRoot}/avitar/${report.callsign}_1.jpg" />
+				<img src="${environment.resourceApiRoot}/avitar/${report.callsign.root}_1.jpg" />
 			</td>
 			<td class="operator">
 				<div class="name">${report.name} ${report.callsign}</div>
@@ -70,15 +70,8 @@ export class SoapboxBuilder {
 
 		if( report.qsoList.length > 0){
 			
-			report.qsoList.sort((a, b) => {
-			//first non-zero value dictates the sort.
-			return b.band - a.band ||
-				b.type.toString().localeCompare(a.type.toString()) ||
-				a.callsign.length - b.callsign.length;
-			});
-
-			const log = new Map<string, QSO[]>();
-			log.set("", report.qsoList);
+			const log = new LogCollection();
+			log.getOrInsert(report.callsign, report.qsoList);
 			const options: ILogTableBuilderOptions = {
 				suppressStationCallsign: true,
 				suppressTitle: true,
@@ -126,6 +119,7 @@ export class SoapboxBuilder {
 			rowList.push(rowHtml);
 			
 		}
+	
 
 		if( report.caption !== "" ) {
 			rowList.push(`<td colspan="2" class="caption">${report.caption}</td>`);

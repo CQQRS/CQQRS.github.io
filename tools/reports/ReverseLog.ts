@@ -1,56 +1,54 @@
+import type { Callsign } from "../../models/Callsign";
 import { QSOType, type QSO } from "./QSO";
 import type { TLog } from "./Types";
+import type { StationLog } from "./StationLog";
+import { LogCollection } from "./LogCollection";
 
 export class ReverseLog {
 
-	public readonly log: TLog;
+	private readonly _logCol: LogCollection;
 
-	public constructor(log: TLog) {
-		this.log = this.buildReverseLog(log)
+	public constructor(log: LogCollection) {
+		this._logCol = this.buildReverseLog(log)
 	}
 
-	private buildReverseLog(log: TLog): TLog {
+	public toLogCollection() {
+		return this._logCol;
+	}
 
-		const output = new Map<string, QSO[]>();
-		const typeOrder = [QSOType.Worked, QSOType.Tried, QSOType.Heard];
+	private buildReverseLog(logCol: LogCollection): LogCollection {
 
-		log.forEach((qsoList: QSO[], callsign: string) => {
-			qsoList.forEach(qso => {
+		const output = new LogCollection();
+
+		logCol.forEach((log: StationLog) => {
+			//if( !["VK7JZ", "M0NNK"].includes(log.callsign.root)) return;
+			log.qsoList.forEach(qso => {
+				//if( !["VK7JZ", "M0NNK"].includes(qso.callsign.root)) return;
+
 				const stationHeard = output.getOrInsert(qso.callsign, []);
 
-				const existing = stationHeard.find(v => v.callsign == callsign
+				const existing = stationHeard.find(v => v.callsign.root == log.callsign.root
 					&& v.band == qso.band
 				)
 
 				if (existing) {
-
-					//If the same station was logged with two types, use the 
-					// "strongest" contact type.
-					
-					//TerminalOutput.log(`${callsign} => ${qso.callsign} : ${existing.type} => ${qso.type} `);
-
 					if( existing.type < qso.type) {
-						
 						existing.type = qso.type;
-
-						//TerminalOutput.success(`UPDATED`);
 					}
-
-					//TerminalOutput.log("\n");
 				}
 				else {
 					stationHeard.push({
 						band: qso.band,
-						callsign: callsign,
+						callsign: log.callsign,
 						type: qso.type
 					});
 				}
 
 				if (qso.type === QSOType.Worked) {
 					//Ensure the reporter has it in their list too.
-					const reporterOut = output.getOrInsert(callsign, []);
+					const reporterOut = output.getOrInsert(log.callsign, []);
 
-					if (!reporterOut.find(v => v.callsign == qso.callsign
+					if (!reporterOut.find(v => v.callsign.root == qso.callsign.root
 						&& v.band == qso.band
 					)) {
 						reporterOut.push({

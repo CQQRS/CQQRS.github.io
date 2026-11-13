@@ -4,13 +4,14 @@ const {JSDOM} = jsdom;
 import juice from "juice";
 
 import { QSO, QSOType } from "./QSO";
-import type { TLog } from "./Types";
+import type { LogCollection } from "./LogCollection";
+import type { Callsign } from "../../models/Callsign";
 
 export class LogTableBuilder {
 
 	private readonly _columnCount: number = 10
 
-	public constructor(private _log: TLog, 
+	public constructor(private _log: LogCollection, 
 		private _options: ILogTableBuilderOptions = {}) {
 	}
 
@@ -49,9 +50,11 @@ export class LogTableBuilder {
 		}
 
 		let altLog = false;
-		this._log.forEach((qsoList, stationCs) => {
+		this._log.forEach((stationLog) => {
 
-			this.qsoListToTable(document, tbody, qsoList, stationCs, bandList,
+			stationLog.sortQsoList();
+
+			this.qsoListToTable(document, tbody, stationLog.qsoList, stationLog.callsign, bandList,
 				altLog
 			);
 			altLog = !altLog;
@@ -110,7 +113,7 @@ export class LogTableBuilder {
 	}
 
 	private qsoListToTable(document: HTMLDocument, tbody: HTMLElement, 
-		qsoList: QSO[], station: string, bandList: number[], 
+		qsoList: QSO[], station: Callsign, bandList: number[], 
 		altLog: boolean = false) {
 
 		const columnCount = this._columnCount;
@@ -130,7 +133,7 @@ export class LogTableBuilder {
 
 		if( !(this._options.suppressStationCallsign ?? false)) {
 			const stationCell = document.createElement("td");
-			stationCell.textContent = station;
+			stationCell.textContent = station.toString();
 			stationCell.rowSpan = rowCount;
 
 			rowList[0]!.appendChild(stationCell);
@@ -162,7 +165,7 @@ export class LogTableBuilder {
 			
 				const callTxt = document.createElement("span")
 				callTxt.className = `${cssClass}`;
-				callTxt.textContent = qso.callsign;
+				callTxt.textContent = qso.callsign.root;
 				
 				cell.className = `report`;
 				cell.title = `${cssClass} on ${qso.band} m`;

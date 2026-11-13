@@ -3,9 +3,11 @@ import { type QSO } from "./QSO";
 
 export class Report {
 
+	public readonly callsign: Callsign;
+
 	constructor( 
 		public readonly name: string,
-		public readonly callsign: string,
+		callsign: string,
 		public readonly qth: string,
 		public readonly grid: string,
 		public readonly comments: string,
@@ -15,7 +17,7 @@ export class Report {
 		public readonly photos: IPhoto[],
 		public readonly qsoList: QSO[],
 	){
-		this.callsign = new Callsign(this.callsign).root;
+		this.callsign = new Callsign(callsign);
 	}
 
 	public addQSO(qso: QSO): void {

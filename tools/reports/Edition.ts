@@ -1,5 +1,5 @@
 import { UsageError } from "./Types";
-
+import '../../_cqqrs-web/src/classes/DateExt';
 export class Edition {
 	public year: number;
 	public week: number;

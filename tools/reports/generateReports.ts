@@ -6,30 +6,28 @@ import { UsageError } from "./Types";
 import { environment } from "./environment";
 import type { IApiReport } from "./IApiReport";
 import { ApiReportToReportConvertor } from "./ApiReportToReportConvertor";
-import type { QSO } from "./QSO";
 import { ReverseLog } from "./ReverseLog";
 import { LogTableBuilder } from "./LogTableBuilder";
-import { loadMemberDirectory, type IMemberEntry } from "./MemberDirectory";
+import { loadMemberDirectory } from "./MemberDirectory";
 import { TerminalModifier, TerminalOutput } from "../TerminalOutput";
 import { SoapboxBuilder } from "./SoapboxBuilder";
-import { env } from "node:process";
+import { LogCollection } from "./LogCollection";
 
 try {
 
 	if (Bun.argv.length < 3) {
-		throw new UsageError("No edition specified");
+		//throw new UsageError("No edition specified");
 	}
 
-	const edition = new Edition(Bun.argv[2]!);
-	//const edition = new Edition("2026/44");
+	let edition = new Edition(Bun.argv[2]!);
+	edition = new Edition("2026/46");
 
 	const reportList = await loadReports(edition);
-	reportList.sort((a, b) => a.callsign.localeCompare(b.callsign));
+	reportList.sort((a, b) => a.callsign.root.localeCompare(b.callsign.root));
 
-	const log = new Map<string, QSO[]>();
+	const log = new LogCollection();
 	reportList.map(v => {
-		const qsoList = log.getOrInsert(v.callsign, []);
-		qsoList.push(...v.qsoList);
+		log.getOrInsert(v.callsign,v.qsoList);
 	});
 
 	const soapbox = new SoapboxBuilder(reportList);
@@ -38,27 +36,14 @@ try {
 	TerminalOutput.log(`Soapbox preview at 'file:///c:/users/lance/temp/soapboxPreview.html'\n`);
 	TerminalOutput.log(`Soapbox saved to 'file:///c:/users/lance/temp/soapbox.md'\n\n`);
 
-	const reverseLog = new ReverseLog(log).log;
+	const reverseLog = new ReverseLog(log).toLogCollection();
 
 	const memberDirectory = await loadMemberDirectory();
-	let filteredReverseLog = new Map(
-		[...reverseLog]
-			.filter(([k, v]) => memberDirectory.has(k))
-	);
+	let filteredReverseLog = reverseLog.filter(v => 
+		memberDirectory.has(v.callsign.root));
 
 	//Sort by station CS
-	filteredReverseLog = new Map([...filteredReverseLog.entries()]
-		.sort((a, b) => a[0].localeCompare(b[0])));
-
-	//Sort by band, type, callsign length.
-	filteredReverseLog.forEach(reportList => {
-		reportList.sort((a, b) => {
-			//first non-zero value dictates the sort.
-			return b.band - a.band ||
-				b.type.toString().localeCompare(a.type.toString()) ||
-				a.callsign.length - b.callsign.length;
-		});
-	});
+	filteredReverseLog.sortByStationsLogCallsign();
 
 	const table = new LogTableBuilder(log).buildHtmlPage();
 	const tableR = new LogTableBuilder(reverseLog).buildHtmlPage();
