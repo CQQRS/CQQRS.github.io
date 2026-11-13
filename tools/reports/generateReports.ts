@@ -16,11 +16,11 @@ import { LogCollection } from "./LogCollection";
 try {
 
 	if (Bun.argv.length < 3) {
-		//throw new UsageError("No edition specified");
+		throw new UsageError("No edition specified");
 	}
 
 	let edition = new Edition(Bun.argv[2]!);
-	edition = new Edition("2026/46");
+	//edition = new Edition("2026/46");
 
 	const reportList = await loadReports(edition);
 	reportList.sort((a, b) => a.callsign.root.localeCompare(b.callsign.root));
