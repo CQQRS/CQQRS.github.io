@@ -1,6 +1,7 @@
+import { environment } from "@site/environment/environment";
 import path from "node:path";
 
-import { environment } from "./environment";
+
 
 export class MemberDirectory{
 	private _directory = new Map<string, MemberEntry>();
@@ -41,16 +42,19 @@ export interface IMemberEntry {
 }
 
 export async function loadMemberDirectory() {
-	const dataPath = path.join(__dirname, `../../`, 
-		environment.memberDirectoryPath);
+	const url = environment.memberDirectoryPath;
 
 	let data: IMemberEntry[];
 	try {
-		const file = Bun.file(dataPath);
-		data = await file.json();
+		const response = await fetch( url);
+		if( !response.ok) {
+			throw new Error(`Could not download report.  ${response.statusText} (${response.status})`);
+		}
+
+		data = await response.json();
 	}
 	catch (ex) {
-		throw new Error(`Could not open data file at: ${dataPath}`);
+		throw new Error(`Could not retrieve member directory from: ${url}`);
 	}
 
 	const directory = new MemberDirectory();

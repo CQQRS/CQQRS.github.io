@@ -96,6 +96,11 @@ const config: Config = {
 					label: 'Report Form',
 					position: 'left',
 				},
+				{
+					to: '/publishing',
+					label: 'Publishing',
+					position: 'right',
+				},
 			],
 		},
 		footer: {

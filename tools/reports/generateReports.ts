@@ -1,22 +1,22 @@
 import path from "node:path";
-
-import { Report } from "./Report";
-import { Edition } from "./Edition";
-import { UsageError } from "./Types";
-import { environment } from "./environment";
-import type { IApiReport } from "./IApiReport";
-import { ApiReportToReportConvertor } from "./ApiReportToReportConvertor";
-import { ReverseLog } from "./ReverseLog";
-import { LogTableBuilder } from "./LogTableBuilder";
-import { loadMemberDirectory } from "./MemberDirectory";
+import { ArgumentError } from "../../_cqqrs-web/src/classes/Errors";
+import { Report } from "../../_cqqrs-web/src/classes/Report";
+import { Edition } from "../../_cqqrs-web/src/classes/Edition";
+import { LogCollection } from "../../_cqqrs-web/src/classes/LogCollection";
+import { SoapboxBuilder } from "../../_cqqrs-web/src/classes/SoapboxBuilder";
 import { TerminalModifier, TerminalOutput } from "../TerminalOutput";
-import { SoapboxBuilder } from "./SoapboxBuilder";
-import { LogCollection } from "./LogCollection";
+import { ReverseLog } from "../../_cqqrs-web/src/classes/ReverseLog";
+import { loadMemberDirectory } from "../../_cqqrs-web/src/classes/MemberDirectory";
+import { LogTableBuilder } from "../../_cqqrs-web/src/classes/LogTableBuilder";
+import { environment } from "../../_cqqrs-web/environment/environment";
+import type { IApiReport } from "../../_cqqrs-web/src/classes/IApiReport";
+import { ApiReportToReportConvertor } from "../../_cqqrs-web/src/classes/ApiReportToReportConvertor";
+
 
 try {
 
 	if (Bun.argv.length < 3) {
-		throw new UsageError("No edition specified");
+		throw new ArgumentError("No edition specified");
 	}
 
 	let edition = new Edition(Bun.argv[2]!);
@@ -74,7 +74,7 @@ try {
 }
 catch (ex: any) {
 
-	if (ex instanceof UsageError) {
+	if (ex instanceof ArgumentError) {
 		console.error(ex.message);
 		console.log();
 		console.log(`Usage: downloadReports <year>/<week>`);

@@ -1,4 +1,4 @@
-import { Callsign } from "../../models/Callsign";
+import { Callsign } from "./Callsign";
 import type { IApiReport } from "./IApiReport";
 import { QSOType, type QSO } from "./QSO";
 import { Report } from "./Report";

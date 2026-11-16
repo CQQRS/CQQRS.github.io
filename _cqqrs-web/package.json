@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "env:dev": "cp ./environment/dev.ts ./environment/environment.ts",
-	"env:prod": "cp ./environment/prod.ts ./environment/environment.ts",
-	"docusaurus": "docusaurus",
+    "env:prod": "cp ./environment/prod.ts ./environment/environment.ts",
+    "docusaurus": "docusaurus",
     "start": "npm run env:dev && docusaurus start",
     "build": "npm run env:prod && docusaurus build",
     "swizzle": "docusaurus swizzle",
@@ -22,15 +22,17 @@
     "@docusaurus/preset-classic": "3.10.1",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
+    "juice": "^12.2.3",
     "prism-react-renderer": "^2.3.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-shadow": "^20.6.0"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.10.1",
     "@docusaurus/tsconfig": "3.10.1",
     "@docusaurus/types": "3.10.1",
-    "@types/bun": "^1.4.2",
+    "@types/bun": "^1.4.4",
     "@types/react": "^19.0.0",
     "typescript": "~6.0.2"
   },

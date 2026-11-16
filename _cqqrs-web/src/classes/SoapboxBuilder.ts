@@ -1,10 +1,10 @@
-import { JSDOM } from "jsdom";
 import juice from "juice";
 
 import { Report } from "./Report";
-import { environment } from "./environment";
+
 import { LogTableBuilder, type ILogTableBuilderOptions } from "./LogTableBuilder";
 import { LogCollection } from "./LogCollection";
+import { environment } from "@site/environment/environment";
 
 export class SoapboxBuilder {
 
@@ -18,13 +18,16 @@ export class SoapboxBuilder {
 
 	buildHtml(): string {
 
-		const dom = new JSDOM(`<div id="soapbox-root"><table id="soapbox-table"><tbody id="tbody"></tbody></table></div>`);
-		const document = dom.window.document;
+		const contentRoot = document.createElement(`div`);
+		contentRoot.id = "soapbox-root";
+		contentRoot.innerHTML = `<table id="soapbox-table"><tbody id="tbody"></tbody></table>`;
+
+		// id="soapbox-root"><table id="soapbox-table"><tbody id="tbody"></tbody></table></div>`);
 		const style = document.createElement("style");
 		style.textContent = this.getStyle();
-		const contentRoot = document.querySelector("#soapbox-root")!;
+		//const contentRoot = document.querySelector("#soapbox-root")!;
 		contentRoot.appendChild(style);
-		let tbody = document.querySelector("tbody")!;
+		let tbody = contentRoot.querySelector("tbody")!;
 
 		this._reportList.map(v => {
 			

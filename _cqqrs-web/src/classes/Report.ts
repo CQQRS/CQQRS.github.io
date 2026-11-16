@@ -1,4 +1,5 @@
-import { Callsign } from "../../models/Callsign";
+
+import { Callsign } from "./Callsign";
 import { type QSO } from "./QSO";
 
 export class Report {

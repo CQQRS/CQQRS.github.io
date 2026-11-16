@@ -1,6 +1,6 @@
 import type { Callsign } from "../../models/Callsign";
 import { QSOType, type QSO } from "./QSO";
-import type { TLog } from "./Types";
+import type { TLog } from "./Errors";
 import type { StationLog } from "./StationLog";
 import { LogCollection } from "./LogCollection";
 

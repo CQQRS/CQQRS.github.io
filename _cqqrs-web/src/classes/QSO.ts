@@ -1,4 +1,5 @@
-import type { Callsign } from "../../models/Callsign";
+import { Callsign } from "./Callsign";
+
 
 export class QSO {
 	public band: number;
