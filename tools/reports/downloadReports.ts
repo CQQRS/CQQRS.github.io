@@ -1,16 +1,16 @@
 import path from "node:path";
 
-import { environment } from "./environment";
-import type { IApiReport, IApiReportOld } from "./IApiReport";
+import { environment } from "../../_cqqrs-web/environment/environment";
 import { TerminalOutput } from "../TerminalOutput";
-import { UsageError } from "./Types";
-import { Edition } from "./Edition";
-import type { IPhoto } from "./Report";
+import { ArgumentError } from "../../_cqqrs-web/src/classes/Errors";
+import { Edition } from "../../_cqqrs-web/src/classes/Edition";
+import type { IApiReport, IApiReportOld } from "../../_cqqrs-web/src/classes/IApiReport";
+import type { IPhoto } from "../../_cqqrs-web/src/classes/Report";
 
 try{
 	
 	if( Bun.argv.length < 3) {
-		throw new UsageError("No edition specified");
+		throw new ArgumentError("No edition specified");
 	}
 
 	const edition = new Edition(Bun.argv[2]!);
@@ -21,7 +21,7 @@ try{
 }
 catch( ex: any) {
 
-	if( ex instanceof UsageError ) {
+	if( ex instanceof ArgumentError ) {
 		console.error(ex.message);
 		console.log();
 		console.log(`Usage: downloadReports <year>/<week>`);

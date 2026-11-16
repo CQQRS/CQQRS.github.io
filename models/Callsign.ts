@@ -30,7 +30,17 @@ export class Callsign {
 	}
 
 	public toString(): string {
-		return this.callsign;
+		let output = "";
+
+		if( this._prefix.length>0)
+			output += `${this._prefix}/`;
+
+		output += this.root;
+
+		if( this._suffix.length>0)
+			output += `/${this._suffix}`;
+
+		return output;
 	}
 
 	private extractParts(callsign: string) {

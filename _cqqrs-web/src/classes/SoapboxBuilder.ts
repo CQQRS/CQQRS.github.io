@@ -1,10 +1,10 @@
-import { JSDOM } from "jsdom";
 import juice from "juice";
 
 import { Report } from "./Report";
-import { environment } from "./environment";
-import type { QSO } from "./QSO";
+
 import { LogTableBuilder, type ILogTableBuilderOptions } from "./LogTableBuilder";
+import { LogCollection } from "./LogCollection";
+import { environment } from "@site/environment/environment";
 
 export class SoapboxBuilder {
 
@@ -18,13 +18,16 @@ export class SoapboxBuilder {
 
 	buildHtml(): string {
 
-		const dom = new JSDOM(`<div id="soapbox-root"><table id="soapbox-table"><tbody id="tbody"></tbody></table></div>`);
-		const document = dom.window.document;
+		const contentRoot = document.createElement(`div`);
+		contentRoot.id = "soapbox-root";
+		contentRoot.innerHTML = `<table id="soapbox-table"><tbody id="tbody"></tbody></table>`;
+
+		// id="soapbox-root"><table id="soapbox-table"><tbody id="tbody"></tbody></table></div>`);
 		const style = document.createElement("style");
 		style.textContent = this.getStyle();
-		const contentRoot = document.querySelector("#soapbox-root")!;
+		//const contentRoot = document.querySelector("#soapbox-root")!;
 		contentRoot.appendChild(style);
-		let tbody = document.querySelector("tbody")!;
+		let tbody = contentRoot.querySelector("tbody")!;
 
 		this._reportList.map(v => {
 			
@@ -59,7 +62,7 @@ export class SoapboxBuilder {
 		const rowList = [
 			`
 			<td class="avitar">
-				<img src="${environment.resourceApiRoot}/avitar/${report.callsign}_1.jpg" />
+				<img src="${environment.resourceApiRoot}/avitar/${report.callsign.root}_1.jpg" />
 			</td>
 			<td class="operator">
 				<div class="name">${report.name} ${report.callsign}</div>
@@ -70,8 +73,8 @@ export class SoapboxBuilder {
 
 		if( report.qsoList.length > 0){
 			
-			const log = new Map<string, QSO[]>();
-			log.set("", report.qsoList);
+			const log = new LogCollection();
+			log.getOrInsert(report.callsign, report.qsoList);
 			const options: ILogTableBuilderOptions = {
 				suppressStationCallsign: true,
 				suppressTitle: true,
@@ -105,10 +108,11 @@ export class SoapboxBuilder {
 			let rowHtml = `<td colspan="2" class="photo">`;
 
 			photoList.map(photo => {
-				const src = `${environment.reportApiRoot}/${report.edition}/images/${photo.filename}`
+				const srcDir = `${environment.reportApiRoot}/${report.edition}/images/`
+				const thumb = photo.filename.replace(".", "_400.")
 				rowHtml += `
-						<a href="${src}" target="_new">	
-							<img src="${src}" class="share-${photoList.length}"/>
+						<a href="${srcDir}${photo.filename}" target="_new">	
+							<img src="${srcDir}${thumb}" class="share-${photoList.length}"/>
 						</a>
 				`;
 			});
@@ -118,6 +122,7 @@ export class SoapboxBuilder {
 			rowList.push(rowHtml);
 			
 		}
+	
 
 		if( report.caption !== "" ) {
 			rowList.push(`<td colspan="2" class="caption">${report.caption}</td>`);
@@ -165,6 +170,10 @@ export class SoapboxBuilder {
 				border-radius: 50%;
 			}
 
+			#soapbox-root .comment {
+				line-height: 1.5em;
+			}
+
 			#soapbox-root .log,
 			#soapbox-root .comment, 
 			#soapbox-root .photo {
@@ -198,7 +207,7 @@ export class SoapboxBuilder {
 			}
 
 			#soapbox-root .caption {
-				size: 14px;
+				font-size: 0.9em;
 				font-style: italic;
 			}
 

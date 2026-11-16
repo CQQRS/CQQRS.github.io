@@ -1,6 +1,5 @@
 import { beforeEach, expect, test, describe } from "bun:test";
 import type { IApiReport } from "./IApiReport";
-import { Report } from "./Report";
 import { ApiReportToReportConvertor } from "./ApiReportToReportConvertor";
 
 describe( "ApiReportToReportConvertor", () => {
@@ -36,7 +35,7 @@ describe( "ApiReportToReportConvertor", () => {
 
 			// Assert
 			expect( userResponse.qsoList.filter(v=> 
-				v.callsign == "VK0AA").length).toBe(1);
+				v.callsign.toString() == "VK0AA").length).toBe(1);
 
 		});
 
@@ -49,7 +48,7 @@ describe( "ApiReportToReportConvertor", () => {
 
 			// Assert
 			expect( userResponse.qsoList.filter(v=> 
-				v.callsign == "VK1AA").length).toBe(1);
+				v.callsign.toString() == "VK1AA").length).toBe(1);
 
 		});
 
@@ -62,7 +61,7 @@ describe( "ApiReportToReportConvertor", () => {
 
 			// Assert
 			expect( userResponse.qsoList.filter(v=> 
-				v.callsign == "VK1BB").length).toBe(1);
+				v.callsign.toString() == "VK1BB").length).toBe(1);
 
 		});
 
@@ -75,7 +74,7 @@ describe( "ApiReportToReportConvertor", () => {
 
 			// Assert
 			expect( userResponse.qsoList.filter(v=> 
-				v.callsign == "VK1BA").length).toBe(1);
+				v.callsign.toString() == "VK1BA").length).toBe(1);
 
 		});
 
@@ -88,7 +87,7 @@ describe( "ApiReportToReportConvertor", () => {
 
 			// Assert
 			expect( userResponse.qsoList.filter(v=> 
-				v.callsign == "VK1BC").length).toBe(1);
+				v.callsign.toString() == "VK1BC").length).toBe(1);
 
 		});
 
@@ -101,7 +100,7 @@ describe( "ApiReportToReportConvertor", () => {
 
 			// Assert
 			expect( userResponse.qsoList.filter(v=> 
-				v.callsign == "VK1CA").length).toBe(1);
+				v.callsign.toString() == "VK1CA").length).toBe(1);
 
 		});
 
@@ -114,7 +113,7 @@ describe( "ApiReportToReportConvertor", () => {
 
 			// Assert
 			expect( userResponse.qsoList.filter(v=> 
-				v.callsign == "VK2BB").length).toBe(1);
+				v.callsign.toString() == "VK2BB").length).toBe(1);
 
 		});
 
@@ -127,7 +126,7 @@ describe( "ApiReportToReportConvertor", () => {
 
 			// Assert
 			expect( userResponse.qsoList.filter(v=> 
-				v.callsign == "VK2BC").length).toBe(1);
+				v.callsign.toString() == "VK2BC").length).toBe(1);
 
 		});
 
@@ -161,7 +160,7 @@ describe( "ApiReportToReportConvertor", () => {
 
 			// Assert
 			expect( userResponse.qsoList.filter(v=> 
-				v.callsign == "VK1AA" && v.band == 40).length).toBe(1);	
+				v.callsign.toString() == "VK1AA" && v.band == 40).length).toBe(1);	
 
 		});
 
@@ -174,7 +173,7 @@ describe( "ApiReportToReportConvertor", () => {
 
 			// Assert
 			expect( userResponse.qsoList.filter(v=> 
-				v.callsign == "VK1BB" && v.band == 80).length).toBe(1);	
+				v.callsign.toString() == "VK1BB" && v.band == 80).length).toBe(1);	
 
 		});
 
@@ -187,7 +186,7 @@ describe( "ApiReportToReportConvertor", () => {
 
 			// Assert
 			expect( userResponse.qsoList.filter(v=> 
-				v.callsign == "VK1CC" && v.band == 160).length).toBe(1);
+				v.callsign.toString() == "VK1CC" && v.band == 160).length).toBe(1);
 
 		});
 
@@ -200,7 +199,7 @@ describe( "ApiReportToReportConvertor", () => {
 
 			// Assert
 			expect( userResponse.qsoList.filter(v=> 
-				v.callsign == "VK1DD" && v.band == 80).length).toBe(1);
+				v.callsign.toString() == "VK1DD" && v.band == 80).length).toBe(1);
 
 		});
 
@@ -213,7 +212,7 @@ describe( "ApiReportToReportConvertor", () => {
 
 			// Assert
 			expect( userResponse.qsoList.filter(v=> 
-				v.callsign == "VK1EE" && v.band == 40).length).toBe(1);
+				v.callsign.toString() == "VK1EE" && v.band == 40).length).toBe(1);
 
 		});
 
@@ -226,7 +225,7 @@ describe( "ApiReportToReportConvertor", () => {
 
 			// Assert
 			expect( userResponse.qsoList.filter(v=> 
-				v.callsign == "VK1FF" && v.band == 20).length).toBe(1);
+				v.callsign.toString() == "VK1FF" && v.band == 20).length).toBe(1);
 
 		});
 
@@ -239,7 +238,7 @@ describe( "ApiReportToReportConvertor", () => {
 
 			// Assert
 			expect( userResponse.qsoList.filter(v=> 
-				v.callsign == "VK1GG" && v.band == 15).length).toBe(1);
+				v.callsign.toString() == "VK1GG" && v.band == 15).length).toBe(1);
 
 		});
 
@@ -252,7 +251,7 @@ describe( "ApiReportToReportConvertor", () => {
 
 			// Assert
 			expect( userResponse.qsoList.filter(v=> 
-				v.callsign == "VK1HH" && v.band == 10).length).toBe(1);
+				v.callsign.toString() == "VK1HH" && v.band == 10).length).toBe(1);
 
 		});
 
@@ -265,7 +264,7 @@ describe( "ApiReportToReportConvertor", () => {
 
 			// Assert
 			expect( userResponse.qsoList.filter(v=> 
-				v.callsign == "VK1II" && v.band == 6).length).toBe(1);
+				v.callsign.toString() == "VK1II" && v.band == 6).length).toBe(1);
 
 		});
 	});

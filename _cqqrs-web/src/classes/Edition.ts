@@ -1,4 +1,5 @@
-import { UsageError } from "./Types";
+import { ArgumentError } from "./Errors";
+import './DateExt';
 
 export class Edition {
 	public year: number;
@@ -14,7 +15,7 @@ export class Edition {
 			const regex = /(\d{4}).*(\d{2})/;
 			const matches = edition.match(regex);
 			if (!matches || matches?.length < 3) {
-				throw new UsageError(`Invalid edition format: ${edition}`);
+				throw new ArgumentError(`Invalid edition format: ${edition}`);
 			}
 			this.year = parseInt(matches[1]!);
 			this.week = parseInt(matches[2]!);
@@ -25,5 +26,9 @@ export class Edition {
 			this.week = now.getWeekNumber();
 
 		}
+	}
+
+	public toString(): string {
+		return `${this.year}/${this.week}`;
 	}
 }

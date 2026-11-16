@@ -1,16 +1,14 @@
-import jsdom, { VirtualConsole } from "jsdom";
-const {JSDOM} = jsdom;
-
 import juice from "juice";
 
 import { QSO, QSOType } from "./QSO";
-import type { TLog } from "./Types";
+import type { LogCollection } from "./LogCollection";
+import { Callsign } from "./Callsign";
 
 export class LogTableBuilder {
 
 	private readonly _columnCount: number = 10
 
-	public constructor(private _log: TLog, 
+	public constructor(private _log: LogCollection, 
 		private _options: ILogTableBuilderOptions = {}) {
 	}
 
@@ -30,18 +28,18 @@ export class LogTableBuilder {
 	*/
 	public buildHtml(): string {
 
-		const virtualConsole = this.getJSDOMConsole();
-		const dom = new JSDOM(`<div class="logtable-root"><table class="report-table"><tbody id="tbody"></tbody></table></div>`, {virtualConsole});
-		
-		const document = dom.window.document;
+		//const contentRoot = document.createElement(`<div class="logtable-root"><table class="report-table"><tbody id="tbody"></tbody></table></div>`);
+		const contentRoot = document.createElement(`div`);
+		contentRoot.className = "logtable-root";
+		contentRoot.innerHTML = `<table class="report-table"><tbody id="tbody"></tbody></table>`;
+
 		const style = document.createElement("style");
 		style.textContent = this.getStyle();
-		const contentRoot = document.querySelector(".logtable-root")!;
 		contentRoot.appendChild(style);
 
 		const bandList = [40, 80, 160, 30, 20, 17, 15, 12, 10, 6];
 
-		let tbody = document.querySelector("tbody")!;
+		let tbody = contentRoot.querySelector("tbody")!;
 
 		if( !(this._options.suppressTitle ?? false)) {
 			const header = this.buildHeaderRow(document);
@@ -49,9 +47,11 @@ export class LogTableBuilder {
 		}
 
 		let altLog = false;
-		this._log.forEach((qsoList, stationCs) => {
+		this._log.forEach((stationLog) => {
 
-			this.qsoListToTable(document, tbody, qsoList, stationCs, bandList,
+			stationLog.sortQsoList();
+
+			this.qsoListToTable(document, tbody, stationLog.qsoList, stationLog.callsign, bandList,
 				altLog
 			);
 			altLog = !altLog;
@@ -64,6 +64,7 @@ export class LogTableBuilder {
 		return inlined;
 	};
 
+	/*
 	private getJSDOMConsole(): VirtualConsole {
 
 		const virtualConsole = new jsdom.VirtualConsole();
@@ -76,6 +77,7 @@ export class LogTableBuilder {
 		return virtualConsole;
 
 	}
+	*/
 
 	private buildHeaderRow(doc: HTMLDocument) {
 
@@ -110,7 +112,7 @@ export class LogTableBuilder {
 	}
 
 	private qsoListToTable(document: HTMLDocument, tbody: HTMLElement, 
-		qsoList: QSO[], station: string, bandList: number[], 
+		qsoList: QSO[], station: Callsign, bandList: number[], 
 		altLog: boolean = false) {
 
 		const columnCount = this._columnCount;
@@ -130,7 +132,7 @@ export class LogTableBuilder {
 
 		if( !(this._options.suppressStationCallsign ?? false)) {
 			const stationCell = document.createElement("td");
-			stationCell.textContent = station;
+			stationCell.textContent = station.toString();
 			stationCell.rowSpan = rowCount;
 
 			rowList[0]!.appendChild(stationCell);
@@ -162,7 +164,7 @@ export class LogTableBuilder {
 			
 				const callTxt = document.createElement("span")
 				callTxt.className = `${cssClass}`;
-				callTxt.textContent = qso.callsign;
+				callTxt.textContent = qso.callsign.root;
 				
 				cell.className = `report`;
 				cell.title = `${cssClass} on ${qso.band} m`;

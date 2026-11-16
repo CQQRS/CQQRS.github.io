@@ -1,5 +1,15 @@
-import { IEnvironment } from "./IEnvironment"
+import { IReportEnvironment } from "./IEnvironment";
 
-export const environment: IEnvironment = {
-	reportApi: "https://conryclan.com/projects/cqqrsnet/api/report.php"
+export const environment: IReportEnvironment = {
+	reportApi: "https://conryclan.com/projects/cqqrsnet/api/report.php?testing=true",
+	reportApiRoot: `https://conryclan.com/projects/cqqrsnet/reports`,
+	resourceApiRoot: `https://conryclan.com/projects/cqqrsnet/resource`,
+	reportSavePath: `/data/reports`,
+	memberDirectoryPath: "/data/directory.json",
+	ragchewContributingEditors: "VK6HRC VK3ACU",
+
+	mailchimp: {
+		templateId: 10055611,
+		audienceId: "8640b3cd58"
+	}
 }
