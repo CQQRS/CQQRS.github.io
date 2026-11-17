@@ -33,10 +33,10 @@ class ReportBuilder {
 
 	public async build(): Promise<ReportBuilder> {
 
-		const url = `${environment.reportApiRoot}/${this._edition.year}_` +
-			`${this._edition.week}/entries.json`;
+		const url = `${environment.cqqApiRoot}/reports/${this._edition.year}/` +
+			`${this._edition.week}`;
 
-		const response = await fetch(url);
+		const response = await fetch(url, {cache: "no-cache"});
 		if (!response.ok) {
 			
 			if (response.status == 404) {
