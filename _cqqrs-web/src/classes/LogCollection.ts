@@ -1,6 +1,7 @@
-import { Callsign } from "../../models/Callsign";
+
 import { StationLog } from "./StationLog";
 import { QSO } from "./QSO";
+import { Callsign } from "./Callsign";
 
 export class LogCollection {
 
@@ -29,7 +30,7 @@ export class LogCollection {
 
 	public sortByStationsLogCallsign() {
 		const sorted = [...this._index.entries()].sort((a, b) => 
-			a[1].callsign.toString().localeCompare(b[1].callsign.toString()))
+			a[1].callsign.root.localeCompare(b[1].callsign.root))
 		this._index = new Map<string, StationLog>(sorted);
 	}
 	
