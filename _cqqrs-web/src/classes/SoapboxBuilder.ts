@@ -8,7 +8,12 @@ import { environment } from "@site/environment/environment";
 
 export class SoapboxBuilder {
 
-	constructor(private _reportList: Report[]) {
+	private _reportList: Report[];
+
+	constructor(reportList: Report[]) {
+
+		this._reportList = [...reportList].sort((a, b) => 
+			a.callsign.root.localeCompare(b.callsign.root));
 	}
 
 	buildHtmlPage(): string {
