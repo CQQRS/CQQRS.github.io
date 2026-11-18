@@ -1,5 +1,11 @@
 <?php
 
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+	header("Access-Control-Max-Age: 86400");	
+	http_response_code(204);
+	exit();
+}
+
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/classes/Log.php';
 require_once __DIR__ . '/controllers/ReportController.php';
@@ -10,6 +16,13 @@ $log = null;
 try {
 
 	$log = new Log("index");
+
+	if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+		$log->Debug("Responding with OPTIONS OK");		
+		header("Access-Control-Max-Age: 86400");	
+		http_response_code(204);
+		exit();
+	}
 	
 	// Essential API Headers
 	header("Content-Type: application/json; charset=UTF-8");
@@ -22,6 +35,8 @@ try {
 	$uriSegments = explode('/', trim($uri, '/'));
 
 	$controller = null;
+	
+	$log->Debug(join(" -> ", $uriSegments));	
 
 	switch ($uriSegments[0]) {
 		case 'reports':
@@ -29,6 +44,8 @@ try {
 			break;
 
 		case 'members':
+			$log->Debug("members");	
+
 			$controller = new MemberController($uriSegments);
 			break;
 

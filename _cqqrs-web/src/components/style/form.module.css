@@ -1,0 +1,36 @@
+.labelStyle {
+	display: inline;
+	font-weight: var(--ifm-font-weight-bold);
+	margin: 6px;
+	font-size: 0.9rem;
+	color: var(--ifm-color-emphasis-700);
+}
+
+.inputStyle {
+	width: 100%;
+	padding: 8px 12px;
+	font-size: var(--ifm-font-size-base);
+	font-family: var(--ifm-font-family-base);
+	background-color: var(--ifm-background-color);
+	color: var(--ifm-font-color-base);
+	border: 1px solid var(--ifm-color-emphasis-300);
+	border-radius: var(--ifm-global-radius);
+	outline: none;
+	box-sizing: border-box;
+	transition: border-color var(--ifm-transition-fast);
+}
+
+.buttonStyle {
+	display: inline-block;
+	padding: 8px 16px;
+	margin: 10px;
+	font-size: var(--ifm-font-size-base);
+	font-family: var(--ifm-font-family-base);
+	font-weight: var(--ifm-font-weight-bold);
+	background-color: var(--ifm-color-primary);
+	color: #fff;
+	border: none;
+	border-radius: var(--ifm-global-radius);
+	cursor: pointer;
+	transition: background-color var(--ifm-transition-fast), transform 0.1s ease;
+}

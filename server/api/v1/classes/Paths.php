@@ -16,7 +16,7 @@ class Paths
 		$dir = dirname($filename);
 		$info = pathinfo($filename);
 
-		$newName = $info['filename'] . '_' . $suffix;
+		$newName = $info['filename'] . $suffix;
 
 		if (!empty($info['extension'])) {
 			$newName .= '.' . $info['extension'];
