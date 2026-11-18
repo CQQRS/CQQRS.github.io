@@ -3,6 +3,7 @@
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/classes/Log.php';
 require_once __DIR__ . '/controllers/ReportController.php';
+require_once __DIR__ . '/controllers/MemberController.php';
 
 $log = null;
 
@@ -25,6 +26,10 @@ try {
 	switch ($uriSegments[0]) {
 		case 'reports':
 			$controller = new ReportController($uriSegments);
+			break;
+
+		case 'members':
+			$controller = new MemberController($uriSegments);
 			break;
 
 		case 'test':

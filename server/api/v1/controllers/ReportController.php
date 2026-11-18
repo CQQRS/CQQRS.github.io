@@ -18,7 +18,6 @@ class ReportController extends Controller
 		$this->_log = new Log("ReportController");
 
 		$this->_urlParts = $urlParts;
-		header('Content-Type: application/json; charset=utf-8');
 	}
 
 	public function Process()
@@ -63,24 +62,7 @@ class ReportController extends Controller
 
 		$dataFiles = Paths::ReportResponseDir($year, $week);
 
-		// Clear the file status cache to get accurate timestamps
-		clearstatcache();
-
-		$latestMtime = 0;
-		foreach ($dataFiles as $file) {
-			if (file_exists($file)) {
-				$mtime = filemtime($file);
-				if ($mtime > $latestMtime) {
-					$latestMtime = $mtime;
-				}
-			}
-		}
-
-		// Construct a Weak ETag based on the latest timestamp
-		// A count modifier is added in case files are removed entirely
-		$etagValue = 'W/"' . $latestMtime . '-' . count($dataFiles) . '"';
-
-		Cache::HandleCachingForETag($etagValue);
+		Cache::SetFileTimeEtag($dataFiles);
 		
 		$mergedData = [];
 		foreach ($dataFiles as $file) {
