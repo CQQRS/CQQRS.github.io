@@ -55,12 +55,13 @@ export interface IMemberEntry {
 	lastActive: Date;
 }
 
-export async function loadMemberDirectory() {
-	const url = `../../static/data/directory.json`;
+export async function loadMemberDirectory( ) {
+	
+	const srcPath = environment.memberDirectoryPath;
 
 	let data: IMemberEntry[];
 	try {
-		const response = await fetch( new URL(url, import.meta.url));
+		const response = await fetch(srcPath);
 		if( !response.ok) {
 			throw new Error(`Could not download report.  ${response.statusText} (${response.status})`);
 		}
@@ -68,7 +69,7 @@ export async function loadMemberDirectory() {
 		data = await response.json();
 	}
 	catch (ex) {
-		throw new Error(`Could not retrieve member directory from: ${url}`);
+		throw new Error(`Could not retrieve member directory from: ${srcPath}`);
 	}
 
 	const directory = new MemberDirectory();
@@ -81,12 +82,30 @@ export async function loadMemberDirectory() {
 	return directory;
 }
 
-export async function saveMemberDirectory( memberDirectory: MemberDirectory) {
-	const path = `../../static/data/directory.json`;
+export async function loadMemberDirectoryFromFile( srcPath: string): 
+	Promise<MemberDirectory> {
+
+	const path = srcPath;
+	const file = Bun.file(path);
+
+	const data: IMemberEntry[] = await file.json();
+
+	const directory = new MemberDirectory();
+	data.map(v => {
+		directory.add(v.callsign, new MemberEntry(
+			v.callsign, v.name, v.qth, v.grid, v.reported, new Date(v.lastActive)
+		))
+	});
+
+	return directory;
+}
+
+export async function saveMemberDirectoryToFile( memberDirectory: MemberDirectory, 
+	savePath: string) {
 
 	const members = memberDirectory.members()
 		.sort((a,b)=> 
 			a.callsign.localeCompare(b.callsign));
 
-	Bun.write(new URL(path, import.meta.url), JSON.stringify(members, null, 2));
+	Bun.write(savePath, JSON.stringify(members, null, 2));
 }
