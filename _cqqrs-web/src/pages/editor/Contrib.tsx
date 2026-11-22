@@ -29,17 +29,13 @@ export default function Contrib({
 	children
 }: ContribTitleProps) {
 
-	const directory
+	
 
 	useEffect(() => {
 		// one-shot
 	}, []);
 
-	const getMemberDetails(callsign: string): MemberEntry {
-
-
-
-	}
+	
 
 	const callsignStyle = {
 		display: 'inline',
