@@ -1,60 +1,72 @@
 import { parseArgs } from "util";
-import { MemberDirectory, type DirectoryEntry } from "../classes/MemberDirectory";
 import { exit, exitCode } from "process";
-import type { IUserResponse } from "../classes/UserResponse";
+import { loadMemberDirectory, MemberDirectory, MemberEntry, saveMemberDirectory } from "../_cqqrs-web/src/classes/MemberDirectory";
+import { Edition } from "../_cqqrs-web/src/classes/Edition";
+import { environment } from "../_cqqrs-web/environment/environment";
+import { DataAccessError } from "../_cqqrs-web/src/classes/Errors";
+import type { IApiReport } from "../_cqqrs-web/src/classes/IApiReport";
+import { Report } from "../_cqqrs-web/src/classes/Report";
+import { ApiReportToReportConvertor } from "../_cqqrs-web/src/classes/ApiReportToReportConvertor";
 
 const { values, positionals } = parseArgs({
-  args: Bun.argv,
-  options: {
-    reportFilePath: {
-    	type: "string",
-    },
-	edition: {
-		type: "string",
-	}
-  },
-  strict: true,
-  allowPositionals: true,
+	args: Bun.argv,
+	options: {
+		edition: {
+			type: "string",
+		}
+	},
+	strict: true,
+	allowPositionals: true,
 });
 
-const edition = parseInt(values.edition!, 10);
-if( !edition ){
-	console.log( "--edition is required");
-	exit(-2);
-}
+const edition = new Edition(values.edition || positionals[2]);
 
-console.log(`Reading report output from ${values.reportFilePath}`);
+console.log(`Updating member directory from edition ${edition}`);
 
-let src: IUserResponse[];
+const directory = await loadMemberDirectory();
+const reportList = await loadReportList(edition);
 
-try {
-	src = await Bun.file("data.txt").json();
-}
-catch(ex){
-	console.log(`There was an error reading the report file: ${ex}`);
-	
-	exit(-1);
-}
+reportList.map(v => {
 
-const directory = new MemberDirectory();
+	const lastActive = new Date(v.submittedAt);
+	lastActive.setHours(0, 0, 0, 0);
 
-src.map(v=> {
-	const entry = directory.get(v.callsign)
-		?? MemberDirectory.CreateEntry(v.callsign);
+	const rptMember = new MemberEntry(
+		v.callsign.root,
+		v.name,
+		v.qth,
+		v.grid,
+		[],
+		lastActive
+	);
 
-	entry.name = v.name;
-	entry.qth = v.qth;
-	
-	if( !entry.reported.includes(edition)){
-		entry.reported.push(edition);
-	}
-	
-	const now = new Date();
-	now.setHours(0,0,0);
-	entry.lastActive == now.toISOString();
+	const dirMember = directory.get(v.callsign.root);
 
-	directory.set(entry);
+	rptMember.reported = [...(new Set([edition.toNumber(), ...(dirMember?.reported ?? []) ]))];
+	rptMember.reported.sort();
 
+	directory.set(v.callsign.root, rptMember);
 });
 
-Bun.write("../data/directory1.json", JSON.stringify(directory.all()));
+saveMemberDirectory(directory);
+
+
+async function loadReportList(edition: Edition): Promise<Report[]> {
+	const url = `${environment.reportApiRoot}/${edition.year}_` +
+		`${edition.week}/entries.json`;
+
+	const response = await fetch(url);
+	if (!response.ok) {
+
+		if (response.status == 404) {
+			throw new DataAccessError("No reports were found for this edition.")
+		}
+
+		throw new Error(`Could not download report.  ${response.statusText} (${response.status})`);
+	}
+
+	const data = await response.json() as IApiReport[];
+	const reportList = data.map(v => new ApiReportToReportConvertor(v).report);
+
+	return reportList;
+}

@@ -31,4 +31,8 @@ export class Edition {
 	public toString(): string {
 		return `${this.year}/${this.week}`;
 	}
+
+	public toNumber(): number {
+		return this.year + (this.week/100)
+	}
 }
