@@ -8,22 +8,52 @@ require_once __DIR__ . '/../classes/Log.php';
 require_once __DIR__ . '/../classes/Paths.php';
 require_once __DIR__ . '/../classes/ImageUtils.php';
 
+require_once __DIR__ . '/../classes/routing/Router.php';
+
 class MemberController extends Controller
 {
 	private Log $_log;
 
-	private array $_urlParts;
+	private Router $_router;
 
-	function __construct(array $urlParts)
+	function __construct(Router $router)
 	{
 		$this->_log = new Log("MemberController");
-		$this->_log->Debug("New MemberController");
-
-		$this->_urlParts = $urlParts;
+		$this->_router = $router;
 	}
 
-	public function Process()
+	public function Build()
 	{
+
+		$regx = (object)[
+			'year' => '\d{4}',
+			'week' => '\d{2}',
+			'callsign' => '^(?=.*[a-zA-Z])(?=.*[0-9])'
+		];
+
+		// GET /
+		$this->_router->get(
+			"/",
+			fn(Request $req) =>
+			$this->GetAll()
+		);
+
+		// GET /{callsign}/avitar
+		$this->_router->get(
+			"/{callsign:$regx->callsign}/avitar",
+			fn(Request $req) =>
+			$this->GetAvitar($req->params['callsign'])
+		);
+
+		// GET /{callsign}/avitar
+		$this->_router->post(
+			"/{callsign:$regx->callsign}/avitar",
+			fn(Request $req) =>
+			$this->SetAvitar($req->params['callsign'])
+		);
+
+
+		/*
 		$this->_log->Debug("New Process");
 		$response = null;
 		$this->_log->Debug($_SERVER['REQUEST_METHOD']);
@@ -74,6 +104,8 @@ class MemberController extends Controller
 		if ($response !== null) {
 			echo json_encode($response);
 		}
+
+		*/
 	}
 
 	// reports/year/week
@@ -85,7 +117,7 @@ class MemberController extends Controller
 		Cache::SetFileTimeEtag($filePath);
 		$raw = file_get_contents($filePath);
 		$data = json_decode($raw);
-		return $data;
+		return Response::Json($data);
 	}
 
 	private function GetAvitar(string $callsign)
@@ -93,16 +125,14 @@ class MemberController extends Controller
 
 		$filePath = Config::AvitarPath . "/" . $callsign . "_100.jpg";
 		if (!file_exists($filePath)) {
-			http_response_code(404);
-			return ["message" => "Not found."];
+			throw new HttpException(404, "Not found.");
 		}
 
 		Cache::SetFileTimeEtag($filePath);
-		header('Content-Type: image/jpeg');
 		ob_clean();
 		flush();
 		readfile($filePath);
-		exit(200);
+		return Response::Jpeg();
 	}
 
 	private function SetAvitar(string $callsign)
@@ -113,8 +143,7 @@ class MemberController extends Controller
 
 		// Check if file was uploaded via FormData
 		if (!isset($_FILES['file'])) {
-			http_response_code(400);
-			return ["message" => "No file uploaded."];
+			throw new HttpException(400, "No file uploaded.");
 		}
 
 		$uploadedFile = $_FILES['file'];
@@ -122,7 +151,7 @@ class MemberController extends Controller
 
 		if ($uploadedFile['error'] !== UPLOAD_ERR_OK) {
 			http_response_code(400);
-			$errorMsg = match($uploadedFile['error']) {
+			$errorMsg = match ($uploadedFile['error']) {
 				UPLOAD_ERR_INI_SIZE, UPLOAD_ERR_FORM_SIZE => "File is too large.",
 				UPLOAD_ERR_PARTIAL => "File upload was incomplete.",
 				UPLOAD_ERR_NO_FILE => "No file was uploaded.",
@@ -130,7 +159,7 @@ class MemberController extends Controller
 				UPLOAD_ERR_CANT_WRITE => "Cannot write to server.",
 				default => "Unknown upload error.",
 			};
-			return ["message" => $errorMsg];
+			throw new HttpException(400, $errorMsg);
 		}
 
 		// Verify MIME type before moving
@@ -139,8 +168,8 @@ class MemberController extends Controller
 		finfo_close($finfo);
 
 		if ($mimeType !== 'image/jpeg') {
-			http_response_code(400);
-			return ["message" => "File must be a JPEG image. Received: " . $mimeType];
+			throw new HttpException(400, "File must be a JPEG image. Received: " 
+				. $mimeType);
 		}
 
 		// Move uploaded file to final location
@@ -148,8 +177,7 @@ class MemberController extends Controller
 		$this->_log->Debug("Moving to: " . $filePath);
 
 		if (!move_uploaded_file($uploadedFile['tmp_name'], $filePath)) {
-			http_response_code(500);
-			return ["message" => "Failed to save uploaded file."];
+			throw new HttpException(500, "Failed to save uploaded file.");
 		}
 
 		$this->_log->Debug("file written to " . $filePath);
@@ -158,12 +186,13 @@ class MemberController extends Controller
 		$renamed = Paths::AppendSuffixToFileName($filePath, "_100");
 		ImageUtils::ResizeLongEdge($filePath, $renamed, 100);
 
-		$getUrl = Config::API_ROOT . "/v1/members/" . urlencode($callsign) . "/avitar";
+		$getUrl = Config::API_ROOT . "/members/" . urlencode($callsign) . "/avitar";
 		header("Location: " . $getUrl);
-		http_response_code(201);
-		return [
+		
+		$data = [
 			"status" => "Success",
 			"url" => $getUrl
 		];
+		Response::Json($data, 201);
 	}
 }

@@ -1,73 +1,73 @@
 <?php
 
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-	header("Access-Control-Max-Age: 86400");	
-	http_response_code(204);
-	exit();
+try {
+	require_once __DIR__ . '/config.php';
+	require_once __DIR__ . '/classes/Log.php';
+	require_once __DIR__ . '/classes/routing/Router.php';
+	require_once __DIR__ . '/controllers/ReportController.php';
+	require_once __DIR__ . '/controllers/MemberController.php';
+} catch (Throwable $ex) {
+
+	$log->Error($ex->getMessage(), $ex);
+
+	$error = [
+		'Block' => "imports",
+		'message' => $ex->getMessage(),
+		'trace' => $ex->getTraceAsString()
+	];
+
+	http_response_code(500);
+	echo json_encode($error);
 }
 
-require_once __DIR__ . '/config.php';
-require_once __DIR__ . '/classes/Log.php';
-require_once __DIR__ . '/controllers/ReportController.php';
-require_once __DIR__ . '/controllers/MemberController.php';
-
 $log = null;
+$log = new Log("index");
+$log->Debug("index");
 
 try {
+	// For unstructions on using the router, see classes/routing/ROUTER.md
+	$router = new Router(Config::API_ROOT);
 
-	$log = new Log("index");
+	$req = Request::fromGlobals();
+	$log->Debug(json_encode($req));
 
-	if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-		$log->Debug("Responding with OPTIONS OK");		
-		header("Access-Control-Max-Age: 86400");	
-		http_response_code(204);
-		exit();
-	}
-	
-	// Essential API Headers
-	header("Content-Type: application/json; charset=UTF-8");
-	
-	// Parse the request URL and HTTP method
-	$requestMethod = $_SERVER["REQUEST_METHOD"];
-	$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-	$key = Config::V1_URI_KEY;
-	$uri = substr($uri, strpos($uri,$key)+ strlen($key));
-	$uriSegments = explode('/', trim($uri, '/'));
+	$router->get('/ping', fn() => Response::Json('pong'));
 
-	$controller = null;
-	
-	$log->Debug(join(" -> ", $uriSegments));	
+	$router->group('/reports', function (Router $r) {
 
-	switch ($uriSegments[0]) {
-		case 'reports':
-			$controller = new ReportController($uriSegments);
-			break;
+		new ReportController($r);
+	});
 
-		case 'members':
-			$log->Debug("members");	
+	$router->group('/members', function (Router $r) {
 
-			$controller = new MemberController($uriSegments);
-			break;
+		//new MemberController($r);
+	});
 
-		case 'test':
-			echo json_encode(["paths" => join(" -> ", $uriSegments)]);
-			exit();
-			break;
+	$headers = [];
+	try {
+		$res = $router->dispatch(Request::fromGlobals());
+		[$status, $data, $headers] = [$res[0], $res[1], $res[2] ?? []];
 
-		default:
 
-			$log->Debug("switched default");
-			http_response_code(404);
-			echo json_encode(["message" => "Endpoint Not Found"]);
-			exit();
+
+		$log->Debug("Status: $status, Data: $data");
+	} catch (HttpException $e) {
+		[$status, $data, $headers] = [$e->status, ['error' => $e->getMessage()], $e->headers];
+
+		if ($status == 404) {
+			foreach ($router->routes as $route) {
+				$log->Debug(json_encode($route));
+			}
+		}
 	}
 
+	foreach ($headers as $k => $v) header("$k: $v");
+	if (isset($headers['Allow'])) header('Access-Control-Allow-Methods: ' . $headers['Allow']);
 
-	if ($controller != null) {
-		$controller->Process();
-	}
+	http_response_code($status);
+	if ($data !== null) echo json_encode($data);
 } catch (Throwable $ex) {
-	
+
 	$log->Error($ex->getMessage(), $ex);
 
 	$error = [

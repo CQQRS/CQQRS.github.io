@@ -7,71 +7,63 @@ require_once __DIR__ . '/../classes/Cache.php';
 require_once __DIR__ . '/../classes/Log.php';
 require_once __DIR__ . '/../classes/Paths.php';
 
+require_once __DIR__ . '/../classes/routing/Router.php';
+
 class ReportController extends Controller
 {
 	private Log $_log;
 
-	private array $_urlParts;
+	private Router $_router;
 
-	function __construct(array $urlParts)
+	function __construct(Router $router)
 	{
 		$this->_log = new Log("ReportController");
+		$this->_router = $router;
 
-		$this->_urlParts = $urlParts;
+		$this->Build();
 	}
 
-	public function Process()
+	public function Build()
 	{
 
-		$response = null;
+		$regx = (object)[
+			'year' => '\d+',
+			'week' => '\d+',
+			'callsign' => '.+' //''^(?=.*[a-zA-Z])(?=.*[0-9])'
+		];
 
-		switch ($_SERVER['REQUEST_METHOD']) {
-			case 'GET':
-				switch (count($this->_urlParts)) {
-					case 3:
-						$response = $this->GetAll(
-							$this->_urlParts[1],
-							$this->_urlParts[2]
-						);
-						break;
-					case 4:
-						$response = $this->GetReport(
-							$this->_urlParts[1],
-							$this->_urlParts[2],
-							$this->_urlParts[3]
-						);
-						break;
-					default:
-						http_response_code(400);
-						$response = ["message" => "Bad request"];
-				}
-				break;
+		// GET /{year}/{week}
+		$this->_router->get(
+			"/{year:$regx->year}/{week:$regx->week}",
+			fn(Request $req) =>
+			$this->GetAll($req->params['year'], $req->params['week'])
+		);
 
-			case 'POST':
-				$response = $this->UpsertReport();
-		}
-
-		if( $response !== null ){
-			echo json_encode($response);
-		}
+		// GET /{year}/{week}/{callsign}
+		$this->_router->get(
+			"/{year:$regx->year}/{week:$regx->week}/{callsign}",
+			fn(Request $req) =>
+			$this->GetReport(
+				$req->params['year'],
+				$req->params['week'],
+				$req->params['callsign']
+			)
+		);
 	}
 
-	// reports/year/week
-	public function GetAll(int $year, int $week)
+	private function _GetAll(int $year, int $week)
 	{
-
 		$dataFiles = Paths::ReportResponseDir($year, $week);
 
 		Cache::SetFileTimeEtag($dataFiles);
-		
+
 		$mergedData = [];
 		foreach ($dataFiles as $file) {
 			if (file_exists($file)) {
 				$content = json_decode(file_get_contents($file), true);
 				if (is_array($content)) {
 					$mergedData = array_merge($mergedData, $content);
-				}
-				else{
+				} else {
 					array_push($mergedData, $content);
 				}
 			}
@@ -80,30 +72,39 @@ class ReportController extends Controller
 		return $mergedData;
 	}
 
+	// reports/year/week
+	public function GetAll(int $year, int $week)
+	{
+		$mergedData = $this->_GetAll($year, $week);
+
+		return Response::Json($mergedData);
+	}
+
 	// reports/{year}/{week}/{callsign}
 	public function GetReport(int $year, int $week, string $callsign)
 	{
 		$callsign = strtolower(trim($callsign));
-		$all = $this->GetAll($year, $week);
+		$all = $this->_GetAll($year, $week);
 
 		foreach ($all as $index => $entry) {
+
 			if (!isset($entry['callsign'])) {
 				continue;
 			}
 
 			if (strtolower(trim($entry['callsign'])) === $callsign) {
-				return $entry;
+				return Response::Json($entry);
 			}
 		}
 
-		http_response_code(404);
-		return [];
+		throw new HttpException(404, "Not found.");
 	}
 
 	// reports/year/week
-	public function UpsertReport() {
+	public function UpsertReport()
+	{
 		return [
-			"status"=> "Success",
+			"status" => "Success",
 			"url" => "theUrl"
 		];
 	}

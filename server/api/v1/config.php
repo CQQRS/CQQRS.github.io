@@ -3,7 +3,7 @@
 class Config {
 	private const PROJECT_ROOT = __DIR__ . '/../..';
 	
-	public const API_ROOT = '/projects/cqqrsnet/api';
+	public const API_ROOT = '/projects/cqqrsnet/api/v1';
 	public const REPORT_ROOT = self::PROJECT_ROOT . '/reports';
 	public const ASSETS_ROOT = self::PROJECT_ROOT . '/assets';
 	public const DATA_ROOT = self::PROJECT_ROOT . '/data';

@@ -2,5 +2,5 @@
 
 abstract class Controller {
 
-	abstract protected function Process();
+	abstract public function Build();
 }
