@@ -55,9 +55,10 @@ export interface IMemberEntry {
 	lastActive: Date;
 }
 
-export async function loadMemberDirectory( ) {
+export async function loadMemberDirectory() {
 	
-	const srcPath = environment.memberDirectoryPath;
+	/*
+	const url = `../../static/data/directory.json`;
 
 	let data: IMemberEntry[];
 	try {
@@ -80,32 +81,21 @@ export async function loadMemberDirectory( ) {
 	});
 
 	return directory;
+	*/
+
+	return new MemberDirectory();
 }
 
-export async function loadMemberDirectoryFromFile( srcPath: string): 
-	Promise<MemberDirectory> {
-
-	const path = srcPath;
-	const file = Bun.file(path);
-
-	const data: IMemberEntry[] = await file.json();
-
-	const directory = new MemberDirectory();
-	data.map(v => {
-		directory.add(v.callsign, new MemberEntry(
-			v.callsign, v.name, v.qth, v.grid, v.reported, new Date(v.lastActive)
-		))
-	});
-
-	return directory;
-}
-
-export async function saveMemberDirectoryToFile( memberDirectory: MemberDirectory, 
-	savePath: string) {
+export async function saveMemberDirectory( memberDirectory: MemberDirectory) {
+	
+	/*
+	const path = `../../static/data/directory.json`;
 
 	const members = memberDirectory.members()
 		.sort((a,b)=> 
 			a.callsign.localeCompare(b.callsign));
 
-	Bun.write(savePath, JSON.stringify(members, null, 2));
+	Bun.write(new URL(path, import.meta.url), JSON.stringify(members, null, 2));
+
+	*/
 }
