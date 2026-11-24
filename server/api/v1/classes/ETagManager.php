@@ -1,8 +1,18 @@
 <?php
 
-class Cache {
+class ETagManager{
 
-	public static function SetFileTimeEtag( string|array $fileList ){
+	public string $newETag = '';	
+
+	public function __construct( private array|null $_requestHeaders = null){
+
+		if( $_requestHeaders == null){
+			$_requestHeaders = $_SERVER;
+		}
+
+	}
+
+	public function FromFileMDate( string ...$fileList): ETagManager {
 
 		// Clear the file status cache to get accurate timestamps
 		clearstatcache();
@@ -23,25 +33,27 @@ class Cache {
 
 		// Construct a Weak ETag based on the latest timestamp
 		// A count modifier is added in case files are removed entirely
-		$etagValue = 'W/"' . $latestMtime . '-' . count($checkList) . '"';
+		$this->newETag = 'W/"' . $latestMtime . '-' . count($checkList) . '"';
 
-		Cache::HandleCachingForETag($etagValue);
+		return $this;
 
 	}
 
-	private static function HandleCachingForETag( string $etag ) {
+	public function Set(): void {
 
 		// Check if the browser sent a matching ETag
-		$clientEtag = isset($_SERVER['HTTP_IF_NONE_MATCH']) ? trim($_SERVER['HTTP_IF_NONE_MATCH']) : '';
+		$clientEtag = isset($this->_requestHeaders['HTTP_IF_NONE_MATCH']) 
+			? trim($this->_requestHeaders['HTTP_IF_NONE_MATCH']) 
+			: '';
 
-		if ($clientEtag === $etag) {
+		if ($clientEtag === $this->newETag) {
 			// SUCCESS: The client already has the latest data. Short-circuit here!
 			header('HTTP/1.1 304 Not Modified');
 			exit;
 		}
 
 		// CACHE MISS: The data is new. Proceed to merge files and send payload.
-		header('ETag: ' . $etag);
+		header('ETag: ' . $this->newETag);
 
 	}
 

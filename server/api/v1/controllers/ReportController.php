@@ -3,7 +3,7 @@
 require_once __DIR__ . '/IRoutedController.php';
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../classes/Paths.php';
-require_once __DIR__ . '/../classes/Cache.php';
+require_once __DIR__ . '/../classes/ETagManager.php';
 require_once __DIR__ . '/../classes/Log.php';
 require_once __DIR__ . '/../classes/Paths.php';
 
@@ -59,7 +59,7 @@ class ReportController implements IRoutedController
 	{
 		$dataFiles = Paths::ReportResponses($year, $week);
 
-		Cache::SetFileTimeEtag($dataFiles);
+		(new ETagManager())->FromFileMDate(...$dataFiles)->Set();
 
 		$mergedData = [];
 		foreach ($dataFiles as $file) {
@@ -119,7 +119,8 @@ class ReportController implements IRoutedController
 			throw new HttpException(404, "Not found.");
 		}
 
-		Cache::SetFileTimeEtag($filePath);
+		(new ETagManager())->FromFileMDate($filePath)->Set();
+		
 		ob_clean();
 		flush();
 		Response::Jpeg();
