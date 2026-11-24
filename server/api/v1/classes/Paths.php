@@ -6,6 +6,11 @@ class Paths
 {
 	public static function ReportResponseDir(int $year, int $week)
 	{
+		return Config::REPORT_ROOT . "/{$year}_{$week}";
+	}
+
+	public static function ReportResponses(int $year, int $week)
+	{
 
 		$glob = Config::REPORT_ROOT . "/{$year}_{$week}/*.json";
 		return glob($glob);

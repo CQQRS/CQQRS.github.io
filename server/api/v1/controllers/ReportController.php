@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/Controller.php';
+require_once __DIR__ . '/IRoutedController.php';
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../classes/Paths.php';
 require_once __DIR__ . '/../classes/Cache.php';
@@ -9,7 +9,7 @@ require_once __DIR__ . '/../classes/Paths.php';
 
 require_once __DIR__ . '/../classes/routing/Router.php';
 
-class ReportController extends Controller
+class ReportController implements IRoutedController
 {
 	private Log $_log;
 
@@ -23,37 +23,41 @@ class ReportController extends Controller
 		$this->Build();
 	}
 
-	public function Build()
+	private function Build()
 	{
 
-		$regx = (object)[
-			'year' => '\d+',
-			'week' => '\d+',
-			'callsign' => '.+' //''^(?=.*[a-zA-Z])(?=.*[0-9])'
-		];
-
-		// GET /{year}/{week}
 		$this->_router->get(
-			"/{year:$regx->year}/{week:$regx->week}",
+			"/{year}/{week}",
 			fn(Request $req) =>
 			$this->GetAll($req->params['year'], $req->params['week'])
-		);
+		)->where('year', RouteGuard::$Year)
+			->where('week', RouteGuard::$Week);
 
-		// GET /{year}/{week}/{callsign}
 		$this->_router->get(
-			"/{year:$regx->year}/{week:$regx->week}/{callsign}",
+			"/{year}/{week}/{callsign}",
 			fn(Request $req) =>
 			$this->GetReport(
 				$req->params['year'],
 				$req->params['week'],
 				$req->params['callsign']
 			)
-		);
+		)->where('year', RouteGuard::$Year)
+			->where('week', RouteGuard::$Week)
+			->where('callsign', RouteGuard::$Callsign);
+
+		$this->_router->get(
+			"/{year}/{week}/images/{image}",
+			fn(Request $req) =>
+			$this->GetImage($req->params['year'], $req->params['week'],
+				$req->params['image'])
+		)->where('year', RouteGuard::$Year)
+			->where('week', RouteGuard::$Week)
+			->where('image', RouteGuard::$Filename);
 	}
 
 	private function _GetAll(int $year, int $week)
 	{
-		$dataFiles = Paths::ReportResponseDir($year, $week);
+		$dataFiles = Paths::ReportResponses($year, $week);
 
 		Cache::SetFileTimeEtag($dataFiles);
 
@@ -100,12 +104,27 @@ class ReportController extends Controller
 		throw new HttpException(404, "Not found.");
 	}
 
-	// reports/year/week
-	public function UpsertReport()
-	{
-		return [
-			"status" => "Success",
-			"url" => "theUrl"
-		];
+	public function GetImage(
+		int $year,
+		int $week,
+		string $imageName
+	) {
+		
+		$filePath = Paths::ReportResponseDir($year, $week)
+			. "/images/$imageName";
+
+		if (!file_exists($filePath)) {
+		
+			$this->_log->Debug("Unable to find image file at: $filePath");
+			throw new HttpException(404, "Not found.");
+		}
+
+		Cache::SetFileTimeEtag($filePath);
+		ob_clean();
+		flush();
+		Response::Jpeg();
+		readfile($filePath);
+
+		return Response::Blank();
 	}
 }

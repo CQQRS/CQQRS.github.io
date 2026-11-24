@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/Controller.php';
+require_once __DIR__ . '/IRoutedController.php';
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../classes/Paths.php';
 require_once __DIR__ . '/../classes/Cache.php';
@@ -10,7 +10,7 @@ require_once __DIR__ . '/../classes/ImageUtils.php';
 
 require_once __DIR__ . '/../classes/routing/Router.php';
 
-class MemberController extends Controller
+class MemberController implements IRoutedController
 {
 	private Log $_log;
 
@@ -20,16 +20,13 @@ class MemberController extends Controller
 	{
 		$this->_log = new Log("MemberController");
 		$this->_router = $router;
+		
+		$this->Build();
 	}
 
-	public function Build()
-	{
 
-		$regx = (object)[
-			'year' => '\d{4}',
-			'week' => '\d{2}',
-			'callsign' => '^(?=.*[a-zA-Z])(?=.*[0-9])'
-		];
+	protected function Build()
+	{
 
 		// GET /
 		$this->_router->get(
@@ -38,86 +35,66 @@ class MemberController extends Controller
 			$this->GetAll()
 		);
 
+		// GET /{callsign}
+		$this->_router->get(
+			"/{callsign}",
+			fn(Request $req) =>
+			$this->GetCallsign($req->params['callsign'])
+		)->where('callsign', RouteGuard::$Callsign);
+
 		// GET /{callsign}/avitar
 		$this->_router->get(
-			"/{callsign:$regx->callsign}/avitar",
+			"/{callsign}/avitar",
 			fn(Request $req) =>
 			$this->GetAvitar($req->params['callsign'])
-		);
+		)->where('callsign', RouteGuard::$Callsign);
 
-		// GET /{callsign}/avitar
+		// POST /{callsign}/avitar
 		$this->_router->post(
-			"/{callsign:$regx->callsign}/avitar",
+			"/{callsign}/avitar",
 			fn(Request $req) =>
 			$this->SetAvitar($req->params['callsign'])
-		);
-
-
-		/*
-		$this->_log->Debug("New Process");
-		$response = null;
-		$this->_log->Debug($_SERVER['REQUEST_METHOD']);
-		switch ($_SERVER['REQUEST_METHOD']) {
-			case 'GET':
-				switch (count($this->_urlParts)) {
-					case 1:
-						$response = $this->GetAll();
-						break;
-					case 3:
-						if ($this->_urlParts[2] == "avitar") {
-							$callsign = $this->_urlParts[1];
-							$response = $this->GetAvitar($callsign);
-							break;
-						}
-
-					default:
-						http_response_code(400);
-						$response = ["message" => "Bad request"];
-				}
-				break;
-
-			case 'POST':
-				$this->_log->Debug("Posting");
-				switch (count($this->_urlParts)) {
-					case 1:
-						http_response_code(501);
-						$response = ["message" => "Not Implemented"];
-						break;
-					case 3:
-						$this->_log->Debug("3");
-						if ($this->_urlParts[2] == "avitar") {
-							$this->_log->Debug("avitar");
-							$callsign = $this->_urlParts[1];
-							$response = $this->SetAvitar($callsign);
-							break;
-						}
-						http_response_code(400);
-						$response = ["message" => "Bad request"];
-						break;
-					default:
-						http_response_code(400);
-						$response = ["message" => "Bad request"];
-				}
-				break;
-		}
-
-		if ($response !== null) {
-			echo json_encode($response);
-		}
-
-		*/
+		)->where('callsign', RouteGuard::$Callsign);
 	}
 
 	// reports/year/week
-	private function GetAll()
+	private function _GetAll()
 	{
 
 		$filePath = Config::MemberDirectoryPath;
 
 		Cache::SetFileTimeEtag($filePath);
 		$raw = file_get_contents($filePath);
-		$data = json_decode($raw);
+		$data = json_decode($raw, true);
+		
+		return $data;
+	}
+
+	private function GetAll() {
+		$data = $this->_GetAll();
+
 		return Response::Json($data);
+	}
+
+	private function GetCallsign(string $callsign)
+	{
+
+		$all = $this->_GetAll();
+
+		$callsign = strtolower(trim($callsign));
+
+		foreach ($all as $index => $entry) {
+
+			if (!isset($entry['callsign'])) {
+				continue;
+			}
+
+			if (strtolower(trim($entry['callsign'])) === $callsign) {
+				return Response::Json($entry);
+			}
+		}
+
+		throw new HttpException(404, "Not found.");
 	}
 
 	private function GetAvitar(string $callsign)
@@ -131,8 +108,10 @@ class MemberController extends Controller
 		Cache::SetFileTimeEtag($filePath);
 		ob_clean();
 		flush();
+		Response::Jpeg();
 		readfile($filePath);
-		return Response::Jpeg();
+
+		return Response::Blank();
 	}
 
 	private function SetAvitar(string $callsign)
@@ -150,7 +129,6 @@ class MemberController extends Controller
 		$this->_log->Debug("File received: " . $uploadedFile['name']);
 
 		if ($uploadedFile['error'] !== UPLOAD_ERR_OK) {
-			http_response_code(400);
 			$errorMsg = match ($uploadedFile['error']) {
 				UPLOAD_ERR_INI_SIZE, UPLOAD_ERR_FORM_SIZE => "File is too large.",
 				UPLOAD_ERR_PARTIAL => "File upload was incomplete.",
@@ -193,6 +171,7 @@ class MemberController extends Controller
 			"status" => "Success",
 			"url" => $getUrl
 		];
-		Response::Json($data, 201);
+		
+		return Response::Json($data, 201);
 	}
 }
