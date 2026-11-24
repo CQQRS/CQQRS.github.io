@@ -3,7 +3,7 @@
 require_once __DIR__ . '/IRoutedController.php';
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../classes/Paths.php';
-require_once __DIR__ . '/../classes/Cache.php';
+require_once __DIR__ . '/../classes/ETagManager.php';
 require_once __DIR__ . '/../classes/Log.php';
 require_once __DIR__ . '/../classes/Paths.php';
 require_once __DIR__ . '/../classes/ImageUtils.php';
@@ -63,7 +63,7 @@ class MemberController implements IRoutedController
 
 		$filePath = Config::MemberDirectoryPath;
 
-		Cache::SetFileTimeEtag($filePath);
+		(new ETagManager())->FromFileMDate($filePath)->Set();
 		$raw = file_get_contents($filePath);
 		$data = json_decode($raw, true);
 		
@@ -105,7 +105,8 @@ class MemberController implements IRoutedController
 			throw new HttpException(404, "Not found.");
 		}
 
-		Cache::SetFileTimeEtag($filePath);
+		(new ETagManager())->FromFileMDate($filePath)->Set();
+
 		ob_clean();
 		flush();
 		Response::Jpeg();
