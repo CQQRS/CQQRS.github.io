@@ -21,11 +21,14 @@
     "@docusaurus/faster": "3.10.1",
     "@docusaurus/preset-classic": "3.10.1",
     "@mdx-js/react": "^3.0.0",
+    "add": "^2.0.9",
     "clsx": "^2.0.0",
     "juice": "^12.2.3",
+    "pnpm": "^12.21.0",
     "prism-react-renderer": "^2.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-easy-crop": "^6.2.5",
     "react-shadow": "^20.6.0"
   },
   "devDependencies": {

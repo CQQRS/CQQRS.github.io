@@ -3,14 +3,15 @@ import styles from './ReportForm.module.css';
 
 interface PhotoInputBlockProps {
 	onChange: (imageFiles: File[]) => void;
+	maxPhotos?: number;
 }
 
 export function PhotoInputBlock({
-	onChange
+	onChange,
+	maxPhotos = 1
 }: PhotoInputBlockProps) {
 	const [photoPreviews, setPhotoPreviews] = useState<Array<{ url: string; name: string; file: File }>>([]);
 	const [isPhotoDragActive, setIsPhotoDragActive] = useState(false);
-	const MAX_PHOTOS = 3;
 
 	useEffect(() => {
 		return () => {
@@ -27,7 +28,7 @@ export function PhotoInputBlock({
 
 		setPhotoPreviews((previousPreviews) => {
 			// Calculate how many new photos can be added
-			const availableSlots = MAX_PHOTOS - previousPreviews.length;
+			const availableSlots = maxPhotos - previousPreviews.length;
 			const photosToAdd = validFiles.slice(0, availableSlots);
 
 			// Create previews for new photos
@@ -39,10 +40,10 @@ export function PhotoInputBlock({
 
 			// Combine previous and new previews
 			const updated = [...previousPreviews, ...newPreviews];
-			
+
 			// Pass the actual files to parent
 			onChange(updated.map((preview) => preview.file));
-			
+
 			return updated;
 		});
 	};
@@ -77,7 +78,7 @@ export function PhotoInputBlock({
 
 			const updated = previousPreviews.filter((_, index) => index !== indexToRemove);
 			onChange(updated.map((preview) => preview.file));
-			
+
 			return updated;
 		});
 	};
@@ -101,7 +102,7 @@ export function PhotoInputBlock({
 			<div className={styles.photoPreviewWrapper}>
 				<div className="flex flex-wrap gap-2">
 					{photoPreviews.map((preview, index) => (
-							<div key={preview.url} className={styles.photoPreviewContainer}>
+						<div key={preview.url} className={styles.photoPreviewContainer}>
 							<img
 								src={preview.url}
 								alt={`Selected report photo ${index + 1}`}
@@ -119,20 +120,27 @@ export function PhotoInputBlock({
 						</div>
 					))}
 				</div>
+				{maxPhotos > 1 &&
 				<span className={styles.photoFilename}>
-					{photoPreviews.length === 1 
-						? `1 photo selected (${MAX_PHOTOS - 1} more allowed)` 
-						: `${photoPreviews.length} photos selected${photoPreviews.length < MAX_PHOTOS ? ` (${MAX_PHOTOS - photoPreviews.length} more allowed)` : ' (max reached)'}`
+					{photoPreviews.length === 1
+						? `1 photo selected (${maxPhotos - 1} more allowed)`
+						: `${photoPreviews.length} photos selected${photoPreviews.length < maxPhotos ? ` (${maxPhotos - photoPreviews.length} more allowed)` : ' (max reached)'}`
 					}
 				</span>
-				{photoPreviews.length < MAX_PHOTOS && (
+				}
+				{photoPreviews.length < maxPhotos && (
 					<span className="text-sm text-slate-500">
 						Drag more photos here, or click to add more.
 					</span>
 				)}
 			</div>
 		) : (
-			<span>Drop your photos here (up to {MAX_PHOTOS}), or click to select files.</span>
+			<span>
+				{maxPhotos > 1
+					? `Drop your photos here (up to ${maxPhotos}), or click to select files.`
+					: "Drop your photo here, or click to select files."
+				}
+			</span>
 		)}
 	</label>
 }
