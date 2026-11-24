@@ -1,6 +1,7 @@
 import { IReportEnvironment } from "./IEnvironment";
 
 export const environment: IReportEnvironment = {
+	cqqApiRoot: `https://conryclan.com/projects/cqqrsnet/api/v1`,
 	reportApi: "https://conryclan.com/projects/cqqrsnet/api/report.php?testing=true",
 	reportApiRoot: `https://conryclan.com/projects/cqqrsnet/reports`,
 	resourceApiRoot: `https://conryclan.com/projects/cqqrsnet/resource`,

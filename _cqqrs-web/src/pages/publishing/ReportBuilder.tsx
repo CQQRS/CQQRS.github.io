@@ -33,10 +33,10 @@ class ReportBuilder {
 
 	public async build(): Promise<ReportBuilder> {
 
-		const url = `${environment.reportApiRoot}/${this._edition.year}_` +
-			`${this._edition.week}/entries.json`;
+		const url = `${environment.cqqApiRoot}/reports/${this._edition.year}/` +
+			`${this._edition.week}`;
 
-		const response = await fetch(url);
+		const response = await fetch(url, {cache: "no-cache"});
 		if (!response.ok) {
 			
 			if (response.status == 404) {
@@ -111,10 +111,7 @@ class ReportBuilder {
 import CodeBlock from '@theme/CodeBlock';
 import { useEffect, useState } from "react";
 import { ArgumentError, DataAccessError } from "@site/src/classes/Errors";
-
-enum SubmitStatus {
-	Idle, Submitting, Success, Error, 
-}
+import { SubmitStatus } from "@site/src/classes/SubmitStatus";
 
 export default function TableCode() {
 

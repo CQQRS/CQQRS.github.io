@@ -1,13 +1,11 @@
 import { parseArgs } from "util";
-import { loadMemberDirectoryFromFile, MemberEntry, saveMemberDirectoryToFile } from "../_cqqrs-web/src/classes/MemberDirectory";
+import { loadMemberDirectory, MemberEntry, saveMemberDirectoryToFile } from "../_cqqrs-web/src/classes/MemberDirectory";
 import { Edition } from "../_cqqrs-web/src/classes/Edition";
+import { environment } from "../_cqqrs-web/environment/environment";
 import { DataAccessError } from "../_cqqrs-web/src/classes/Errors";
 import type { IApiReport } from "../_cqqrs-web/src/classes/IApiReport";
 import { Report } from "../_cqqrs-web/src/classes/Report";
 import { ApiReportToReportConvertor } from "../_cqqrs-web/src/classes/ApiReportToReportConvertor";
-import { environment } from "../environment/environment";
-
-const MEMBER_DIRECTORY_PATH = `${import.meta.dir}/../data/directory.json`;
 
 const { values, positionals } = parseArgs({
 	args: Bun.argv,
@@ -24,7 +22,7 @@ const edition = new Edition(values.edition || positionals[2]);
 
 console.log(`Updating member directory from edition ${edition}`);
 
-const directory = await loadMemberDirectoryFromFile( MEMBER_DIRECTORY_PATH);
+const directory = await loadMemberDirectory();
 const reportList = await loadReportList(edition);
 
 reportList.map(v => {
@@ -49,7 +47,7 @@ reportList.map(v => {
 	directory.set(v.callsign.root, rptMember);
 });
 
-saveMemberDirectoryToFile(directory, MEMBER_DIRECTORY_PATH);
+saveMemberDirectoryToFile(directory, "");
 
 
 async function loadReportList(edition: Edition): Promise<Report[]> {

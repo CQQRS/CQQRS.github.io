@@ -1,4 +1,5 @@
 export interface IReportEnvironment {
+	cqqApiRoot: string;
 	reportApi: string;
 	reportApiRoot: string;
 	resourceApiRoot: string;

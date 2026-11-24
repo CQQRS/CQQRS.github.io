@@ -288,6 +288,7 @@ export default function ReportFormBuilder({ }: ReportFormBuilderProps) {
 					Why not share a photo of your operating position, radio, antenna or anything else readers may find interesting.
 					<PhotoInputBlock
 						onChange={setPhotos}
+						maxPhotos={3}
 					/>
 					<div className={styles.fieldGroup}>
 						<label htmlFor="caption" className="mb-1 block text-sm font-medium text-slate-700">
