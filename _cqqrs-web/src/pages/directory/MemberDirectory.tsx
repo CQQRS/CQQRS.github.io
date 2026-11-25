@@ -72,7 +72,7 @@ export default function MemberDirectory({ }: MemberDirectoryProps) {
 	return data && (
 		<>
 			<div>
-				{data.map(group => group.value.length > 0 && (
+				Jump to {data.map(group => group.value.length > 0 && (
 					<a href={`#${group.title}`}
 						key={group.title}
 					> {group.title}</a>
