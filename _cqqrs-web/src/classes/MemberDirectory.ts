@@ -35,14 +35,18 @@ export class MemberDirectory{
 
 export class MemberEntry{
 
+	public lastActive: Date;
+
 	constructor(
 		public callsign: string,
 		public name: string,
 		public qth: string,
 		public grid: string,
 		public reported: number[],  // edition as yyyy.ww
-		public lastActive: Date
-	){}
+		lastActive: string
+	){
+		this.lastActive = new Date(lastActive);
+	}
 
 }
 

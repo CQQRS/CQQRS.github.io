@@ -15,6 +15,15 @@ export interface Member {
 	[key: string]: unknown;
 }
 
+export interface IMemberEntry {
+	callsign: string;
+	name: string;
+	qth: string;
+	grid: string;
+	reported: number[];
+	lastActive: string;
+}
+
 export interface ApiResponse<T> {
 	status: number;
 	data: T;
@@ -249,9 +258,10 @@ class MembersApi {
 	 * const members = await client.members.getAll();
 	 * ```
 	 */
-	async getAll(): Promise<Member[]> {
-		const { data } = await this.client.request<Member[]>('GET', '/members/');
-		return data;
+	async getAll(): Promise<MemberEntry[]> {
+		const { data } = await this.client.request<IMemberEntry[]>('GET', '/members/');
+		return data.map(v=>new MemberEntry(v.callsign, v.name, v.qth, v.grid, 
+			v.reported, v.lastActive));
 	}
 
 	/**

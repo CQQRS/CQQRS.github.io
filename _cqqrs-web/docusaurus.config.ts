@@ -97,6 +97,11 @@ const config: Config = {
 					position: 'left',
 				},
 				{
+					to: '/directory',
+					label: 'Directory',
+					position: 'left',
+				},
+				{
 					to: '/publishing',
 					label: 'Publishing',
 					position: 'right',
