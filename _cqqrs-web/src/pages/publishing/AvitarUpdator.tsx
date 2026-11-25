@@ -97,9 +97,15 @@ export default function AvitarUpdator() {
 	const [callsign, setCallsign] = useState("");
 	const [errorMsg, setErrorMsg] = useState("");
 	const [submitStatus, setSubmitStatus] = useState(SubmitStatus.Idle);
-	const [croppedImage, setCroppedImage] = useState<string | null>(null);
 	const [rotation, setRotation] = useState(0)
 	const [croppedAreaPixels, setCroppedAreaPixels] = useState<Area | null>(null)
+
+	function reset() {
+		setImage([]);
+		setImageUrl("");
+		setCallsign("");
+		setErrorMsg("");
+	}
 
 	function callsignChanged(event: ChangeEvent<HTMLInputElement>) {
 		setCallsign(event.currentTarget.value);
@@ -189,6 +195,8 @@ export default function AvitarUpdator() {
 			}
 
 			setSubmitStatus(SubmitStatus.Success);
+			reset();
+			setTimeout(()=> setSubmitStatus(SubmitStatus.Idle), 2000 );
 		} catch (error) {
 			console.error("Upload error:", error);
 			throw error;

@@ -20,6 +20,9 @@ try {
 
 $log = new Log("index");
 
+//default headers
+header('cache-control: max-age=0, must-revalidate');
+
 try {
 	// For unstructions on using the router, see classes/routing/ROUTER.md
 	$router = new Router(Config::API_ROOT);

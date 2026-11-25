@@ -1,6 +1,7 @@
 import { environment } from "@site/environment/environment";
+import { CqqrsApiClient } from "./ApiClient/CqqrsApiClient";
 
-export class MemberDirectory{
+export class MemberDirectory {
 	private _directory = new Map<string, MemberEntry>();
 
 	public has(callsign: string) {
@@ -11,7 +12,7 @@ export class MemberDirectory{
 		return [...this._directory];
 	}
 
-	public add(callsign: string, entry: MemberEntry){
+	public add(callsign: string, entry: MemberEntry) {
 		return this._directory.set(callsign, entry);
 	}
 
@@ -19,11 +20,11 @@ export class MemberDirectory{
 		return this._directory.get(callsign);
 	}
 
-	public getOrInsert(callsign: string, entry: MemberEntry){
+	public getOrInsert(callsign: string, entry: MemberEntry) {
 		return this._directory.getOrInsert(callsign, entry);
 	}
 
-	public set(callsign: string, entry: MemberEntry){
+	public set(callsign: string, entry: MemberEntry) {
 		return this._directory.set(callsign, entry);
 	}
 
@@ -33,7 +34,9 @@ export class MemberDirectory{
 	}
 }
 
-export class MemberEntry{
+export class MemberEntry {
+
+	public lastActive: Date;
 
 	constructor(
 		public callsign: string,
@@ -41,8 +44,10 @@ export class MemberEntry{
 		public qth: string,
 		public grid: string,
 		public reported: number[],  // edition as yyyy.ww
-		public lastActive: Date
-	){}
+		lastActive: string
+	) {
+		this.lastActive = new Date(lastActive);
+	}
 
 }
 
@@ -56,11 +61,27 @@ export interface IMemberEntry {
 }
 
 export async function loadMemberDirectory() {
+
+	try {
+		const api = new CqqrsApiClient();
+		const memberList = await api.members.getAll();
+
+		const directory = new MemberDirectory();
+		memberList.map(v => {
+			directory.add(v.callsign, v);
+		});
+
+		return directory;
+	}
+	catch (ex) {
+		throw new Error(`Could not retrieve member directory`);
+	}
+	/*
 	const url = `../../static/data/directory.json`;
 
 	let data: IMemberEntry[];
 	try {
-		const response = await fetch( new URL(url, import.meta.url));
+		const response = await fetch(srcPath);
 		if( !response.ok) {
 			throw new Error(`Could not download report.  ${response.statusText} (${response.status})`);
 		}
@@ -68,7 +89,7 @@ export async function loadMemberDirectory() {
 		data = await response.json();
 	}
 	catch (ex) {
-		throw new Error(`Could not retrieve member directory from: ${url}`);
+		throw new Error(`Could not retrieve member directory from: ${srcPath}`);
 	}
 
 	const directory = new MemberDirectory();
@@ -79,9 +100,14 @@ export async function loadMemberDirectory() {
 	});
 
 	return directory;
+	*/
+
+	return new MemberDirectory();
 }
 
-export async function saveMemberDirectory( memberDirectory: MemberDirectory) {
+export async function saveMemberDirectory(memberDirectory: MemberDirectory) {
+
+	/*
 	const path = `../../static/data/directory.json`;
 
 	const members = memberDirectory.members()
@@ -89,4 +115,6 @@ export async function saveMemberDirectory( memberDirectory: MemberDirectory) {
 			a.callsign.localeCompare(b.callsign));
 
 	Bun.write(new URL(path, import.meta.url), JSON.stringify(members, null, 2));
+
+	*/
 }

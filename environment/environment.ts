@@ -1,8 +1,15 @@
-export const googleForm: IGoogleForm = {
-	formId: '1A5nPtCcZRMualQ7y6YIcNNHM8_LQQbLL06dEOsBQwd4'
-};
+import type { IReportEnvironment } from "@site/environment/IEnvironment";
 
+export const environment: IReportEnvironment = {
+	reportApi: "https://conryclan.com/projects/cqqrsnet/api/report.php?testing=true",
+	reportApiRoot: `https://conryclan.com/projects/cqqrsnet/reports`,
+	resourceApiRoot: `https://conryclan.com/projects/cqqrsnet/resource`,
+	reportSavePath: `/data/reports`,
+	memberDirectoryPath: "../data/directory.json",
+	ragchewContributingEditors: "VK6HRC VK3ACU",
 
-export interface IGoogleForm {
-	formId: string;
+	mailchimp: {
+		templateId: 10055611,
+		audienceId: "8640b3cd58"
+	}
 }
