@@ -3,6 +3,7 @@
 require_once __DIR__ . '/IRoutedController.php';
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../classes/Paths.php';
+require_once __DIR__ . '/../classes/MemberRepo.php';
 require_once __DIR__ . '/../classes/ETagManager.php';
 require_once __DIR__ . '/../classes/Log.php';
 require_once __DIR__ . '/../classes/Paths.php';
@@ -20,7 +21,7 @@ class MemberController implements IRoutedController
 	{
 		$this->_log = new Log("MemberController");
 		$this->_router = $router;
-		
+
 		$this->Build();
 	}
 
@@ -33,6 +34,12 @@ class MemberController implements IRoutedController
 			"/",
 			fn(Request $req) =>
 			$this->GetAll()
+		);
+
+		$this->_router->post(
+			"/",
+			fn(Request $req) =>
+			$this->Upsert($req->body)
 		);
 
 		// GET /{callsign}
@@ -57,29 +64,21 @@ class MemberController implements IRoutedController
 		)->where('callsign', RouteGuard::$Callsign);
 	}
 
-	// reports/year/week
-	private function _GetAll()
+	private function GetAll()
 	{
 
-		$filePath = Config::MemberDirectoryPath;
+		(new ETagManager())->FromFileMDate(Config::MemberDirectoryPath)->Set();
 
-		(new ETagManager())->FromFileMDate($filePath)->Set();
-		$raw = file_get_contents($filePath);
-		$data = json_decode($raw, true);
-		
-		return $data;
-	}
-
-	private function GetAll() {
-		$data = $this->_GetAll();
-
+		$data = MemberRepo::GetAll();
 		return Response::Json($data);
 	}
 
 	private function GetCallsign(string $callsign)
 	{
 
-		$all = $this->_GetAll();
+		(new ETagManager())->FromFileMDate(Config::MemberDirectoryPath)->Set();
+
+		$all = MemberRepo::GetAll();
 
 		$callsign = strtolower(trim($callsign));
 
@@ -147,7 +146,7 @@ class MemberController implements IRoutedController
 		finfo_close($finfo);
 
 		if ($mimeType !== 'image/jpeg') {
-			throw new HttpException(400, "File must be a JPEG image. Received: " 
+			throw new HttpException(400, "File must be a JPEG image. Received: "
 				. $mimeType);
 		}
 
@@ -167,12 +166,19 @@ class MemberController implements IRoutedController
 
 		$getUrl = Config::API_ROOT . "/members/" . urlencode($callsign) . "/avitar";
 		header("Location: " . $getUrl);
-		
+
 		$data = [
 			"status" => "Success",
 			"url" => $getUrl
 		];
-		
+
 		return Response::Json($data, 201);
+	}
+
+	private function Upsert(array $memberList)
+	{
+		$upsertedData = MemberRepo::Upsert($memberList);
+
+		return Response::Json($upsertedData, 201);
 	}
 }
