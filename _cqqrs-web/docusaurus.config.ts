@@ -26,6 +26,7 @@ const config: Config = {
 	projectName: 'CQQRS.github.io', // Usually your repo name.
 
 	onBrokenLinks: 'throw',
+	trailingSlash: true,
 
 	// Even if you don't use internationalization, you can use this field to set
 	// useful metadata like html lang. For example, if your site is Chinese, you
@@ -100,11 +101,6 @@ const config: Config = {
 					to: '/directory',
 					label: 'Directory',
 					position: 'left',
-				},
-				{
-					to: '/publishing',
-					label: 'Publishing',
-					position: 'right',
 				},
 			],
 		},

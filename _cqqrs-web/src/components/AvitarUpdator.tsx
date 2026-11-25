@@ -3,7 +3,7 @@ import Admonition from '@theme/Admonition';
 
 import Cropper, { Area, type Point } from 'react-easy-crop'
 
-import formStyles from '../../components/style/form.module.css';
+import formStyles from '@site/src/components/style/form.module.css';
 import { SubmitStatus } from '@site/src/classes/SubmitStatus';
 import { PhotoInputBlock } from '@site/src/components/ReportForm/PhotoInputBlock';
 import { environment } from '@site/environment/environment';
