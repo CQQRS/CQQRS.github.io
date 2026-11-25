@@ -95,6 +95,7 @@ export class CqqrsApiClient {
 
 		try {
 			const response = await fetch(url, {
+				cache: "no-cache",
 				method,
 				signal: controller.signal,
 				headers: {

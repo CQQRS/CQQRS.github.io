@@ -1,6 +1,7 @@
 import { environment } from "@site/environment/environment";
+import { CqqrsApiClient } from "./ApiClient/CqqrsApiClient";
 
-export class MemberDirectory{
+export class MemberDirectory {
 	private _directory = new Map<string, MemberEntry>();
 
 	public has(callsign: string) {
@@ -11,7 +12,7 @@ export class MemberDirectory{
 		return [...this._directory];
 	}
 
-	public add(callsign: string, entry: MemberEntry){
+	public add(callsign: string, entry: MemberEntry) {
 		return this._directory.set(callsign, entry);
 	}
 
@@ -19,11 +20,11 @@ export class MemberDirectory{
 		return this._directory.get(callsign);
 	}
 
-	public getOrInsert(callsign: string, entry: MemberEntry){
+	public getOrInsert(callsign: string, entry: MemberEntry) {
 		return this._directory.getOrInsert(callsign, entry);
 	}
 
-	public set(callsign: string, entry: MemberEntry){
+	public set(callsign: string, entry: MemberEntry) {
 		return this._directory.set(callsign, entry);
 	}
 
@@ -33,7 +34,7 @@ export class MemberDirectory{
 	}
 }
 
-export class MemberEntry{
+export class MemberEntry {
 
 	public lastActive: Date;
 
@@ -44,7 +45,7 @@ export class MemberEntry{
 		public grid: string,
 		public reported: number[],  // edition as yyyy.ww
 		lastActive: string
-	){
+	) {
 		this.lastActive = new Date(lastActive);
 	}
 
@@ -60,7 +61,21 @@ export interface IMemberEntry {
 }
 
 export async function loadMemberDirectory() {
-	
+
+	try {
+		const api = new CqqrsApiClient();
+		const memberList = await api.members.getAll();
+
+		const directory = new MemberDirectory();
+		memberList.map(v => {
+			directory.add(v.callsign, v);
+		});
+
+		return directory;
+	}
+	catch (ex) {
+		throw new Error(`Could not retrieve member directory`);
+	}
 	/*
 	const url = `../../static/data/directory.json`;
 
@@ -90,8 +105,8 @@ export async function loadMemberDirectory() {
 	return new MemberDirectory();
 }
 
-export async function saveMemberDirectory( memberDirectory: MemberDirectory) {
-	
+export async function saveMemberDirectory(memberDirectory: MemberDirectory) {
+
 	/*
 	const path = `../../static/data/directory.json`;
 

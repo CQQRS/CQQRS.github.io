@@ -16,9 +16,9 @@ import root from 'react-shadow';
 class ReportBuilder {
 
 	private _edition: Edition;
-	
+
 	private _extraCs: string = "";
-	public addExtraContributors(contrib: string){
+	public addExtraContributors(contrib: string) {
 		this._extraCs = contrib;
 	}
 
@@ -33,21 +33,26 @@ class ReportBuilder {
 
 	public async build(): Promise<ReportBuilder> {
 
-		const url = `${environment.cqqApiRoot}/reports/${this._edition.year}/` +
-			`${this._edition.week}`;
+		const api = new CqqrsApiClient();
 
-		const response = await fetch(url, {cache: "no-cache"});
-		if (!response.ok) {
-			
-			if (response.status == 404) {
-				throw new DataAccessError("No reports were found for this edition.")
+		let reportList: Report[] = [];
+		try {
+			reportList = await api.reports.getAll(this._edition.year, this._edition.week);
+		}
+		catch (e) {
+			if (e instanceof HttpError) {
+				if (e.status == 404) {
+					throw new DataAccessError(
+						"No reports were found for this edition.");
+				}
+				else {
+					throw new Error(`Could not download report.  ${e.message} (${e.status})`);
+				}
 			}
-			
-			throw new Error(`Could not download report.  ${response.statusText} (${response.status})`);
+
+			throw new Error(`Error downloading report.\n${JSON.stringify(e)}`);
 		}
 
-		const data = await response.json() as IApiReport[];
-		const reportList = data.map(v => new ApiReportToReportConvertor(v).report)
 		const log = new LogCollection();
 		reportList.map(v => log.getOrInsert(v.callsign, v.qsoList));
 
@@ -74,11 +79,11 @@ class ReportBuilder {
 	private getContributors(reportList: Report[]) {
 		let contribList: string[] = reportList.map(v => v.callsign.root);
 		console.log(contribList.join(", "));
-		contribList.push( ...this._extraCs.split(/[ ,&]/));
+		contribList.push(...this._extraCs.split(/[ ,&]/));
 
 		console.log(contribList.join(", "));
 		contribList = contribList.filter(v => v.trim().length > 0);
-		contribList = contribList.map(v=> v.toUpperCase());
+		contribList = contribList.map(v => v.toUpperCase());
 		contribList.sort();
 		console.log(contribList.join(", "));
 		contribList = [...new Set(contribList)]; // make unique
@@ -112,6 +117,7 @@ import CodeBlock from '@theme/CodeBlock';
 import { useEffect, useState } from "react";
 import { ArgumentError, DataAccessError } from "@site/src/classes/Errors";
 import { SubmitStatus } from "@site/src/classes/SubmitStatus";
+import { CqqrsApiClient, HttpError } from "@site/src/classes/ApiClient/CqqrsApiClient";
 
 export default function TableCode() {
 
@@ -126,14 +132,14 @@ export default function TableCode() {
 	const [errorMsg, setErrorMsg] = useState("");
 	const [submitStatus, setSubmitStatus] = useState(SubmitStatus.Idle);
 
-	
+
 	useEffect(() => {
 		const edition = new Edition();
 		setEdition(edition.toString());
 	}, []);
 
 	const run = async () => {
-		
+
 		setErrorMsg("");
 
 		let rb: ReportBuilder;
@@ -155,7 +161,7 @@ export default function TableCode() {
 			else if (err instanceof ArgumentError) {
 				setErrorMsg("Invalid argument: " + err.message);
 			}
-			else{
+			else {
 				setErrorMsg("Unknown error: " + err)
 			}
 
@@ -314,7 +320,7 @@ export default function TableCode() {
 
 		</div>
 
-		
+
 	);
 
 }
