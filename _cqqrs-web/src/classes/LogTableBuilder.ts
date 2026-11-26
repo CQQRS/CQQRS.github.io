@@ -6,7 +6,7 @@ import { Callsign } from "./Callsign";
 
 export class LogTableBuilder {
 
-	private readonly _columnCount: number = 10
+	private readonly _columnCount: number = 9
 
 	public constructor(private _log: LogCollection, 
 		private _options: ILogTableBuilderOptions = {}) {
