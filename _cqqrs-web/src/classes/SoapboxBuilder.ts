@@ -67,7 +67,7 @@ export class SoapboxBuilder {
 		const rowList = [
 			`
 			<td class="avitar">
-				<img src="${environment.resourceApiRoot}/avitar/${report.callsign.root}_1.jpg" />
+				<img src="${environment.cqqApiRoot}/members/${report.callsign}/avitar" />
 			</td>
 			<td class="operator">
 				<div class="name">${report.name} ${report.callsign}</div>
