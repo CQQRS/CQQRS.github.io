@@ -101,7 +101,7 @@
 			}
 		`}}var v=r(9603);class C{_logCol;constructor(t){this._logCol=this.buildReverseLog(t)}toLogCollection(){return this._logCol}buildReverseLog(t){let e=new f;return t.forEach(t=>{t.qsoList.forEach(r=>{let s=e.getOrInsert(r.callsign,[]),o=s.find(e=>e.callsign.root==t.callsign.root&&e.band==r.band);if(o?o.type<r.type&&(o.type=r.type):s.push({band:r.band,callsign:t.callsign,type:r.type}),r.type===y.M.Worked){let s=e.getOrInsert(t.callsign,[]);s.find(t=>t.callsign.root==r.callsign.root&&t.band==r.band)||s.push({band:r.band,callsign:r.callsign,type:r.type})}})}),e}}class S{_reportList;constructor(t){this._reportList=[...t].sort((t,e)=>t.callsign.root.localeCompare(e.callsign.root))}buildHtmlPage(){let t=this.buildHtml();return`<!DOCTYPE html><head><meta charset="UTF-8"></head><body>${t}</body>`}buildHtml(){let t=document.createElement("div");t.id="soapbox-root",t.innerHTML='<table id="soapbox-table"><tbody id="tbody"></tbody></table>';let e=document.createElement("style");e.textContent=this.getStyle(),t.appendChild(e);let r=t.querySelector("tbody");this._reportList.map(t=>{0==t.comments.length&&0==t.photos.length||this.buildReportHtml(t).map(t=>{let e=document.createElement("tr");e.innerHTML=t,r.appendChild(e)})});let s=t.outerHTML;return(0,x.A)(s,{removeStyleTags:!0,applyHeightAttributes:!0,applyWidthAttributes:!0,applyAttributesTableElements:!0})}buildReportHtml(t){let e=[`
 			<td class="avitar">
-				<img src="${i.c.resourceApiRoot}/avitar/${t.callsign.root}_1.jpg" />
+				<img src="${i.c.cqqApiRoot}/members/${t.callsign}/avitar" />
 			</td>
 			<td class="operator">
 				<div class="name">${t.name} ${t.callsign}</div>
